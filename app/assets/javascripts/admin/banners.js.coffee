@@ -4,7 +4,6 @@
 $ ->
   uploaders = {}
   ids = $('#banners').data('ids')
-  console.log(ids)
   $.each ids, (index,id) ->
     uploader = new plupload.Uploader(
       runtimes: "html5,flash,silverlight,browserplus"
@@ -36,7 +35,6 @@ $ ->
       progress_div_part1 = '<div class="progress"><div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'
       progress_div_part2 = '" aria-valuemin="0" aria-valuemax="100" style="width: 40%"><span class="sr-only">40% Complete (success)</span></div></div>'
       $("#" + file.id + " b").html progress_div_part1 + file.percent + progress_div_part2
-      console.log('progress' + file.percent)
 
     uploader.bind "Init", (up, params) ->
    
@@ -54,7 +52,6 @@ $ ->
     uploader.bind "FileUploaded", (up, file, data) ->
       $("#" + file.id + " b").html "100%"
       banner = data.response
-      console.log banner
       banner = JSON.parse banner
 
       version =  $('#banner_' + id).data('version')
@@ -68,7 +65,6 @@ $ ->
     $("#uploadfiles_" + id).click (e) ->
       uploader = uploaders[id]
       uploader.settings.multipart_params.text = $('#bannermodal_' + id + ' input[type="text"').val()
-      console.log(uploader.settings.multipart_params)
       uploader.start()
       e.preventDefault()
 
