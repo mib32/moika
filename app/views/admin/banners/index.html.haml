@@ -17,7 +17,7 @@
     = image_tag 'video.png', size: "380x285"
   .col-md-4
     - banner = @banners.where(place: 'top_2').first
-    = render 'banner', banner: banner, banner_url: banner.file.b_380_285.url, version: :b_335_285
+    = render 'banner', banner: banner, banner_url: banner.file.b_380_285.url, version: :b_380_285
 
 .row.around_map
   .col-md-2
@@ -27,7 +27,7 @@
       - if banner.left_thin_long?
         = render 'banner', banner: banner, banner_url: banner.file.b_180_300.url, version: :b_180_300
       - elsif banner.left_thin_short?
-        = render 'banner', banner: banner, banner_url: banner.file.b_180_150.url, version: :b_180_300
+        = render 'banner', banner: banner, banner_url: banner.file.b_180_150.url, version: :b_180_150
 
   .col-md-10#fake_map
     .panel.panel-default

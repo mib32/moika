@@ -34,19 +34,16 @@ class BannerUploader < CarrierWave::Uploader::Base
 
 
   
-  version :b_320_240 do
-    process :resize_to_limit => [320, 240]
-  end
-  #version :b_335_205 do
-  #  process :resize_to_limit => [335, 205]
-  #end
-
-  version :b_160_160 do
-    process :resize_to_limit => [160, 160]
+  version :b_380_285 do
+    process :resize_to_limit => [380, 285]
   end
 
-  version :b_160_190 do
-    process :resize_to_limit => [160, 190]
+  version :b_180_150 do
+    process :resize_to_limit => [180, 150]
+  end
+
+  version :b_180_300 do
+    process :resize_to_limit => [180, 300]
   end
 
   version :b_320_380 do
@@ -65,8 +62,8 @@ class BannerUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [380, 270]
   end
  
-  version :b_380_460 do
-    process :resize_to_fill => [380, 460]
+  version :b_380_540 do
+    process :resize_to_fill => [380, 540]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

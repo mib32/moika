@@ -53,9 +53,11 @@ $ ->
       $("#" + file.id + " b").html "100%"
       banner = data.response
       banner = JSON.parse banner
+      console.log(banner.file.file)
 
       version =  $('#banner_' + id).data('version')
-      url = banner.file[version].url
+      console.log(version)
+      url = banner.file.file[version].url
 
       $('img#' + banner["id"]).prop('src',url) 
     uploaders[id] = uploader
