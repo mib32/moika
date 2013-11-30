@@ -285,11 +285,21 @@ input[type='text']{
     max-width:100%; 
     height:auto;
   }
+  iframe {
+    max-width: 100%; 
+    min-height: 220px; 
+    height:auto;
+  }
 }
 .marketing.omega {
   @include span-columns(4 omega,12);
   img {
     max-width:100%; 
+    height:auto;
+  }
+  iframe {
+    max-width: 100%; 
+    min-height: 220px; 
     height:auto;
   }
 }
