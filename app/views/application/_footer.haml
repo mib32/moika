@@ -11,7 +11,8 @@
     %li
       = link_to "Реклама на сайте", static_page_path(StaticPage.where(permalink: 'adv').first.id)
     %li
-      = link_to "О компании", "#"
+      = link_to "О компании", static_page_path(StaticPage.where(permalink: 'about').first.id)
+
     %li
       = mail_to "info@moika77.ru"
     %li
