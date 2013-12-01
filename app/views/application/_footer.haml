@@ -16,7 +16,7 @@
     %li
       = mail_to "info@moika77.ru"
     %li
-      = link_to "Обратная связь", "#"
+      = link_to "Обратная связь", static_page_path(StaticPage.where(permalink: 'feedback').first.id)
     %li
       = render 'ya_counter'
   %ul#bottom_links
