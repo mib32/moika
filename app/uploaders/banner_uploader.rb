@@ -24,8 +24,8 @@ class BannerUploader < CarrierWave::Uploader::Base
   # Create different versions of your uploaded files:
 
   version :b_380_285, :if => :is_top_or_bottom?
-  version :b_180_300, :if => :is_left_thin_long?
-  version :b_180_150, :if => :is_left_thin_short?
+  version :b_190_280, :if => :is_left_thin_long?
+  version :b_190_160, :if => :is_left_thin_short?
   version :b_320_380, :if => :is_fat_long?
   version :b_320_320, :if => :is_fat_short?
   version :b_770_270, :if => :is_client_fat_top?
@@ -38,12 +38,12 @@ class BannerUploader < CarrierWave::Uploader::Base
     process :resize_to_limit => [380, 285]
   end
 
-  version :b_180_150 do
-    process :resize_to_limit => [180, 150]
+  version :b_190_160 do
+    process :resize_to_limit => [190, 160]
   end
 
-  version :b_180_300 do
-    process :resize_to_limit => [180, 300]
+  version :b_190_280 do
+    process :resize_to_limit => [190, 280]
   end
 
   version :b_320_380 do

@@ -315,9 +315,9 @@ input[type='text']{
   #car_washes_left_list {
     margin: 10px 0 0 0;
     @include span-columns(2,12);
-    height: ($map-height +1px);
-    min-height: ($map-height +1px);
-    max-height: ($map-height +1px);
+    height: ($map-height +80px);
+    min-height: ($map-height +80px);
+    max-height: ($map-height +80px);
     #list_header {
       @include columns(2);
       background-color: #dbdbdb;
@@ -361,6 +361,9 @@ input[type='text']{
     #adv_left {
       img {
         margin: 3px 0;
+        width: 100%;
+        max-width: 190px;
+        height: 100%;
       }
     }
   }
