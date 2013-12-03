@@ -23,11 +23,9 @@
   .col-md-2
     .panel.panel-default
       %h1.text-fade.text-center Список автомоек
-    -@banners_left.find_each do |banner|
-      - if banner.left_thin_long?
-        = render 'banner', banner: banner, banner_url: banner.file.b_180_300.url, version: :b_180_300
-      - elsif banner.left_thin_short?
-        = render 'banner', banner: banner, banner_url: banner.file.b_180_150.url, version: :b_180_150
+      = render 'banner', banner: banner, banner_url: banner.file.b_190_160.url, version: :b_190_160
+      = render 'banner', banner: banner, banner_url: banner.file.b_190_280.url, version: :b_190_280
+      = render 'banner', banner: banner, banner_url: banner.file.b_190_160.url, version: :b_190_160
 
   .col-md-10#fake_map
     .panel.panel-default
