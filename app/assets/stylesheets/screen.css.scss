@@ -322,11 +322,11 @@ input[type='text']{
       @include columns(2);
       background-color: #dbdbdb;
       margin: 0 0 15px 0;
-      p {
+      p, h1 {
         width: 100%;
         margin: 10px 0 0 10px;
         font-weight: bold;
-        font-size: 12px;
+        font-size: 11px;
       }
       img {
         float: right;
@@ -370,6 +370,9 @@ input[type='text']{
     @include span-columns(10 omega,12);
     height: ($map-height + 80px);
     max-height: ($map-height + 80px);
+    h1 {
+      font-size: 24px;
+    }
     #map_header {
       @include span-columns(3,8);
       margin:17px 0 20px 0;
