@@ -1,4 +1,6 @@
 class CarWash < ActiveRecord::Base
+  after_create :create_empty_banners
+  after_create :create_payment
   has_many :users
   has_many :actions
   has_many :comments
@@ -60,6 +62,23 @@ class CarWash < ActiveRecord::Base
     self.blink = false
     self.save!
   end
+
+  protected
+    def create_empty_banners
+      banners_data = [
+        {place: "client_fat_top"},
+        {place: "client_thin_bottom"},
+        {place: "client_thin_top_1"},
+        {place: "client_thin_top_2"}
+      ]
+
+      banners_data.each do |data| 
+        self.banners << ClientBanner.new(data)
+      end
+    end
+    def create_payment
+      self.payments << Payment.new(amount: 6000.00)
+    end
 
   private
     def lat_and_lon_nil?

@@ -23,6 +23,7 @@ ru:
   search_button: "ПОИСК"
   show_link: "Показать"
   back_link: "Назад"
+  new_link: "Создать"
   logo_text: "Поиск Автомоек Москвы"
   logo_mockup: "Здесь будет логотип"
   marketing1: "Блок1"
@@ -120,6 +121,7 @@ ru:
         users: "Пользователи"
         adv: "Реклама"
         static_pages: "Статические страницы"
+        car_washes: "Автомойки"
   admin:
     users:
       index:
@@ -135,6 +137,9 @@ ru:
     static_pages:
       index:
         header: "Список статических страниц сайта"
+    car_washes:
+      index:
+        header: "Список автомоек"
   users:
     show:
       car_wash_registration_message:
