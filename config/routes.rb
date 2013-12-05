@@ -7,7 +7,7 @@ Moika::Application.routes.draw do
   get "banners/update"
   get "user/:id", to: "users#show", as: '/user'
   devise_for :users, controllers: { registrations: "registrations" }
-  resources :car_washes, only: [:show, :edit] do
+  resources :car_washes do
     get :update_map, on: :collection
     resources :comments, only: [:index, :create]
     resources :requests
