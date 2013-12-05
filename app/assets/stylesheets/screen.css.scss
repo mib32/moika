@@ -133,18 +133,21 @@ input[type='text']{
       a:hover {
         color: blue;
       }
-
     }
     #registration {
-      @include span-columns(1,12);
-      @include post(2,48);
+      @include span-columns(3,24);
       @include pre(1,48);
+      margin-right: 0;
       h4,h5 {
         display: inline;
         margin: 0 auto;
+        text-align: right;
       }
       a {
         color: $header-link-color;
+        h4.smaller,h5.smaller {
+          font-size: .9em;
+        }
       }
       a:hover {
         color: blue;
