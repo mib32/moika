@@ -1,4 +1,5 @@
 class CarWash < ActiveRecord::Base
+  default_scope order('title ASC')
   after_create :create_empty_banners
   after_create :create_payment
   has_many :users
