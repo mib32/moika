@@ -33,6 +33,7 @@ var myMap,
 
   var declensionBall =
   [
+    "баллов",
     "балл",
     "балла",
     "балла",
@@ -64,7 +65,7 @@ function updateTraffic() {
   }
 
   $('#traffic #level_digit').html( level );
-  $('#traffic #level_text').html( declensionBall[level-1]);
+  $('#traffic #level_text').html( declensionBall[level]);
   $('#traffic #level_desc').html( trafficText[level-1]);
 }
 
