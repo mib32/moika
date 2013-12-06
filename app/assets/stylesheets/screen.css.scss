@@ -180,51 +180,51 @@ input[type='text']{
         display: inline;
         &#youtube {
           margin-left: 1%;
-          background-image: url(image_path("youtube_grey.png"));
+          background-image: url(image_path("youtube.png"));
           background-repeat: no-repeat;
           &:hover {
-            background-image: url(image_path("youtube.png"));
-          background-repeat: no-repeat;
+            background-image: url(image_path("youtube_grey.png"));
+            background-repeat: no-repeat;
           }
         }
         &#mir {
-          background-image: url(image_path("mir_grey.png"));
+          background-image: url(image_path("mir.png"));
           background-repeat: no-repeat;
           &:hover {
-            background-image: url(image_path("mir.png"));
-          background-repeat: no-repeat;
+            background-image: url(image_path("mir_grey.png"));
+            background-repeat: no-repeat;
           }
         }
         &#vk {
-          background-image: url(image_path("vk_grey.png"));
           background-repeat: no-repeat;
+          background-image: url(image_path("vk.png"));
           &:hover {
-            background-image: url(image_path("vk.png"));
-          background-repeat: no-repeat;
+            background-image: url(image_path("vk_grey.png"));
+            background-repeat: no-repeat;
           }
         }
         &#odn {
-          background-image: url(image_path("odn_grey.png"));
+          background-image: url(image_path("odn.png"));
           background-repeat: no-repeat;
           &:hover {
-            background-image: url(image_path("odn.png"));
-          background-repeat: no-repeat;
+            background-image: url(image_path("odn_grey.png"));
+            background-repeat: no-repeat;
           }
         }
         &#twitter {
-          background-image: url(image_path("twitter_grey.png"));
+          background-image: url(image_path("twitter.png"));
           background-repeat: no-repeat;
           &:hover {
-            background-image: url(image_path("twitter.png"));
-          background-repeat: no-repeat;
+            background-image: url(image_path("twitter_grey.png"));
+            background-repeat: no-repeat;
           }
         }
         &#facebook {
-          background-image: url(image_path("facebook_grey.png"));
+          background-image: url(image_path("facebook.png"));
           background-repeat: no-repeat;
           &:hover {
-            background-image: url(image_path("facebook.png"));
-          background-repeat: no-repeat;
+            background-image: url(image_path("facebook_grey.png"));
+            background-repeat: no-repeat;
           }
         }
       }
