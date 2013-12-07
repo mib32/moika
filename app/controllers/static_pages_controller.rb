@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
   def show
     respond_to do |format|
       format.html {}
-      format.pptx {
+      format.pdf {
           send_file("#{Rails.root}/app/presentations/moika-77.pdf",
                                   filename: "moika-77.pdf",
                                   type: "application/pdf")
