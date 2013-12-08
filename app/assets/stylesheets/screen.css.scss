@@ -1248,3 +1248,11 @@ img,canvas {
     color: lighten($header-link-color, 20%);
   }
 }
+#login, #registration {
+  a {
+    color: $header-link-color;
+  }
+  a:hover {
+    color: $header-link-hover-color;
+  }
+}

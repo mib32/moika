@@ -4,9 +4,9 @@
 .no-edit#car_wash_menu
   #login_registration
     .menu
-      .left
+      .left#login
         = render 'devise/menu/login_items'
-      .right
+      .right#registration
         = render 'devise/menu/registration_items'
     = render partial: "car_wash_info", locals: { car_wash: @car_wash, left_actions: @left_actions }
    
