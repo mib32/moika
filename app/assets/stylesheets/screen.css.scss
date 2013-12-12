@@ -154,24 +154,6 @@ input[type='text']{
       }
     }
 
-    #car_wash_name {
-      margin: 0.5% 0 0 0%;
-      @include span-columns(5,24);
-      p,h1,h2,h3,h4,h5 {
-        @include margin-padding-0;
-        font-weight: 700;
-        font-size: 1em;
-      }
-      a {
-        color: $header-link-color;
-        display: block;
-        margin: 0 auto;
-        text-align: right;
-      }
-      a:hover {
-        color: lighten($header-link-color,20%)
-      }
-    }
     #social {
       .color_on_hover {
         height: 32px;
@@ -605,6 +587,27 @@ form.car_wash_edit_details {
     @include span-columns(12 omega,12);
     #login_registration {
       @include span-columns(4,12);
+      #car_wash_name {
+        margin: 0 auto;
+        background-color: $car-wash-info-bg;
+        @include span-columns(3,3);
+        p,h1,h2,h3,h4,h5 {
+          @include margin-padding-0;
+          font-weight: 700;
+          font-size: 1.2em;
+          text-align: center;
+        }
+        a {
+          color: $header-link-color;
+          display: block;
+          margin: 0 auto;
+          padding: 15px 0;
+          text-align: right;
+        }
+        a:hover {
+          color: lighten($header-link-color,20%)
+        }
+      }
       li {
         text-align: center;
         display: inline;
@@ -612,6 +615,7 @@ form.car_wash_edit_details {
       }
       table#car_wash_info {
         border: 1px solid #fff;
+        width: 100%;
         tr {
           background-color: $car-wash-info-bg;
           margin: 5px auto;

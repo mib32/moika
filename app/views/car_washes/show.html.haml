@@ -4,10 +4,8 @@
 .no-edit#car_wash_menu
   #login_registration
     .menu
-      .left#login
-        = render 'devise/menu/login_items'
-      .right#registration
-        = render 'devise/menu/registration_items'
+      #car_wash_name
+        = link_to(content_tag(:h5, car_wash_title(@car_wash.title)), car_wash_path(@car_wash)) unless @car_wash.nil?
     = render partial: "car_wash_info", locals: { car_wash: @car_wash, left_actions: @left_actions }
    
     #comments_button
