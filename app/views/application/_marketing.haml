@@ -6,4 +6,17 @@
   =#image_tag 'video.png'
 .marketing.omega.no-edit
   =#image_tag  Banner.where(place: 'top_2').first.file.b_380_285.url, class: 'banner'
-  %iframe(width="385" height="217" src="//www.youtube.com/embed/451sdB7kuKM" frameborder="0" allowfullscreen)
+  //%iframe(width="385" height="217" src="//www.youtube.com/embed/451sdB7kuKM" frameborder="0" allowfullscreen)
+  %div.cycle-slideshow.vertical{'data' => { |
+    'cycle-fx' => 'carousel', |
+    'cycle-timeout' => 3000, |
+    'cycle-carousel-fluid' => 'false', |
+    'cycle-carousel-visible'  => 1, |
+    'cycle-carousel-slide-dimension' => 220, |
+    'cycle-carousel-vertical' =>  'true'}} |
+
+    = image_tag "forsage.jpg"
+    = image_tag "f-1.jpg"
+    = image_tag "forsage.jpg"
+    = image_tag "greytek.jpg"
+    = image_tag "megapolis.jpg"
