@@ -138,6 +138,14 @@ function init(){
         iconImageSize: [20, 20]
     });
 
+    greenStretchyCollection = new ymaps.GeoObjectCollection({}, {
+        preset:'twirl#greenStretchyIcon',
+    });
+
+    redStretchyCollection = new ymaps.GeoObjectCollection({}, {
+        preset:'twirl#redStretchyIcon',
+    });
+
     if (cw_list !== null && cw_list !== undefined) {
       cw_list.forEach(function (car_wash) {
 
@@ -149,7 +157,8 @@ function init(){
           properties = {
             body: myBalloonBody,
             hintContent: myHintContent,
-            car_wash_id: car_wash.id
+            car_wash_id: car_wash.id,
+            iconContent: car_wash.action_on_map ? (car_wash.main_action):("")
           },
           options = {
             balloonContentBodyLayout : myBalloonContentBodyLayout,
@@ -163,18 +172,39 @@ function init(){
 
         if (car_wash.signal) {
           if (car_wash.blink) {
-            greenBlinkCollection.add(placemark)
+            if (car_wash.action_on_map) {
+              greenStretchyCollection.add(placemark)
+            }
+            else {
+              greenBlinkCollection.add(placemark)
+            }
           }
           else {
-            greenCollection.add(placemark)
+            if (car_wash.action_on_map) {
+              greenStretchyCollection.add(placemark)
+            }
+            else {
+              greenCollection.add(placemark)
+            }
           }
         }
         else {
           if (car_wash.blink) {
-            redBlinkCollection.add(placemark)
+            if (car_wash.action_on_map) {
+              redStretchyCollection.add(placemark)
+            }
+            else {
+              redBlinkCollection.add(placemark)
+            }
           }
           else {
-            redCollection.add(placemark)
+            if (car_wash.action_on_map) {
+              console.log('im action on map');
+              redStretchyCollection.add(placemark)
+            }
+            else {
+              redCollection.add(placemark)
+            }
           }
         }
       //(car_wash.signal) ? ( greenCollection.add(placemark) ):( redCollection.add(placemark) );
@@ -188,6 +218,8 @@ function init(){
       myMap.geoObjects.add(redCollection);
       myMap.geoObjects.add(greenBlinkCollection);
       myMap.geoObjects.add(redBlinkCollection);
+      myMap.geoObjects.add(greenStretchyCollection);
+      myMap.geoObjects.add(redStretchyCollection);
 
       myMap.storage = ymaps.geoQuery(myMap.geoObjects);
       //clusterer.add(geo_objects_ary);
