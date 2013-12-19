@@ -19,6 +19,22 @@ namespace :setup do
     end
   end
 
+  task add_empty_left_bottom_client_banners: :environment do
+    puts "Add empty banners"
+    banners_data = [
+      {place: "client_thin_top_3"},
+      {place: "client_thin_top_4"}
+    ]
+
+    CarWash.find_each do |cw|
+      banners_data.each do |data| 
+        puts "Add #{data[:place]} banner to #{cw.title}"
+        cw.banners << ClientBanner.new(data)
+      end
+      puts
+    end
+  end
+
   task add_first_payment: :environment do
     puts "Add first payment to all car_washes"
     CarWash.find_each do |cw|

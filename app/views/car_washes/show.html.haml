@@ -42,7 +42,7 @@
       -#banner = @banners.where(place: 'client_fat_top').first
       //%h5.text-center.bordered= banner.text.blank? ? (raw '&nbsp;'):(banner.text)
       - if @car_wash.youtubed?
-        = render 'client_youtube'
+        = render 'client_youtube', src: "//www.youtube.com/embed/pAi0YjPX0GY"
       - else
         - banner = @banners.where(place: 'client_fat_top').first
         %h5.text-center.bordered= banner.text.blank? ? (raw '&nbsp;'):(banner.text)
@@ -51,10 +51,14 @@
   %p#notice= notice
 .bottom-banners
   .left-container
-    #client_thin_bottom
-      - banner = @banners.where(place: 'client_thin_bottom').first
+    #banner-left-1
+      - banner = @banners.where(place: 'client_thin_top_3').first
       %h5.text-center.bordered= banner.text.blank? ? (raw '&nbsp;'):(banner.text)
-      = render '/banners/banner', banner: banner, banner_url: banner.file.b_380_540.url, version: :b_380_540, car_wash: @car_wash
+      = render '/banners/banner', banner: banner, banner_url: banner.file.b_380_270.url, version: :b_380_270, car_wash: @car_wash
+    #banner-left-2
+      - banner = @banners.where(place: 'client_thin_top_4').first
+      %h5.text-center.bordered= banner.text.blank? ? (raw '&nbsp;'):(banner.text)
+      = render '/banners/banner', banner: banner, banner_url: banner.file.b_380_270.url, version: :b_380_270, car_wash: @car_wash
 
   .right-container-8
     #banner-2

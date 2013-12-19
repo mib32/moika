@@ -1266,3 +1266,10 @@ img,canvas {
   width: 100px;
   height: 100px;
 }
+#banner-left-1, #banner-left-2 {
+  img {
+  border: none;
+  margin: 0;
+  padding: 0;
+  }
+}

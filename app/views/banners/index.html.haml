@@ -6,10 +6,13 @@
   %h5.text-center.bordered= banner.text.blank? ? (raw '&nbsp;'):(banner.text)
   = render 'banner', banner: banner, banner_url: banner.file.b_770_270.url, version: :b_770_270, car_wash: @car_wash
 .left-container
-  - banner = @banners.where(place: 'client_thin_bottom').first
+  - banner = @banners.where(place: 'client_thin_top_3').first
   %h5.text-center.bordered= banner.text.blank? ? (raw '&nbsp;'):(banner.text)
-
-  = render 'banner', banner: banner, banner_url: banner.file.b_380_540.url, version: :b_380_540, car_wash: @car_wash
+  = render 'banner', banner: banner, banner_url: banner.file.b_380_270.url, version: :b_380_270, car_wash: @car_wash
+  
+  - banner = @banners.where(place: 'client_thin_top_4').first
+  %h5.text-center.bordered= banner.text.blank? ? (raw '&nbsp;'):(banner.text)
+  = render 'banner', banner: banner, banner_url: banner.file.b_380_270.url, version: :b_380_270, car_wash: @car_wash
 .no-edit
   .center-container
     - banner = @banners.where(place: 'client_thin_top_1').first

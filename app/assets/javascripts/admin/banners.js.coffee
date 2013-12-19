@@ -122,6 +122,7 @@ $ ->
     #file = data.response
     #file = JSON.parse file
     id = data.id
+    console.log(data)
     version =  $('#banner_' + id).data('version')
     url = data.file[version].url
     $('img#' + id).prop('src',url) 
