@@ -46,7 +46,7 @@
       - else
         - banner = @banners.where(place: 'client_fat_top').first
         %h5.text-center.bordered= banner.text.blank? ? (raw '&nbsp;'):(banner.text)
-        = render '/banners/banner', banner: banner, banner_url: banner.file.b_380_270.url, version: :b_380_270, car_wash: @car_wash
+        = render '/banners/banner', banner: banner, banner_url: banner.file.b_770_270.url, version: :b_770_270, car_wash: @car_wash
 
   %p#notice= notice
 .bottom-banners
