@@ -39,12 +39,15 @@
           %h5 Камера №2
       = render 'video_320'
     #service
-      #banner-1
+      -#banner = @banners.where(place: 'client_fat_top').first
+      //%h5.text-center.bordered= banner.text.blank? ? (raw '&nbsp;'):(banner.text)
+      - if @car_wash.youtubed?
+        = render 'client_youtube'
+      - else
         - banner = @banners.where(place: 'client_fat_top').first
         %h5.text-center.bordered= banner.text.blank? ? (raw '&nbsp;'):(banner.text)
-        = render '/banners/banner', banner: banner, banner_url: banner.file.b_770_270.url, version: :b_770_270, car_wash: @car_wash
+        = render '/banners/banner', banner: banner, banner_url: banner.file.b_380_270.url, version: :b_380_270, car_wash: @car_wash
 
-      =#image_tag 'service.png'
   %p#notice= notice
 .bottom-banners
   .left-container
@@ -52,6 +55,7 @@
       - banner = @banners.where(place: 'client_thin_bottom').first
       %h5.text-center.bordered= banner.text.blank? ? (raw '&nbsp;'):(banner.text)
       = render '/banners/banner', banner: banner, banner_url: banner.file.b_380_540.url, version: :b_380_540, car_wash: @car_wash
+
   .right-container-8
     #banner-2
       - banner = @banners.where(place: 'client_thin_top_1').first
