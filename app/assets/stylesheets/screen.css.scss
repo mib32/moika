@@ -735,6 +735,9 @@ form.car_wash_edit_details {
         @include span-columns(3 omega,7);
       }
       #service {
+        iframe {
+          float: right;
+        }
         img {
           width: 100%;
         }
