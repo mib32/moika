@@ -40,7 +40,7 @@
       = render 'video_320'
     #service
       - banner = @banners.where(type: 'ClientVideoBanner').first
-      - unless banner.filename.blank?
+      - unless banner.nil? banner.filename.blank?
         %h5.text-center= banner.text.blank? ? (raw '&nbsp;'):(banner.text)
         = render 'client_youtube', src: banner.filename
       - else
