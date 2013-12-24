@@ -19,7 +19,7 @@
       = render 'devise/menu/registration_items'
       =#mail_to current_user.try(:email)
     #social
-      = render 'social'
+      = render 'client_social', car_wash: @car_wash
     #weather
       %p Погода в Москве
       %p#deg

@@ -36,7 +36,14 @@
     = f.label CarWash.human_attribute_name("video_url2"), class: 'control-label col-lg-2'
     .col-lg-10
       = f.text_field :video_url2, class: 'form-control'
-
+  .form-group
+    = f.label CarWash.human_attribute_name("vk_url"), class: 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :vk_url, class: 'form-control'
+  .form-group
+    = f.label CarWash.human_attribute_name("odn_url"), class: 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :odn_url, class: 'form-control'
   .row
     .col-lg-4.col-lg-offset-4
       = f.submit t("save_button"), class: 'btn btn-danger btn-block'

@@ -50,6 +50,6 @@ class Admin::CarWashesController < AdminController
     end
 
     def car_wash_params
-      params.require(:car_wash).permit(:title, :address, :lat, :lon, :contacts, :site_url, :video_url1, :video_url2)
+      params.require(:car_wash).permit(:title, :address, :lat, :lon, :contacts, :site_url, :video_url1, :video_url2, :vk_url, :odn_url)
     end
 end
