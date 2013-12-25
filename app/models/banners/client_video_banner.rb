@@ -5,11 +5,11 @@ class ClientVideoBanner < ClientBanner
       unless self.filename.nil?
         base = "//www.youtube.com/embed/"
         suffix = "?wmode=transparent"
-        url = URI.parse(self.filename).query
-        if url.nil?
-          self.filename += suffix if (/wmode=transparent/ =~ self.place).nil?
+        query = URI.parse(self.filename).query
+        if !query.nil? && (/wmode=transparent/ =~ self.filename).nil?
+          self.filename = base + query[2..-1] + suffix
         else
-          self.filename = base + url[2..-1] + suffix
+          self.filename += suffix
         end
       end
     end
