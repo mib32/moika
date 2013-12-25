@@ -9,8 +9,8 @@ class BannersController < ApplicationController
 
   def update
     respond_to do |format|
+      logger.debug "2512:vat: #{banner_params}"
       if @banner.update(banner_params)
-        logger.debug banner_params
         format.json
         #{ render json: @banner.to_json(only: [:id, :file]) }
       else
@@ -36,10 +36,11 @@ class BannersController < ApplicationController
     end
 
     def banner_params
-      params[:banner] = {}
-      params[:banner][:text] = params[:text]
-      params[:banner][:file] = params[:file]
-      params[:banner][:filename] = params[:name]
+      params[:banner] ||= {}
+      logger.debug "2512:vat: #{params[:banner]}"
+      params[:banner][:text] ||= params[:text]
+      params[:banner][:file] ||= params[:file]
+      params[:banner][:filename] ||= params[:name]
       params.require(:banner).permit(:file, :filename, :text, :place, :car_wash_id)
     end
 
