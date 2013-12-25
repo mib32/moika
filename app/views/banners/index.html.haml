@@ -8,7 +8,7 @@
       = f.label :text, 'Текст над видео'
       = text_field_tag 'banner[text]'
     .form-group
-      = f.label :filename, 'Путь к ролику youtube'
+      = f.label :filename, 'Путь к ролику youtube', id: "video_url_label"
       = text_field_tag 'banner[filename]'
     = f.submit t('save_button'), class: 'btn btn-danger btn-block'
 
