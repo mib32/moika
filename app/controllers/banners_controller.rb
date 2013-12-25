@@ -12,7 +12,7 @@ class BannersController < ApplicationController
       logger.debug "2512:vat: #{banner_params}"
       if @banner.update(banner_params)
         format.json
-        #{ render json: @banner.to_json(only: [:id, :file]) }
+        format.js {}
       else
         format.json { render json: @banner.errors, status: :unprocessable_entity }
       end
