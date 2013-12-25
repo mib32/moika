@@ -99,6 +99,7 @@ gem 'carrierwave-dropbox'
 gem 'plupload-rails'
 
 gem 'mini_magick'
+gem 'carrierwave-processing'
 gem 'newrelic_rpm'
 #gem 'activemerchant', :require => 'active_merchant'
 #gem 'robokassa'

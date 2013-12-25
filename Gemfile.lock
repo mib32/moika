@@ -98,6 +98,8 @@ GEM
     carrierwave-dropbox (1.1.1)
       carrierwave (~> 0.9)
       dropbox-sdk (~> 1.6)
+    carrierwave-processing (0.0.2)
+      carrierwave
     celluloid (0.15.2)
       timers (~> 1.1.0)
     chronic (0.10.2)
@@ -373,6 +375,7 @@ DEPENDENCIES
   capybara
   carrierwave
   carrierwave-dropbox
+  carrierwave-processing
   coffee-rails (~> 4.0.0)
   compass
   compass-rails!

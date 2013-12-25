@@ -24,9 +24,9 @@ $ ->
         extensions: "zip"
       ]
       resize:
-        width: 320
-        height: 240
-        quality: 90
+        width: 0
+        height: 0
+        quality: 100
       multipart: true
       multipart_params:
         "_method" : "put"
