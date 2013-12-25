@@ -6,10 +6,10 @@
   = form_for banner, url: car_wash_banner_path(@car_wash, banner), remote: true, role: 'form' do |f|
     .form-group
       = f.label :text, 'Текст над видео'
-      = text_field_tag 'banner[text]'
+      = text_field_tag 'banner[text]', banner.text
     .form-group
       = f.label :filename, 'Путь к ролику youtube', id: "video_url_label"
-      = text_field_tag 'banner[filename]'
+      = text_field_tag 'banner[filename]', banner.filename
     = f.submit t('save_button'), class: 'btn btn-danger btn-block'
 
   - unless banner.blank?

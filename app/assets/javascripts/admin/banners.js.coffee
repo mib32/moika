@@ -10,7 +10,7 @@ $ ->
       runtimes: "html5,flash,silverlight,browserplus"
       browse_button: "pickfiles_" + id
       container: "image-container_" + id 
-      max_file_size: "500kb"
+      max_file_size: "10000kb"
       url: $('#banner_' + id).data('url')
       authenticity_token: $('#banner').data('token')
       multi_selection: false

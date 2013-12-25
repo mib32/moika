@@ -59,7 +59,7 @@ class BannerUploader < CarrierWave::Uploader::Base
   end
 
   version :b_380_270 do
-    process :resize_to_fill => [380, 270]
+    process :resize_to_limit => [380, 270]
   end
  
   version :b_380_540 do
