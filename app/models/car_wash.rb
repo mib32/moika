@@ -76,6 +76,7 @@ class CarWash < ActiveRecord::Base
       banners_data.each do |data| 
         self.banners << ClientBanner.new(data)
       end
+      self.banners << ClientVideoBanner.new
     end
     def create_payment
       self.payments << Payment.new(amount: 6000.00)
