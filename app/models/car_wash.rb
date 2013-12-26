@@ -2,6 +2,9 @@ class CarWash < ActiveRecord::Base
   default_scope {order('id DESC')}
   after_create :create_empty_banners
   after_create :create_payment
+  after_validation :geocode
+  after_update :update_signals, if: :signal_changed?  
+
   has_many :users
   has_many :actions
   has_many :comments
@@ -14,9 +17,6 @@ class CarWash < ActiveRecord::Base
   accepts_nested_attributes_for :actions
   geocoded_by :address, :latitude  => :lat, :longitude => :lon
   
-  after_validation :geocode, if: "lat_and_lon_nil?"
-
-  after_update :update_signals, if: :signal_changed?  
 
   def activate!
     self.update(activated: true)
@@ -70,7 +70,9 @@ class CarWash < ActiveRecord::Base
         {place: "client_fat_top"},
         {place: "client_thin_bottom"},
         {place: "client_thin_top_1"},
-        {place: "client_thin_top_2"}
+        {place: "client_thin_top_2"},
+        {place: "client_thin_top_3"},
+        {place: "client_thin_top_4"}
       ]
 
       banners_data.each do |data| 
