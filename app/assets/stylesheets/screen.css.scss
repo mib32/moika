@@ -28,6 +28,8 @@ h1,h2,h3,h4,h5 {
   font-family: Cambria, Georgia, Palatino, Times New Roman, serif;
 }
 
+
+
 h1 {
   font-size: 32px;
 }
@@ -79,13 +81,19 @@ input[type='text']{
 #header {
   #logo_left {
     @include span-columns(4,12);
-    padding-top: 30px;
+    padding-top: 1.8em;
+    img {
+      max-width:100%;
+      overflow: hidden;
+      height:auto;
+    }
   }
   #logo_right {
     .r_logo_img {
       @include span-columns(2,12);
       img {
-        max-width:100%; 
+        max-width:100%;
+        overflow: hidden;
         height:auto;
       }
     }
@@ -117,7 +125,7 @@ input[type='text']{
     #login, #registration {
       margin: 5px 0 0 0;
       h4,h5 {
-      font-size: 1.3em;
+      font-size: 1.2em;
       }
     }
     #login {
@@ -156,57 +164,76 @@ input[type='text']{
 
     #social {
       .color_on_hover {
-        height: 32px;
-        width: 32px;
+        height: 2em;
+        width: 2em;
         float: left;
         margin-right: 1%;
         display: inline;
+        a {
+          max-width:100%;
+          overflow: hidden;
+          height:auto;
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
         &#youtube {
           margin-left: 1%;
           background-image: url(image_path("youtube.png"));
+          background-size: cover;
           background-repeat: no-repeat;
           &:hover {
             background-image: url(image_path("youtube_grey.png"));
+            background-size: cover;
             background-repeat: no-repeat;
           }
         }
         &#mir {
           background-image: url(image_path("mir.png"));
+          background-size: cover;
           background-repeat: no-repeat;
           &:hover {
             background-image: url(image_path("mir_grey.png"));
+            background-size: cover;
             background-repeat: no-repeat;
           }
         }
         &#vk {
           background-repeat: no-repeat;
+          background-size: cover;
           background-image: url(image_path("vk.png"));
           &:hover {
             background-image: url(image_path("vk_grey.png"));
+            background-size: cover;
             background-repeat: no-repeat;
           }
         }
         &#odn {
           background-image: url(image_path("odn.png"));
+          background-size: cover;
           background-repeat: no-repeat;
           &:hover {
             background-image: url(image_path("odn_grey.png"));
+            background-size: cover;
             background-repeat: no-repeat;
           }
         }
         &#twitter {
           background-image: url(image_path("twitter.png"));
+          background-size: cover;
           background-repeat: no-repeat;
           &:hover {
             background-image: url(image_path("twitter_grey.png"));
+            background-size: cover;
             background-repeat: no-repeat;
           }
         }
         &#facebook {
           background-image: url(image_path("facebook.png"));
+          background-size: cover;
           background-repeat: no-repeat;
           &:hover {
             background-image: url(image_path("facebook_grey.png"));
+            background-size: cover;
             background-repeat: no-repeat;
           }
         }
@@ -233,7 +260,6 @@ input[type='text']{
     #date_currency {
       @include span-columns(4 omega,12);
       margin-top: 5px;
-      font-size: 1em;
       letter-spacing: -1px;
       .datetime {
         display: inline-block;
@@ -282,7 +308,7 @@ input[type='text']{
     height:auto;
   }
 }
-.marketing.omega {
+.marketing.slideshow, .marketing.omega {
   @include span-columns(4 omega,12);
   img {
     max-width:100%; 
@@ -1278,4 +1304,121 @@ img,canvas {
 }
 
 #video_url_label {
+}
+
+@include at-breakpoint($computer) {
+  .container#header_nav_wrapper #header_nav {
+    #date_currency {
+      @include span-columns(4 omega,12);
+      font-size: 1.1em;
+      .currency {
+        display: inline-block;
+      }
+      .traffic {
+        @include span-columns(6,48);
+      }
+    }
+  }
+}
+
+@include at-breakpoint($tablet900) {
+  .container#header_nav_wrapper #header_nav {
+    #date_currency {
+      @include span-columns(4 omega,12);
+      font-size: .8em;
+      .currency {
+        display: inline-block;
+      }
+      .traffic {
+        @include span-columns(6,48);
+      }
+    }
+  }
+  .container#main_content #map_container {
+    h1#map_header {
+      margin: 20px 0px 10px;
+      font-size: 1.2em;
+    }
+  }
+  #main_content.container #car_washes_left_list #list_header img {
+    height: 20px;
+    width: 20px;
+    float: none;
+    margin: .5em 0 0 2em;
+  }
+  #main_content.container #car_washes_left_list #list_header h1 {
+    margin-bottom: .5em;
+  }
+}
+
+@include at-breakpoint($tablet) {
+  .container#header_nav_wrapper #header_nav {
+    #login, #registration {
+      h4 {
+        font-size: .8em;
+      }
+    }
+    #date_currency {
+      @include span-columns(3 omega,12);
+      font-size: .8em;
+      .currency {
+        display: none;
+      }
+      .traffic {
+        @include span-columns(9,48);
+      }
+    }
+  }
+  .container#marketing_top {
+    .marketing.youtube {
+      @include span-columns(6,12);
+    }
+    .marketing.video {
+      @include span-columns(6 omega,12);
+    }
+    .marketing.slideshow{
+      display: none;
+    }
+  }
+  .container#marketing_bottom {
+    .marketing.banner {
+      @include span-columns(6,12);
+    }
+    .marketing.video {
+      @include span-columns(6 omega,12);
+    }
+    .marketing.omega {
+      display: none;
+    }
+  }
+  .container#main_content #car_washes_left_list ul li a {
+    font-size: .8em;
+  }
+  #header {
+    #logo_left {
+      @include span-columns(4,12);
+      padding-top: 1em;
+    }
+  }
+  .container#main_content #map_container {
+    h1#map_header {
+      margin: 20px 0px 10px;
+      font-size: 1em;
+    }
+  }
+  #main_content.container #car_washes_left_list #list_header h1 {
+    font-size: .5em;
+  }
+  #main_content.container #car_washes_left_list #list_header img {
+    height: 20px;
+    width: 20px;
+    float: none;
+    margin: 0 0 0 .5em;
+  }
+  #footer.container #other_footer_content ul#bottom_menu li a {
+    font-size: .5em;
+  }
+  #footer.container #other_footer_content ul#bottom_links li a {
+    font-size: .5em;
+  }
 }
