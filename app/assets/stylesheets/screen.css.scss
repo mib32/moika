@@ -1427,12 +1427,15 @@ img,canvas {
   #footer.container #other_footer_content ul#bottom_links li a {
     font-size: .5em;
   }
+  #header_nav_wrapper.container #header_nav #traffic {
+    width: 10%;
+  }
 }
 @include at-breakpoint($phone) {
   .container#header_nav_wrapper #header_nav {
     #login, #registration {
       h4 {
-        font-size: .8em;
+        font-size: .6em;
       }
     }
     #date_currency {
