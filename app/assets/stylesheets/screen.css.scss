@@ -376,10 +376,17 @@ input[type='text']{
       }
     }
     #adv_left {
-      img {
+      img.low {
         margin: 3px 0;
-        width: 100%;
-        height: 100%;
+        width: 99%;
+        height: 99%;
+        max-height: 160px;
+      }
+      img.high {
+        margin: 3px 0;
+        width: 99%;
+        height: 99%;
+        max-height: 240px;
       }
     }
   }
