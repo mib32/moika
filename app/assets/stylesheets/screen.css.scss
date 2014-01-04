@@ -1349,6 +1349,12 @@ img,canvas {
   #main_content.container #car_washes_left_list #list_header h1 {
     margin-bottom: .5em;
   }
+  #footer.container #other_footer_content ul#bottom_menu li a {
+    font-size: .8em;
+  }
+  #footer.container #other_footer_content ul#bottom_links li a {
+    font-size: .6em;
+  }
 }
 
 @include at-breakpoint($tablet) {
