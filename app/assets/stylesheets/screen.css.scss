@@ -1438,7 +1438,7 @@ img,canvas {
     width: 10%;
   }
 }
-@include at-breakpoint($phone) {
+@include at-breakpoint($phone_landscape) {
   .container#header_nav_wrapper #header_nav {
     #login, #registration {
       h4 {
@@ -1521,5 +1521,116 @@ img,canvas {
   }
   #header_nav_wrapper.container #header_nav #traffic {
     width: 20%;
+  }
+}
+
+@include at-breakpoint($phone_portrait) {
+  .container#header_nav_wrapper #header_nav {
+    #login {
+      float: right;
+      @include pre(1,12);
+    }
+    #login, #registration {
+      @include span-columns(1,12);
+      h4 {
+        font-size: .4em;
+      }
+    }
+    #social {
+      @include span-columns(8 omega,12);
+    }
+    #date_currency {
+      display: none;
+    }
+    #traffic {
+      display: none;
+    }
+    #weather {
+      display: none;
+    }
+  }
+  .container#marketing_top {
+    .marketing.youtube {
+      @include span-columns(12 omega,12);
+    }
+    .marketing.video {
+      display: none;
+    }
+    .marketing.slideshow{
+      display: none;
+    }
+  }
+  .container#marketing_bottom {
+    .marketing.banner {
+      display: none;
+    }
+    .marketing.video {
+      @include span-columns(12 omega,12);
+    }
+    .marketing.omega {
+      display: none;
+    }
+  }
+  .container#main_content #car_washes_left_list ul li a {
+    font-size: .5em;
+  }
+  #header {
+    #logo_left {
+      @include span-columns(4,12);
+      padding-top: .5em;
+    }
+  }
+  .container#main_content #map_container {
+    h1#map_header {
+      margin: 20px 0px 10px;
+      font-size: .8em;
+    }
+  }
+  #main_content.container #car_washes_left_list #list_header h1 {
+    font-size: .3em;
+  }
+  #main_content.container #car_washes_left_list #list_header img {
+    height: 10px;
+    width: 10px;
+    float: none;
+    margin: 0 0 0 .5em;
+  }
+  #footer.container #other_footer_content ul#bottom_menu li a {
+    font-size: .3em;
+  }
+  #footer.container #other_footer_content ul#bottom_links li a {
+    font-size: .3em;
+  }
+  #header_nav_wrapper.container #header_nav #weather {
+    p {
+      font-size: .5em;
+    }
+    p#deg {
+      font-size: .8em;
+    }
+  }
+  #header_nav_wrapper.container #header_nav #traffic {
+    width: 20%;
+  }
+  #adv_left {
+    img.low {
+      margin: 3px 0;
+      width: 99%;
+      height: 99%;
+      max-height: 5em;
+    }
+    img.high {
+      margin: 3px 0;
+      width: 99%;
+      height: 99%;
+      max-height: 5%;
+    }
+  }
+  marquee h5 {
+    font-size: .5em;
+  }
+  #header_nav_wrapper.container {
+    height: 60px;
+    min-height: 60px;
   }
 }
