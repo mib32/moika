@@ -1594,6 +1594,9 @@ img,canvas {
     font-size: .8em;
   }
   .container #car_wash_menu #signal_video #free_close_signal ul.menu h5 {
+    font-size: .7em;
+  }
+  .container #car_wash_menu #signal_video .video ul.menu h5 {
     font-size: .8em;
   }
 }
@@ -1773,7 +1776,17 @@ img,canvas {
   .container #car_wash_menu #login_registration #car_wash_name h5 {
     font-size: .6em;
   }
+  .container #car_wash_menu #signal_video #free_close_signal {
+  }
   .container #car_wash_menu #signal_video #free_close_signal ul.menu h5 {
-    font-size: .7em;
+    font-size: .4em;
+  }
+  .container #car_wash_menu #signal_video .video ul.menu h5 {
+    font-size: .6em;
+  }
+  .container #car_wash_menu #login_registration {
+    #comments_button a, #enroll_button a {
+      font-size: .5em;
+    }
   }
 }
