@@ -652,6 +652,7 @@ form.car_wash_edit_details {
       }
       table#car_wash_info {
         border: 1px solid #fff;
+        table-layout: fixed;
         width: 100%;
         tr {
           background-color: $car-wash-info-bg;
@@ -672,6 +673,7 @@ form.car_wash_edit_details {
             }
           }
           span {
+            font-size: 1em;
           }
         }
       }
@@ -747,9 +749,13 @@ form.car_wash_edit_details {
           margin: 0;
         }
       }
-      #free_close_signal #signal_image img{
-        display: block;
-        margin: 0 auto;
+      #free_close_signal #signal_image {
+        img{
+          display: block;
+          margin: 0 auto;
+          width: 100%;
+          height: auto;
+        }
       }
       .video {
         h4,h5 {
@@ -1453,6 +1459,12 @@ img,canvas {
   #header_nav_wrapper.container #header_nav #traffic {
     width: 10%;
   }
+  .container #car_wash_menu #login_registration table#car_wash_info td {
+    span, span a {
+      font-size: .8em;
+    }
+  }
+
 }
 @include at-breakpoint($phone_landscape) {
   .container#header_nav_wrapper #header_nav {
@@ -1569,6 +1581,20 @@ img,canvas {
         }
       }
     }
+  }
+  .container #car_wash_menu #login_registration table#car_wash_info td {
+    span {
+      font-size: .6em;
+    }
+    span a {
+      font-size: .6em;
+    }
+  }
+  .container #car_wash_menu #login_registration #car_wash_name h5 {
+    font-size: .8em;
+  }
+  .container #car_wash_menu #signal_video #free_close_signal ul.menu h5 {
+    font-size: .8em;
   }
 }
 
@@ -1735,5 +1761,19 @@ img,canvas {
         }
       }
     }
+  }
+  .container #car_wash_menu #login_registration table#car_wash_info td {
+    span {
+      font-size: .5em;
+    }
+    span a {
+      font-size: .5em;
+    }
+  }
+  .container #car_wash_menu #login_registration #car_wash_name h5 {
+    font-size: .6em;
+  }
+  .container #car_wash_menu #signal_video #free_close_signal ul.menu h5 {
+    font-size: .7em;
   }
 }
