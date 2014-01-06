@@ -438,6 +438,9 @@ input[type='text']{
     p {
       margin: 0;
       padding: 0;
+      img {
+        max-width: 99%;
+      }
     }
   }
   #other_footer_content {
@@ -1632,5 +1635,54 @@ img,canvas {
   #header_nav_wrapper.container {
     height: 60px;
     min-height: 60px;
+  }
+  #map_container {
+    @include span-columns(8 omega,12);
+    height: ($map-height - 80px);
+    max-height: ($map-height - 80px);
+  }
+  #main_content.container {
+    #car_washes_left_list {
+      display: none;
+    }
+    #map_container {
+      @include span-columns(12 omega, 12);
+    }
+  }
+  .container#footer {
+    width: 100%;
+    max-width: 100%;
+    margin: 20px 0 0 0;
+    padding: 0;
+    height: 105px;
+    min-height: 105px;
+    .mobile_apps {
+      @include span-columns(2,12);
+      margin: 12px 0;
+      p {
+        margin: .4em;
+        padding: 0;
+        img {
+          max-width: 99%;
+        }
+      }
+    }
+    #other_footer_content {
+      @include span-columns(8 omega,12);
+      margin: 0;
+      ul#bottom_menu {
+        margin: 5px 0px;
+        li {
+          margin: 0;
+          padding: 0;
+        }
+      }
+      ul#bottom_links {
+        margin-left: -60px;
+        li {
+          margin: 0px 0px 0px 0px;
+        }
+      }
+    }
   }
 }
