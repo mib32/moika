@@ -1636,24 +1636,23 @@ img,canvas {
     height: 60px;
     min-height: 60px;
   }
-  #map_container {
-    @include span-columns(8 omega,12);
-    height: ($map-height - 80px);
-    max-height: ($map-height - 80px);
-  }
   #main_content.container {
     #car_washes_left_list {
       display: none;
     }
     #map_container {
+      height: ($map-phone-height + 80px);
+      max-height: ($map-phone-height + 80px);
       @include span-columns(12 omega, 12);
     }
   }
-  .container#footer {
+  #map {
     width: 100%;
-    max-width: 100%;
-    margin: 20px 0 0 0;
-    padding: 0;
+    height: $map-phone-height;
+    margin-bottom: 20px;
+    float:left;
+  }
+  .container#footer {
     height: 105px;
     min-height: 105px;
     .mobile_apps {
