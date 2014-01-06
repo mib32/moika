@@ -292,6 +292,7 @@ input[type='text']{
     border: none;
     h4,h5 {
       color: red;
+      white-space:nowrap;
     }
   }
 }
@@ -1629,8 +1630,11 @@ img,canvas {
       max-height: 5%;
     }
   }
-  marquee h5 {
-    font-size: .5em;
+  #adv1 {
+    @include span-columns(11 omega,12);
+    marquee h5 {
+      font-size: .5em;
+    }
   }
   #header_nav_wrapper.container {
     height: 60px;
