@@ -1648,6 +1648,10 @@ img,canvas {
       height: ($map-phone-height + 80px);
       max-height: ($map-phone-height + 80px);
       @include span-columns(12 omega, 12);
+      h1#map_header {
+        font-size: .5em;
+        margin: 30px 0px 10px;
+      }
     }
   }
   #map {
