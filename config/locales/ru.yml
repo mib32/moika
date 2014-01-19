@@ -98,6 +98,10 @@ ru:
         video_url2: "видео 2"
         signal: "Занято/Свободно"
         site_url: "Сайт"
+        vk_url: "В контакте"
+        odn_url: "Одноклассники"
+        blink: "Мигает"
+        
       user:
         email: "E-mail"
         phone: "Телефон"

@@ -22,6 +22,9 @@
 %p
   %b= CarWash.human_attribute_name("video_url2")
   = @car_wash.video_url2
+%p
+  %b= CarWash.human_attribute_name("blink")
+  = @car_wash.blink ? "Да":"Нет"
 %hr
 
 .row
