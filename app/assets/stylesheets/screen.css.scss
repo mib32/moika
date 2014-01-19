@@ -1066,6 +1066,11 @@ img.banner {
   border: solid 2px blue;
   margin: 5px 0;
 }
+.marketing img.banner {
+  cursor: auto;
+  border: none;
+  margin: 5px 0;
+}
 
 .no-edit img.banner {
   border: none;
