@@ -37,7 +37,7 @@
       %ul.menu
         %li 
           %h5 Камера №2
-      = render 'video_320', src: @car_wash.video_url1
+      = render 'video_320', src: @car_wash.video_url2
     #service
       - banner = @banners.where(type: 'ClientVideoBanner').first
       - unless banner.nil? || banner.filename.blank?
