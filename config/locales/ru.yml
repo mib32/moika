@@ -101,7 +101,6 @@ ru:
         vk_url: "В контакте"
         odn_url: "Одноклассники"
         blink: "Мигает"
-        
       user:
         email: "E-mail"
         phone: "Телефон"
@@ -153,5 +152,8 @@ ru:
   invoices:
     new:
       generate_pdf: 'Сформировать счёт'
+  map:
+    show:
+      map_search_header: 'Карта Автомоек Москвы'
 
 
