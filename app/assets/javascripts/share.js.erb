@@ -108,7 +108,12 @@ function init(){
     iconImageHref: "<%= asset_path('red_led.png') %>"  });
     ymaps.option.presetStorage.add('my#green_not_blink', {
     iconImageHref: "<%= asset_path('green_led2.png') %>"  });
+    ymaps.option.presetStorage.add('my#videoned', {
+    iconImageHref: "<%= asset_path('camera2.png') %>"  });
     //iconImageHref: "<%= asset_path('drop.png') %>"  });
+
+    ymaps.option.presetStorage.add('my#videoned', {
+    iconImageHref: "<%= asset_path('star_with_green.gif') %>"  });
 
 
     myMap.behaviors.enable('scrollZoom');
@@ -116,6 +121,11 @@ function init(){
     var myBalloonContentBodyLayout = ymaps.templateLayoutFactory.createClass(
                     '<div>$[properties.body]</div>'
                 );
+
+    videonedCollection = new ymaps.GeoObjectCollection({}, {
+        preset: 'my#videoned',
+        iconImageSize: [20, 20]
+    });
 
     greenCollection = new ymaps.GeoObjectCollection({}, {
         preset: 'my#green_not_blink',
@@ -147,6 +157,13 @@ function init(){
         preset:'twirl#redStretchyIcon',
     });
 
+    videonedCollection = new ymaps.GeoObjectCollection({}, {
+            preset: 'my#videoned',
+            //preset: 'twirl#redDotIcon',
+            iconImageSize: [35, 35]
+        });
+
+
     if (cw_list !== null && cw_list !== undefined) {
       cw_list.forEach(function (car_wash) {
 
@@ -177,7 +194,13 @@ function init(){
               greenStretchyCollection.add(placemark)
             }
             else {
-              greenBlinkCollection.add(placemark)
+              if (car_wash.videoned) {
+                videonedCollection.add(placemark);
+                console.log(car_wash)
+              }
+              else {
+                greenBlinkCollection.add(placemark)
+              }
             }
           }
           else {
@@ -221,6 +244,7 @@ function init(){
       myMap.geoObjects.add(redBlinkCollection);
       myMap.geoObjects.add(greenStretchyCollection);
       myMap.geoObjects.add(redStretchyCollection);
+      myMap.geoObjects.add(videonedCollection);
 
       myMap.storage = ymaps.geoQuery(myMap.geoObjects);
       //clusterer.add(geo_objects_ary);
