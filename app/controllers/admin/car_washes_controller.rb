@@ -57,6 +57,7 @@ class Admin::CarWashesController < AdminController
                                        :site_url,
                                        :video_url1, :video_url2,
                                        :vk_url, :odn_url,
-                                       :blink)
+                                       :blink, :videoned,
+                                       :signal_type)
     end
 end

@@ -44,11 +44,27 @@
     = f.label CarWash.human_attribute_name("odn_url"), class: 'control-label col-lg-2'
     .col-lg-10
       = f.text_field :odn_url, class: 'form-control'
-  .form-group
+  .row
+    .col-lg-1
     = f.label CarWash.human_attribute_name("blink"), class: 'control-label col-lg-2'
-    .col-lg-10
-      = f.check_box :blink, class: 'form-control'
+    .col-lg-2
+      = f.check_box :blink, class: 'form-control', id: 'blink'
+    .col-lg-1
+    = f.label CarWash.human_attribute_name("videoned"), class: 'control-label col-lg-2'
+    .col-lg-2
+      = f.check_box :videoned, class: 'form-control', id: 'videoned'
+  %hr
+  .row
+    .col-lg-1
+    = f.label CarWash.human_attribute_name("blink"), class: 'control-label col-lg-2'
+    .col-lg-2
+      = radio_button_tag 'car_wash[signal_type]', 'blink', class: 'form-control', id: 'blink'
+    .col-lg-1
+    = f.label CarWash.human_attribute_name("videoned"), class: 'control-label col-lg-2'
+    .col-lg-2
+      = radio_button_tag 'car_wash[signal_type]', 'videoned', class: 'form-control', id: 'blink'
   %br
+  %hr
   .row
     .col-lg-4.col-lg-offset-4
       = f.submit t("save_button"), class: 'btn btn-danger btn-block'

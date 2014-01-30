@@ -101,6 +101,7 @@ ru:
         vk_url: "В контакте"
         odn_url: "Одноклассники"
         blink: "Мигает"
+        videoned: "Звезда"
       user:
         email: "E-mail"
         phone: "Телефон"
