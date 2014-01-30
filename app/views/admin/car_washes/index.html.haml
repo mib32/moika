@@ -6,13 +6,15 @@
 
 %table.table
   %tr
+    %th N п/п
     %th= CarWash.human_attribute_name(:title)
     %th= CarWash.human_attribute_name(:address)
     %th
     %th
 
-  - @car_washes.each do |car_wash|
+  - @car_washes.each_with_index do |car_wash, i|
     %tr
+      %td= i+1
       %td= car_wash.title
       %td= car_wash.address
       %td= link_to t('show_link'), admin_car_wash_path(car_wash), class: 'btn btn-success'
