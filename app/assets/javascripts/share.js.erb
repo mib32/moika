@@ -169,7 +169,7 @@ function init(){
       console.log(car_wash.signal_type);
 
 
-        var myBalloonBody = balloon(car_wash);
+        var myBalloonBody = balloon(car_wash, car_wash.url);
         var myHintContent = hint(car_wash);
 
         var coordinates = car_wash.coords,
@@ -190,65 +190,17 @@ function init(){
 
 
         if (car_wash.signal) {
-          switch (car_wash.signal_type) {
-            case 'blink':
-              greenBlinkCollection.add(placemark)
-              break
-            case 'action_on_map':
+          if (car_wash.blink) {
+            greenBlinkCollection.add(placemark)
+          } else if (car_wash.action_on_map) {
               greenStretchyCollection.add(placemark)
-              break
-            case 'videoned':
+          } else if (car_wash.videoned) {
               videonedCollection.add(placemark);
-              break
-            case 'normal':
+          } else {
               greenCollection.add(placemark)
-              console.log('hello normal')
-              break
-            default:
           }
-          //if (car_wash.blink) {
-          //  if (car_wash.action_on_map) {
-          //    greenStretchyCollection.add(placemark)
-          //  }
-          //  else {
-          //    if (car_wash.videoned) {
-          //      videonedCollection.add(placemark);
-          //    }
-          //    else {
-          //      greenBlinkCollection.add(placemark)
-          //    }
-          //  }
-          //}
-          //else {
-          //  if (car_wash.action_on_map) {
-          //    greenStretchyCollection.add(placemark)
-          //  }
-          //  else {
-          //    greenCollection.add(placemark)
-          //  }
-          //}
         }
         else {
-           //switch (car_wash.signal_type) {
-           // case 'blink':
-           //   redBlinkCollection.add(placemark)
-           //   console.log('hello blink')
-           //   break
-           // case 'action_on_map':
-           //   redStretchyCollection.add(placemark)
-           //   console.log('hello action')
-           //   break
-           // case 'videoned':
-           //   videonedCollection.add(placemark);
-           //   console.log('hello videoned')
-           //   break
-           // case 'normal':
-           //   redCollection.add(placemark)
-           //   console.log('hello normal')
-           //   break
-           // default:
-           //}
-
           if (car_wash.blink) {
             redBlinkCollection.add(placemark)
           } else if (car_wash.action_on_map) {
@@ -258,22 +210,6 @@ function init(){
           } else {
               redCollection.add(placemark)
           }
-          //if (car_wash.blink) {
-          //  if (car_wash.action_on_map) {
-          //    redStretchyCollection.add(placemark)
-          //  }
-          //  else {
-          //    redBlinkCollection.add(placemark)
-          //  }
-          //}
-          //else {
-          //  if (car_wash.action_on_map) {
-          //    redStretchyCollection.add(placemark)
-          //  }
-          //  else {
-          //    redCollection.add(placemark)
-          //  }
-          //}
         }
       //(car_wash.signal) ? ( greenCollection.add(placemark) ):( redCollection.add(placemark) );
       geo_objects_ary.push(placemark);
@@ -365,7 +301,7 @@ function hint(car_wash) {
     
 }
 
-function balloon(car_wash) {
+function balloon(car_wash, url) {
   var wrapper_begin = '<div class="balloon">';
   var wrapper_end = '</div>';
   var part1 =
@@ -391,7 +327,7 @@ function balloon(car_wash) {
       + '<span class="green">Свободно</span>'
       + '<br/>'
       + '<a href="'
-      + car_wash.url
+      + url
       + '">Перейти на страницу этой мойки</a>' + wrapper_end;
   } else {
     var ret = wrapper_begin + part1
@@ -401,7 +337,7 @@ function balloon(car_wash) {
       + '<span class="red">Занято</span>'
       + '<br/>'
       + '<a href="'
-      + car_wash.url
+      + url
       + '">Перейти на страницу этой мойки</a>'+ wrapper_end;
   }
   return ret;

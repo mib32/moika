@@ -51,4 +51,20 @@ namespace :setup do
     end
   end
 
+  task add_signal_type: :environment do
+    puts "add signal_type"
+    CarWash.find_each do |cw|
+      if cw.blink
+        cw.signal_type = 'blink'
+      elsif cw.videoned
+        cw.signal_type = 'videoned'
+      elsif cw.action_on_map
+        cw.signal_type = 'action_on_map'
+      else
+        cw.signal_type = 'normal'
+      end
+      cw.save
+    end
+  end
+
 end
