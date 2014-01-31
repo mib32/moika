@@ -14,6 +14,7 @@ ru:
         success: "Сообщение отправлено"
   close: "Закрыть"
   signal_open: "Свободно"
+  signal_type_normal: "Обычный"
   admin_messages_button: "Сообщения администрации сайта"
   signal_close: "Занято"
   save_button: "Сохранить"
@@ -102,6 +103,8 @@ ru:
         odn_url: "Одноклассники"
         blink: "Мигает"
         videoned: "Звезда"
+        action_on_map: "Акция"
+        signal_type: "Тип сигнала на карте"
       user:
         email: "E-mail"
         phone: "Телефон"

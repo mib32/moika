@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140128191052) do
+ActiveRecord::Schema.define(version: 20140130170401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20140128191052) do
     t.string   "odn_url"
     t.integer  "rating",         default: 0
     t.boolean  "videoned",       default: false
+    t.string   "signal_type"
   end
 
   create_table "comments", force: true do |t|

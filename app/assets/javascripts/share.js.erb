@@ -166,6 +166,7 @@ function init(){
 
     if (cw_list !== null && cw_list !== undefined) {
       cw_list.forEach(function (car_wash) {
+      console.log(car_wash.signal_type);
 
 
         var myBalloonBody = balloon(car_wash);
@@ -189,46 +190,90 @@ function init(){
 
 
         if (car_wash.signal) {
-          if (car_wash.blink) {
-            if (car_wash.action_on_map) {
+          switch (car_wash.signal_type) {
+            case 'blink':
+              greenBlinkCollection.add(placemark)
+              break
+            case 'action_on_map':
               greenStretchyCollection.add(placemark)
-            }
-            else {
-              if (car_wash.videoned) {
-                videonedCollection.add(placemark);
-              }
-              else {
-                greenBlinkCollection.add(placemark)
-              }
-            }
-          }
-          else {
-            if (car_wash.action_on_map) {
-              greenStretchyCollection.add(placemark)
-            }
-            else {
+              break
+            case 'videoned':
+              videonedCollection.add(placemark);
+              break
+            case 'normal':
               greenCollection.add(placemark)
-            }
+              console.log('hello normal')
+              break
+            default:
           }
+          //if (car_wash.blink) {
+          //  if (car_wash.action_on_map) {
+          //    greenStretchyCollection.add(placemark)
+          //  }
+          //  else {
+          //    if (car_wash.videoned) {
+          //      videonedCollection.add(placemark);
+          //    }
+          //    else {
+          //      greenBlinkCollection.add(placemark)
+          //    }
+          //  }
+          //}
+          //else {
+          //  if (car_wash.action_on_map) {
+          //    greenStretchyCollection.add(placemark)
+          //  }
+          //  else {
+          //    greenCollection.add(placemark)
+          //  }
+          //}
         }
         else {
+           //switch (car_wash.signal_type) {
+           // case 'blink':
+           //   redBlinkCollection.add(placemark)
+           //   console.log('hello blink')
+           //   break
+           // case 'action_on_map':
+           //   redStretchyCollection.add(placemark)
+           //   console.log('hello action')
+           //   break
+           // case 'videoned':
+           //   videonedCollection.add(placemark);
+           //   console.log('hello videoned')
+           //   break
+           // case 'normal':
+           //   redCollection.add(placemark)
+           //   console.log('hello normal')
+           //   break
+           // default:
+           //}
+
           if (car_wash.blink) {
-            if (car_wash.action_on_map) {
+            redBlinkCollection.add(placemark)
+          } else if (car_wash.action_on_map) {
               redStretchyCollection.add(placemark)
-            }
-            else {
-              redBlinkCollection.add(placemark)
-            }
-          }
-          else {
-            if (car_wash.action_on_map) {
-              console.log('im action on map');
-              redStretchyCollection.add(placemark)
-            }
-            else {
+          } else if (car_wash.videoned) {
+              videonedCollection.add(placemark);
+          } else {
               redCollection.add(placemark)
-            }
           }
+          //if (car_wash.blink) {
+          //  if (car_wash.action_on_map) {
+          //    redStretchyCollection.add(placemark)
+          //  }
+          //  else {
+          //    redBlinkCollection.add(placemark)
+          //  }
+          //}
+          //else {
+          //  if (car_wash.action_on_map) {
+          //    redStretchyCollection.add(placemark)
+          //  }
+          //  else {
+          //    redCollection.add(placemark)
+          //  }
+          //}
         }
       //(car_wash.signal) ? ( greenCollection.add(placemark) ):( redCollection.add(placemark) );
       geo_objects_ary.push(placemark);
