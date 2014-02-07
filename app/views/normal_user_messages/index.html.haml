@@ -4,9 +4,13 @@
     %h4 Сообщений нет
   - else
     - @normal_user_messages.find_each do |m|
-      #normal_user_message
-      %h4= m.subject
-      %h4= m.body
+      .base-grey-panel#normal_user_message
+        %h4.subject 
+          %span Тема:
+          %span.red= m.subject
+        %h4.body
+          %span Сообщение:
+        %h4= m.body
 = subscribe_to "/normal_users_messages/#{@car_wash.id}/#{current_normal_user.id}"
 =#subscribe_to "/public"
 
