@@ -3,14 +3,7 @@
   - if@normal_user_messages.blank?
     %h4 Сообщений нет
   - else
-    - @normal_user_messages.find_each do |m|
-      .base-grey-panel#normal_user_message
-        %h4.subject 
-          %span Тема:
-          %span.red= m.subject
-        %h4.body
-          %span Сообщение:
-        %h4= m.body
+    = render @normal_user_messages
 = subscribe_to "/normal_users_messages/#{@car_wash.id}/#{current_normal_user.id}"
 =#subscribe_to "/public"
 
