@@ -323,25 +323,55 @@ function balloon(car_wash, url) {
       + (car_wash.main_action == null ? '' : '<h3 class="red">' + car_wash.main_action + '</h3>');
 
   if (car_wash.signal) {
-    var ret = wrapper_begin + part1
-      + '<img src="'
-      + "<%= asset_path('green.png') %>"
-      + '">'
-      + '<span class="green">Свободно</span>'
-      + '<br/>'
-      + '<a href="'
-      + url
-      + '">Перейти на страницу этой мойки</a>' + wrapper_end;
+    if (car_wash.videoned) {
+      var ret = wrapper_begin + part1
+        + '<img src="'
+        + "<%= asset_path('green.png') %>"
+        + '">'
+        + '<span class="green">Свободно</span>'
+        + '<img src="'
+        + "<%= asset_path('video_camera.png') %>"
+        + '">'
+        + '<br/>'
+        + '<a href="'
+        + url
+        + '">Перейти на страницу этой мойки</a>' + wrapper_end;
+    } else {
+      var ret = wrapper_begin + part1
+        + '<img src="'
+        + "<%= asset_path('green.png') %>"
+        + '">'
+        + '<span class="green">Свободно</span>'
+        + '<br/>'
+        + '<a href="'
+        + url
+        + '">Перейти на страницу этой мойки</a>' + wrapper_end;
+    }
   } else {
-    var ret = wrapper_begin + part1
-      + '<img src="'
-      + "<%= asset_path('red.png') %>"
-      + '">'
-      + '<span class="red">Занято</span>'
-      + '<br/>'
-      + '<a href="'
-      + url
-      + '">Перейти на страницу этой мойки</a>'+ wrapper_end;
+    if (car_wash.videoned) {
+      var ret = wrapper_begin + part1
+        + '<img src="'
+        + "<%= asset_path('red.png') %>"
+        + '">'
+        + '<span class="red">Занято</span>'
+        + '<img src="'
+        + "<%= asset_path('video_camera.png') %>"
+        + '">'
+        + '<br/>'
+        + '<a href="'
+        + url
+        + '">Перейти на страницу этой мойки</a>'+ wrapper_end;
+    } else {
+      var ret = wrapper_begin + part1
+        + '<img src="'
+        + "<%= asset_path('red.png') %>"
+        + '">'
+        + '<span class="red">Занято</span>'
+        + '<br/>'
+        + '<a href="'
+        + url
+        + '">Перейти на страницу этой мойки</a>'+ wrapper_end;
+    }
   }
   return ret;
 }
