@@ -19,7 +19,8 @@
 //= require car_washes
 //= require requests
 //= require messages
-//
+//= require private_pub
+
 //= require twitter/bootstrap
 
 //= require moxie

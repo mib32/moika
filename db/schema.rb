@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140130170401) do
+ActiveRecord::Schema.define(version: 20140205120216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -123,6 +123,38 @@ ActiveRecord::Schema.define(version: 20140130170401) do
   add_index "messages", ["receiver_id"], name: "index_messages_on_receiver_id", using: :btree
   add_index "messages", ["sender_id"], name: "index_messages_on_sender_id", using: :btree
 
+  create_table "normal_user_messages", force: true do |t|
+    t.integer  "sender_id"
+    t.integer  "receiver_id"
+    t.integer  "car_wash_id"
+    t.string   "subject"
+    t.text     "body"
+    t.datetime "read_at"
+    t.boolean  "read",        default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "normal_users", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "name",                   default: "", null: false
+    t.string   "phone"
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "normal_users", ["email"], name: "index_normal_users_on_email", unique: true, using: :btree
+  add_index "normal_users", ["reset_password_token"], name: "index_normal_users_on_reset_password_token", unique: true, using: :btree
+
   create_table "payments", force: true do |t|
     t.boolean  "confirmed",   default: false
     t.boolean  "verified",    default: false
@@ -169,13 +201,23 @@ ActiveRecord::Schema.define(version: 20140130170401) do
     t.datetime "updated_at"
   end
 
+  create_table "subscribes", force: true do |t|
+    t.integer  "normal_user_id"
+    t.integer  "car_wash_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "subscribes", ["car_wash_id"], name: "index_subscribes_on_car_wash_id", using: :btree
+  add_index "subscribes", ["normal_user_id"], name: "index_subscribes_on_normal_user_id", using: :btree
+
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",   null: false
+    t.string   "encrypted_password",     default: "",   null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,    null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -186,6 +228,7 @@ ActiveRecord::Schema.define(version: 20140130170401) do
     t.string   "phone"
     t.string   "contact_person"
     t.string   "car_wash_title"
+    t.boolean  "normal",                 default: true
   end
 
   add_index "users", ["car_wash_id"], name: "index_users_on_car_wash_id", using: :btree

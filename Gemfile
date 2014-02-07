@@ -1,20 +1,20 @@
-ruby "2.0.0"
+ruby "2.1.0"
 source 'http://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails'
 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
@@ -29,7 +29,7 @@ gem 'haml-rails'
 #gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder'
 
 gem 'devise'
 gem 'cancan'
@@ -72,10 +72,10 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
 gem 'unicorn'
 
 # Use Capistrano for deployment
-gem 'capistrano', group: :development
+gem 'capistrano', '~> 2.15.0', group: :development
 #gem 'rvm-capistrano'
-#gem 'thin', group: :development
-gem 'puma', group: :development
+gem 'thin'
+#gem 'puma', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
@@ -84,7 +84,7 @@ gem 'rails_12factor', group: :production
 
 gem 'susy'
 gem 'compass'
-gem 'compass-rails', git: 'https://github.com/Compass/compass-rails', branch: 'rails4-hack'
+gem 'compass-rails'
 gem 'sassy-buttons'
 
 gem 'nokogiri'
@@ -104,3 +104,6 @@ gem 'newrelic_rpm'
 #gem 'activemerchant', :require => 'active_merchant'
 #gem 'robokassa'
 gem 'prawn', :git => "https://github.com/prawnpdf/prawn.git"
+
+gem 'faye'
+gem 'private_pub'

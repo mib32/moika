@@ -61,6 +61,7 @@ input[type='text']{
 }
 
 .notice {
+  font-size: 1.5em;
   text-align: center;
   color: #82D34F;
 }
@@ -106,6 +107,47 @@ input[type='text']{
     }
   }
 }
+
+#car_washes_user_list {
+  margin: 10px 0 0 0;
+  @include span-columns(4,12);
+  #list_header {
+    border: dotted 1px  #ddd;
+    background: #eee;
+    p, h4 {
+      margin:0;
+      padding:0;
+      width: 100%;
+    }
+  }
+  ul {
+    margin: 0;
+    padding: 0 .5em;
+    min-height: 300px;
+    li {
+      list-style: none;
+      a {
+        font-size: 14px;
+      }
+    }
+  }
+}
+.user_car_washes, .user_actions {
+    li {
+      list-style: none;
+      margin: .5em 0;
+    }
+    %li.base-grey-panel {
+    }
+}
+.user_actions {
+}
+
+#normal_user_message {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
 .container#header_nav_wrapper {
     z-index: 1;
     background-image: url(image_path('h_menu.png'));
@@ -620,6 +662,33 @@ form.car_wash_edit_details {
 }
 
 .container {
+  #comments_button, #enroll_button, #subscribe_button, .steel_button {
+    @include span-columns(12 omega,12);
+    margin: 15px auto;
+    p {
+      padding: 0;
+      margin: 0;
+    }
+    a {
+      display: block;
+      text-align: center;
+      margin: 0 auto;
+      color: #fff;
+    }
+  }
+  #comments_button {
+    @include sassy-button("simple", 5px, 20px, rgba(192, 203, 215, 1), rgba(91,106,119,1));
+    margin-top: 40px; 
+  } 
+  #enroll_button {
+    @include sassy-button("simple", 5px, 20px, rgba(192, 203, 215, 1), rgba(91,106,119,1));
+  }
+  .steel_button {
+    @include sassy-button("simple", 5px, 20px, rgba(192, 203, 215, 1), rgba(91,106,119,1));
+  }
+  #subscribe_button {
+    @include sassy-button("simple", 5px, 20px, rgba(128, 03, 15, 1), rgba(191,06,19,1));
+  }
   #car_wash_menu {
     @include span-columns(12 omega,12);
     #login_registration {
@@ -700,27 +769,6 @@ form.car_wash_edit_details {
             }
           }
         }
-      }
-      #comments_button, #enroll_button {
-        @include span-columns(12 omega,12);
-        margin: 15px auto;
-        p {
-          padding: 0;
-          margin: 0;
-        }
-        a {
-          display: block;
-          text-align: center;
-          margin: 0 auto;
-          color: #fff;
-        }
-      }
-      #comments_button {
-        @include sassy-button("simple", 5px, 20px, rgba(192, 203, 215, 1), rgba(91,106,119,1));
-        margin-top: 40px; 
-      } 
-      #enroll_button {
-        @include sassy-button("simple", 5px, 20px, rgba(192, 203, 215, 1), rgba(91,106,119,1));
       }
 
       img.adv {
@@ -987,6 +1035,10 @@ form.main_action_input {
 
 .green {
   color: green;
+}
+
+.blue{
+  color: blue;
 }
 
 .underline-dotted {
@@ -1278,6 +1330,10 @@ img,canvas {
   @include sassy-button("simple", 5px, 20px, rgba(92, 203, 15, 1), rgba(1,106,19,1));
 }
 
+.blue_button {
+  @include sassy-button("simple", 5px, 20px, rgba(92, 92, 215, 1), rgba(2,2,200,1));
+}
+
 .columns-12 {
   @include span-columns(12 omega,12);
 }
@@ -1304,8 +1360,21 @@ img,canvas {
 .right-6 {
   @include span-columns(6 omega,12);
 }
+.right-8 {
+  @include span-columns(8 omega,12);
+}
 
-#robokassa_link_wrapper {
+.new_user_registration {
+  margin-top: 3em;
+}
+
+.base-grey-panel {
+  padding: 10px;
+  background: #eee;
+  border: solid 1px #aaa;
+  @include border-radius;
+}
+.grey-panel, #robokassa_link_wrapper {
   padding: 10px;
   height: 250px;
   min-height: 250px;

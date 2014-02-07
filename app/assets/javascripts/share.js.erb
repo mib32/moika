@@ -166,7 +166,6 @@ function init(){
 
     if (cw_list !== null && cw_list !== undefined) {
       cw_list.forEach(function (car_wash) {
-      console.log(car_wash.signal_type);
 
 
         var myBalloonBody = balloon(car_wash, car_wash.url);
@@ -293,7 +292,11 @@ function hint(car_wash) {
   var part3 = '<img src="';
   var part4 = '">';
   if (car_wash.signal) {
-    var ret = wrapper_begin + part1 + part3 + "<%= asset_path('green.png') %>" + part4 + '<span class="green">Свободно</span>' + wrapper_end;
+    if (car_wash.videoned) {
+      var ret = wrapper_begin + part1 + part3 + "<%= asset_path('green.png') %>" + part4 + '<span class="green">Свободно</span>' + part3 +  "<%= asset_path('video_camera.png') %>" + part4 + wrapper_end;
+    } else {
+      var ret = wrapper_begin + part1 + part3 + "<%= asset_path('green.png') %>" + part4 + '<span class="green">Свободно</span>' + wrapper_end;
+    }
   } else {
     ret = wrapper_begin + part1 + part3 + "<%= asset_path('red.png') %>" + part4 + '<span class="red">Занято</span>' +  wrapper_end;
   }
