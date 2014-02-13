@@ -66,8 +66,10 @@ ru:
       expired: "устарела. Пожалуйста, запросите новую"
       not_found: "не найдена"
       not_locked: "не заблокирована"
-      not_saved:
-        one: "%{resource}: сохранение не удалось из-за %{count} ошибки"
-        few: "%{resource}: сохранение не удалось из-за %{count} ошибок"
-        many: "%{resource}: сохранение не удалось из-за %{count} ошибок"
-        other: "%{resource}: сохранение не удалось из-за %{count} ошибки"
+      not_saved1:
+        "%{resource}: сохранение не удалось"
+      not_saved2:
+        one: "из-за %{count} ошибки"
+        few: "из-за %{count} ошибок"
+        many: "из-за %{count} ошибок"
+        other: "из-за %{count} ошибок"

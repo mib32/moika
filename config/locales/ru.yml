@@ -93,7 +93,8 @@ ru:
   activerecord:
     models:
       car_wash: "Автомойки"
-      user: "Пользователи"
+      user: "Пользователи - автомойки"
+      normal_user: "Пользователи"
       request: "Заявки"
       message: "Сообщения администрации сайта"
     attributes:
@@ -124,6 +125,12 @@ ru:
         car_wash_title: "Название автомойки"
         password: "Пароль"
         password_confirmation: "Подтверждение пароля"
+      normal_user:
+        email: "E-mail"
+        phone: "Телефон"
+        name: "Имя"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
       request:
         name: "Имя"
         phone: "Телефон"
@@ -145,6 +152,15 @@ ru:
             contact_person:
               blank: "не может быть пустым"
             car_wash_title:
+              blank: "не может быть пустым"
+            email:
+              blank: "не может быть пустым"
+        normal_user:
+          attributes:
+            password:
+              blank: "не может быть пустым"
+              too_short: "должен быть более 3 символов"
+            email:
               blank: "не может быть пустым"
   layouts:
     admin:

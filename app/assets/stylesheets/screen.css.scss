@@ -79,6 +79,12 @@ input[type='text']{
   @include susy-grid-background;
 }
 
+#error_explanation {
+  h4 {
+    text-align: center;
+  }
+}
+
 #header {
   #logo_left {
     @include span-columns(4,12);
