@@ -1,34 +1,47 @@
 .container
   #login
     = form_for(resource, as: resource_name, :url => user_registration_path(resource), :html => {:class => "form-signin"}) do |f|
-      = devise_error_messages!
+      - if devise_error_messages?
+        %div#error_explanation
+          %h4= t('errors.messages.registration_part1')
+          %h4= t('errors.messages.registration_part2')
       %fieldset
         %div
-          = f.label :email, User.human_attribute_name("email")
+          = f.label :email do
+            = User.human_attribute_name("email")
+            %span.red &nbsp;*
           %br/
-          = f.email_field :email, :autofocus => true, class: "form-control"
+          = f.email_field :email, :autofocus => true, class: "form-control", required: "required"
         %div
-          = f.label :phone, User.human_attribute_name("phone")
+          = f.label :phone do
+            = User.human_attribute_name("phone")
+            %span.red &nbsp;*
           %br/
-          = f.phone_field :phone, class: "form-control"
+          = f.phone_field :phone, class: "form-control", required: "required"
         %div
-          = f.label :contact_person, User.human_attribute_name("contact_person")
+          = f.label :contact_person do
+            = User.human_attribute_name("contact_person")
+            %span.red &nbsp;*
           %br/
-          = f.text_field :contact_person, class: "form-control"
+          = f.text_field :contact_person, class: "form-control", required: "required"
         %div
-          = f.label :car_wash_title, User.human_attribute_name("car_wash_title")
+          = f.label :car_wash_title do
+            = User.human_attribute_name("car_wash_title")
+            %span.red &nbsp;*
           %br/
-          = f.text_field :car_wash_title, class: "form-control"
+          = f.text_field :car_wash_title, class: "form-control", required: "required"
         %div
-          = f.label :password, User.human_attribute_name("password")
+          = f.label :password do
+            = User.human_attribute_name("password")
+            %span.red &nbsp;*
           %br/
-          = f.password_field :password, class: "form-control"
+          = f.password_field :password, class: "form-control", required: "required"
         %div
-          = f.label :password_confirmation, User.human_attribute_name("password_confirmation")
+          = f.label :password_confirmation do
+            = User.human_attribute_name("password_confirmation")
+            %span.red &nbsp;*
           %br/
-          = f.password_field :password_confirmation, class: "form-control"
-        %div
-          = f.label :normal
+          = f.password_field :password_confirmation, class: "form-control", required: "required"
           %br/
         = hidden_field_tag 'user[normal]', false
         #agreement_text
