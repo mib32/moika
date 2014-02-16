@@ -28,5 +28,5 @@ Moika::Application.configure do
   config.assets.debug = true
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  config.reload_classes_only_on_change = false
+  #config.reload_classes_only_on_change = false
 end
