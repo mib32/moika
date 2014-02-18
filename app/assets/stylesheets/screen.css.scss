@@ -352,8 +352,19 @@ input[type='text']{
   }
 }
 
-.marketing {
+.marketing-top {
+  @include span-columns(3,12);
+}
+.marketing-top.omega {
+  @include span-columns(3 omega,12);
+}
+.marketing-bottom {
   @include span-columns(4,12);
+}
+.marketing-bottom.omega {
+  @include span-columns(4 omega,12);
+}
+.marketing {
   img {
     max-width:100%; 
     height:auto;
@@ -365,7 +376,6 @@ input[type='text']{
   }
 }
 .marketing.slideshow, .marketing.omega {
-  @include span-columns(4 omega,12);
   img {
     max-width:100%; 
     height:auto;
