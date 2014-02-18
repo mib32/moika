@@ -44,12 +44,12 @@
     .video#video1
       %ul.menu
         %li 
-          %h5 Камера №1
+          %h5=@car_wash.video_title1
       = render 'video_320', src: @car_wash.video_url1
     .video#video2
       %ul.menu
         %li 
-          %h5 Камера №2
+          %h5=@car_wash.video_title2
       = render 'video_320', src: @car_wash.video_url2
     #service
       - banner = @banners.where(type: 'ClientVideoBanner').first

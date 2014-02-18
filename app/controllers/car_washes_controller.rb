@@ -167,6 +167,8 @@ class CarWashesController < ApplicationController
         :updated_at,
         :videoned,
         :signal_type,
+        :video_title1,
+        :video_title2,
         actions_attributes: [:text, :action_type_text])
     end
 end
