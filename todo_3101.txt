@@ -67,3 +67,28 @@ __________
 _________
 
 Сообщения в виде плашек серых, тему выделить красным и слово ТЕМА
+
+_________
+
+Сначала все валите в один access.log, а потом разбираете по сессиям? Экие вы затейники.
+
+access_log /mnt/tmpfs/$arg_sessionpid analytics;
+
+вот такая одна строчка в ngxin.conf раскладывает сразу все сессии по файлам.
+Когда файл N минут не обновляется — уходит в обработку.
+Десятки тысяч файлов на рамдиске и те же миллионы хитов — нагрузки практически ноль.
+Ну и главное — дальнейшая обработка ну совсем простая.
+
+"http://open.ivideon.com/embed/v2/?server=200-fb548054bd9ea8dd98d0753c689533f6&amp;camera=0&amp;width=&amp;height=&amp;lang=ru"
+
+http://open.ivideon.com/embed/v2/?server=200-fb548054bd9ea8dd98d0753c689533f6&amp;camera=65536&amp;width=&amp;height=&amp;lang=ru
+
+http://open.ivideon.com/embed/v2/?server=200-fb548054bd9ea8dd98d0753c689533f6&amp;camera=65536&amp;width=&amp;height=&amp;lang=ru
+
+http://open.ivideon.com/embed/v2/?server=200-ef82357d701571c3bce35f1014bf7ac6&amp;camera=65536&amp;width=&amp;height=&amp;lang=ru
+
+3 камеры сверху
+
+машинку справа вниз в центр
+
+звезду красную
