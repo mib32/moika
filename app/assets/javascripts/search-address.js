@@ -64,8 +64,8 @@ SearchAddress.MapView.prototype = {
             balloonContentBody: balloonContent
         });
 
-        this._map.geoObjects
-            .add(this._point);
+        //this._map.geoObjects
+        //    .add(this._point);
 
         this._setMapBounds(result.properties.get('boundedBy'));
 
@@ -84,15 +84,17 @@ SearchAddress.MapView.prototype = {
         return this._point;
     },
     _setMapBounds: function (bounds) {
-        this._map.setBounds(bounds, {
+        var delta = 0.03;
+        var newBounds = [[bounds[0][0] - delta, bounds[0][1] - delta],[bounds[1][0] + delta, bounds[1][1] + delta]];
+        this._map.setBounds(newBounds, {
             checkZoomRange: true,
             duration: 200,
             callback: ymaps.util.bind(this._onSetMapBounds, this)
         });
     },
     _onSetMapBounds: function () {
-        this._point.balloon
-            .open();
+        //this._point.balloon
+        //    .open();
     }
 };
 
