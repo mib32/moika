@@ -359,10 +359,10 @@ input[type='text']{
   @include span-columns(3 omega,12);
 }
 .marketing-bottom {
-  @include span-columns(4,12);
+  @include span-columns(3,12);
 }
 .marketing-bottom.omega {
-  @include span-columns(4 omega,12);
+  @include span-columns(3 omega,12);
 }
 .marketing {
   img {
@@ -397,7 +397,7 @@ input[type='text']{
   margin-bottom: 0px;
   #car_washes_left_list {
     margin: 10px 0 0 0;
-    @include span-columns(2,12);
+    @include span-columns(3,12);
     height: ($map-height +80px);
     min-height: ($map-height +80px);
     max-height: ($map-height +80px);
@@ -452,12 +452,17 @@ input[type='text']{
         margin: 3px 0;
         width: 99%;
         height: 99%;
-        max-height: 240px;
+        max-height: 270px;
+      }
+      .video {
+        width: 100%;
+        margin:0;
+        
       }
     }
   }
   #map_container {
-    @include span-columns(10 omega,12);
+    @include span-columns(9 omega,12);
     height: ($map-height + 80px);
     max-height: ($map-height + 80px);
     h1 {

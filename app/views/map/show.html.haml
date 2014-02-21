@@ -8,7 +8,10 @@
   #adv_left
     = image_tag  Banner.where(place: 'left_1').first.file.b_190_160.url, class: 'banner low'
     = image_tag  Banner.where(place: 'left_2').first.file.b_190_280.url, class: 'banner high'
-    = image_tag  Banner.where(place: 'left_3').first.file.b_190_160.url, class: 'banner low'
+    .marketing.marketing-top.video
+      %h5.text-center= @ivideon_title1 || raw("&nbsp;")
+      = render 'video_left', ivideon_url: @ivideon_url4
+    =#image_tag  Banner.where(place: 'left_3').first.file.b_190_160.url, class: 'banner low'
 
 #map_container
   %h1.text-center#map_header= t('.map_search_header')
