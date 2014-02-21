@@ -21,8 +21,9 @@ class CarWash < ActiveRecord::Base
 
 
   accepts_nested_attributes_for :actions
-  geocoded_by :address, :latitude  => :lat, :longitude => :lon
-  
+
+  geocoded_by :address, :latitude  => :lat, :longitude => :lon,
+    if: ->(obj){ self.lat.nil? || self.lon.nil? }
 
   def activate!
     self.update(activated: true)
