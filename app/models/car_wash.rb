@@ -81,6 +81,7 @@ class CarWash < ActiveRecord::Base
       logger.debug "vatagin: #{self.action_on_map}"
       self.blink = true
       self.videoned = false
+      self.discounted= false
       self.action_on_map = false
       logger.debug "vatagin: #{self.blink}"
       logger.debug "vatagin: #{self.videoned}"
@@ -91,6 +92,7 @@ class CarWash < ActiveRecord::Base
       logger.debug "vatagin: #{self.action_on_map}"
       self.blink = false
       self.videoned = false
+      self.discounted= false
       self.action_on_map = true
       logger.debug "vatagin: #{self.blink}"
       logger.debug "vatagin: #{self.videoned}"
@@ -101,6 +103,18 @@ class CarWash < ActiveRecord::Base
       logger.debug "vatagin: #{self.action_on_map}"
       self.blink = false
       self.videoned = true
+      self.discounted= false
+      self.action_on_map = false
+      logger.debug "vatagin: #{self.blink}"
+      logger.debug "vatagin: #{self.videoned}"
+      logger.debug "vatagin: #{self.action_on_map}"
+    when /discounted/
+      logger.debug "vatagin: #{self.blink}"
+      logger.debug "vatagin: #{self.videoned}"
+      logger.debug "vatagin: #{self.action_on_map}"
+      self.blink = false
+      self.videoned = false
+      self.discounted= true
       self.action_on_map = false
       logger.debug "vatagin: #{self.blink}"
       logger.debug "vatagin: #{self.videoned}"
@@ -111,6 +125,7 @@ class CarWash < ActiveRecord::Base
       logger.debug "vatagin: #{self.action_on_map}"
       self.blink = false
       self.videoned = false
+      self.discounted= false
       self.action_on_map = false
       logger.debug "vatagin: #{self.blink}"
       logger.debug "vatagin: #{self.videoned}"

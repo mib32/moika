@@ -115,6 +115,9 @@ function init(){
     ymaps.option.presetStorage.add('my#videoned', {
     iconImageHref: "<%= asset_path('star.gif') %>"  });
 
+    ymaps.option.presetStorage.add('my#discounted', {
+    iconImageHref: "<%= asset_path('skidki.png') %>"  });
+
 
     myMap.behaviors.enable('scrollZoom');
 
@@ -163,6 +166,11 @@ function init(){
             iconImageSize: [35, 35]
         });
 
+    discountedCollection = new ymaps.GeoObjectCollection({}, {
+            preset: 'my#discounted',
+            iconImageSize: [35, 35]
+        });
+
 
     if (cw_list !== null && cw_list !== undefined) {
       cw_list.forEach(function (car_wash) {
@@ -195,6 +203,8 @@ function init(){
               greenStretchyCollection.add(placemark)
           } else if (car_wash.videoned) {
               videonedCollection.add(placemark);
+          } else if (car_wash.discounted) {
+              discountedCollection.add(placemark);
           } else {
               greenCollection.add(placemark)
           }
@@ -206,6 +216,8 @@ function init(){
               redStretchyCollection.add(placemark)
           } else if (car_wash.videoned) {
               videonedCollection.add(placemark);
+          } else if (car_wash.discounted) {
+              discountedCollection.add(placemark);
           } else {
               redCollection.add(placemark)
           }
@@ -224,6 +236,7 @@ function init(){
       myMap.geoObjects.add(greenStretchyCollection);
       myMap.geoObjects.add(redStretchyCollection);
       myMap.geoObjects.add(videonedCollection);
+      myMap.geoObjects.add(discountedCollection);
 
       myMap.storage = ymaps.geoQuery(myMap.geoObjects);
       //clusterer.add(geo_objects_ary);

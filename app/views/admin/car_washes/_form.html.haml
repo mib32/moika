@@ -52,16 +52,20 @@
       = f.radio_button :signal_type, 'normal', class: 'form-control', id: 'normal'
     .col-lg-1
       = f.label CarWash.human_attribute_name("blink"), class: 'control-label col-lg-2'
-    .col-lg-2
+    .col-lg-1
       = f.radio_button :signal_type, 'blink', class: 'form-control', id: 'blink'
     .col-lg-1
       = f.label CarWash.human_attribute_name("videoned"), class: 'control-label col-lg-2'
-    .col-lg-2
+    .col-lg-1
       = f.radio_button :signal_type, 'videoned', class: 'form-control', id: 'videoned'
     .col-lg-1
       = f.label CarWash.human_attribute_name("action_on_map"), class: 'control-label col-lg-2'
-    .col-lg-2
+    .col-lg-1
       = f.radio_button :signal_type, 'action_on_map', class: 'form-control', id: 'action_on_map'
+    .col-lg-1
+      = f.label CarWash.human_attribute_name("discounted"), class: 'control-label col-lg-2'
+    .col-lg-1
+      = f.radio_button :signal_type, 'discounted', class: 'form-control', id: 'action_on_map'
   %br
   %hr
   .row

@@ -65,7 +65,10 @@ $ ->
         updated_at: $('#map').data('updated-at')
     .done (data) => CarWashPoller.updateMap(data)
   updateMap: (data) ->
+    console.log 'hello from updater'
+    console.log data
     updated_at = data.updated_at
+    console.log data.updated_at
     $('#map').data('updated-at', updated_at)
     car_washes = data.car_washes
     if (car_washes?)
@@ -78,7 +81,6 @@ $ ->
           geoQueryResult = myMap.storage.search(searchString)
           geoQueryResult.each (o) ->
             o.getParent().remove(o)
-            console.log 'hello from updater'
             console.log cw.url
 
             if cw.signal
@@ -88,6 +90,8 @@ $ ->
                 greenStretchyCollection.add(o)
               else if cw.videoned
                 videonedCollection.add(o)
+              else if cw.discounted
+                discountedCollection.add(o)
               else
                 greenCollection.add(o)
             else
@@ -97,6 +101,8 @@ $ ->
                 redStretchyCollection.add(o)
               else if cw.videoned
                 videonedCollection.add(o)
+              else if cw.discounted
+                discountedCollection.add(o)
               else
                 redCollection.add(o)
 

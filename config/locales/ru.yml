@@ -118,6 +118,7 @@ ru:
         odn_url: "Одноклассники"
         blink: "Мигает"
         videoned: "Звезда"
+        discounted: "Скидки"
         action_on_map: "Акция"
         signal_type: "Тип сигнала на карте"
       user:
