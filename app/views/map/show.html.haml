@@ -9,7 +9,7 @@
     = image_tag  Banner.where(place: 'left_1').first.file.b_190_160.url, class: 'banner low'
     = image_tag  Banner.where(place: 'left_2').first.file.b_190_280.url, class: 'banner high'
     .marketing.marketing-top.video
-      %h5.text-center= @ivideon_title1 || raw("&nbsp;")
+      %h5.text-center= @ivideon_title4 || raw("&nbsp;")
       = render 'video_left', ivideon_url: @ivideon_url4
     =#image_tag  Banner.where(place: 'left_3').first.file.b_190_160.url, class: 'banner low'
 
