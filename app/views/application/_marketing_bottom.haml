@@ -1,19 +1,19 @@
 .marketing-top
   %h5.text-center &nbsp;
 .marketing-top
-  %h5.text-center= @ivideon_title5 || raw("&nbsp;")
+  %h5.text-center= @ivideon_title4 || raw("&nbsp;")
 .marketing-top
-  %h5.text-center= @ivideon_title6 || raw("&nbsp;")
+  %h5.text-center= @ivideon_title5 || raw("&nbsp;")
 .marketing-top.omega
-  %h5.text-center &nbsp;
+  %h5.text-center= @ivideon_title6 || raw("&nbsp;")
 .marketing.marketing-bottom.banner
   = render 'slideshow'
 //.marketing.marketing-bottom.video
 //  %iframe(width="385" height="217" src="//www.youtube.com/embed/5f46y6u7HG0" frameborder="0" allowfullscreen)
 .marketing.marketing-top.video
-  = render 'video', ivideon_url: @ivideon_url5
+  = render 'video', ivideon_url: @ivideon_url4
 .marketing.marketing-top
-  = render 'video', ivideon_url: @ivideon_url6
+  = render 'video', ivideon_url: @ivideon_url5
 .marketing.marketing-bottom.youtube.omega
-  %iframe(width="385" height="217" src="//www.youtube.com/embed/Vc6p8JOYNmQ" frameborder="0" allowfullscreen)
+  = render 'video', ivideon_url: @ivideon_url6
 

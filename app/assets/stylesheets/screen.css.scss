@@ -441,12 +441,17 @@ input[type='text']{
         }
       }
     }
+    .marketing {
+      iframe {
+        margin-top:10%;
+      }
+    }
     #adv_left {
       img.low {
         margin: 3px 0;
         width: 99%;
         height: 99%;
-        max-height: 160px;
+        max-height: 200px;
       }
       img.high {
         margin: 3px 0;
@@ -457,7 +462,6 @@ input[type='text']{
       .video {
         width: 100%;
         margin:0;
-        
       }
     }
   }
@@ -1806,8 +1810,9 @@ img,canvas {
       margin: 3px 0;
       width: 99%;
       height: 99%;
-      max-height: 5%;
+      max-height: 8%;
     }
+    
   }
   #adv1 {
     @include span-columns(11 omega,12);
