@@ -2,7 +2,8 @@ class CarWash < ActiveRecord::Base
   default_scope {order('id DESC').order('rating DESC')}
   after_create :create_empty_banners
   after_create :create_payment
-  after_validation :geocode
+  after_validation :geocode,
+    if: ->(obj){ obj.lat.nil? || obj.lon.nil? }
   after_update :update_signals, if: :signal_changed?
   before_save :update_signal_type
 
@@ -22,8 +23,7 @@ class CarWash < ActiveRecord::Base
 
   accepts_nested_attributes_for :actions
 
-  geocoded_by :address, :latitude  => :lat, :longitude => :lon,
-    if: ->(obj){ self.lat.nil? || self.lon.nil? }
+  geocoded_by :address, :latitude  => :lat, :longitude => :lon
 
   def activate!
     self.update(activated: true)

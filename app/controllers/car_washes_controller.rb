@@ -76,7 +76,7 @@ class CarWashesController < ApplicationController
       if @car_wash.update(car_wash_params)
         format.html { redirect_to @car_wash, notice: 'Car wash was successfully updated.' }
         format.json { head :no_content }
-        format.js { 
+        format.js {
           if params_actions.blank?
             render "signal_update"
           else
@@ -149,17 +149,17 @@ class CarWashesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def car_wash_params
       params.require(:car_wash).permit(
-        :main_action_text, 
-        :title, 
-        :address, 
-        :lat, 
-        :lon, 
-        :contacts, 
-        :services, 
-        :price, 
-        :zones_count, 
-        :video_url1, 
-        :video_url2, 
+        :main_action_text,
+        :title,
+        :address,
+        :lat,
+        :lon,
+        :contacts,
+        :services,
+        :price,
+        :zones_count,
+        :video_url1,
+        :video_url2,
         :signal,
         :site_url,
         :blink,
