@@ -1,5 +1,5 @@
 class CarWash < ActiveRecord::Base
-  default_scope {order('id DESC').order('rating DESC')}
+  default_scope {order('rating DESC').order('id DESC')}
   after_create :create_empty_banners
   after_create :create_payment
   after_validation :geocode,
