@@ -1,7 +1,7 @@
 class MapController < ApplicationController
   layout "main_page"
   def show
-    @car_washes = CarWash.limit(10)
+    @car_washes = CarWash.non_grey.limit(10)
     @updated_at = Time.now.utc
     #
     @ivideon_url1 = "http://open.ivideon.com/embed/v2/?server=100-9a30484492988f37c30166eefe98969c&camera=0&width=&height=&lang=ru"
