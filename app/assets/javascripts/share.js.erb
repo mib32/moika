@@ -102,15 +102,15 @@ function init(){
 
     ymaps.option.presetStorage.add('my#red_blink', {
     iconImageHref: "<%= asset_path('red_bl.gif') %>"  });
+
     ymaps.option.presetStorage.add('my#green_blink', {
     iconImageHref: "<%= asset_path('green_bl.gif') %>"  });
+
     ymaps.option.presetStorage.add('my#red_not_blink', {
     iconImageHref: "<%= asset_path('red_led.png') %>"  });
+
     ymaps.option.presetStorage.add('my#green_not_blink', {
     iconImageHref: "<%= asset_path('green_led2.png') %>"  });
-    ymaps.option.presetStorage.add('my#videoned', {
-    iconImageHref: "<%= asset_path('camera2.png') %>"  });
-    //iconImageHref: "<%= asset_path('drop.png') %>"  });
 
     ymaps.option.presetStorage.add('my#videoned', {
     iconImageHref: "<%= asset_path('star.gif') %>"  });
@@ -118,17 +118,15 @@ function init(){
     ymaps.option.presetStorage.add('my#discounted', {
     iconImageHref: "<%= asset_path('skidki.gif') %>"  });
 
+    ymaps.option.presetStorage.add('my#grey', {
+    iconImageHref: "<%= asset_path('grey_led.png') %>"  });
+
 
     myMap.behaviors.enable('scrollZoom');
 
     var myBalloonContentBodyLayout = ymaps.templateLayoutFactory.createClass(
                     '<div>$[properties.body]</div>'
                 );
-
-    videonedCollection = new ymaps.GeoObjectCollection({}, {
-        preset: 'my#videoned',
-        iconImageSize: [20, 20]
-    });
 
     greenCollection = new ymaps.GeoObjectCollection({}, {
         preset: 'my#green_not_blink',
@@ -171,6 +169,10 @@ function init(){
             iconImageSize: [35, 35]
         });
 
+    greyCollection = new ymaps.GeoObjectCollection({}, {
+            preset: 'my#grey',
+            iconImageSize: [20, 20]
+        });
 
     if (cw_list !== null && cw_list !== undefined) {
       cw_list.forEach(function (car_wash) {
@@ -195,33 +197,40 @@ function init(){
           },
           placemark = new ymaps.Placemark(coordinates, properties, options);
 
+        if (car_wash.grey) {
+          console.log('grey');
+          greyCollection.add(placemark)
+        } else {
+          console.log('non-grey');
+          if (car_wash.signal) {
+            if (car_wash.blink) {
+              greenBlinkCollection.add(placemark)
+            } else if (car_wash.action_on_map) {
+                greenStretchyCollection.add(placemark)
+            } else if (car_wash.videoned) {
+                videonedCollection.add(placemark);
+            } else if (car_wash.discounted) {
+                discountedCollection.add(placemark);
+            } else {
+                greenCollection.add(placemark)
+            }
+          }
+          else {
+            if (car_wash.blink) {
+              redBlinkCollection.add(placemark)
+            } else if (car_wash.action_on_map) {
+                redStretchyCollection.add(placemark)
+            } else if (car_wash.videoned) {
+                videonedCollection.add(placemark);
+            } else if (car_wash.discounted) {
+                discountedCollection.add(placemark);
+            } else {
+                redCollection.add(placemark)
+            }
+          }
+        }
 
-        if (car_wash.signal) {
-          if (car_wash.blink) {
-            greenBlinkCollection.add(placemark)
-          } else if (car_wash.action_on_map) {
-              greenStretchyCollection.add(placemark)
-          } else if (car_wash.videoned) {
-              videonedCollection.add(placemark);
-          } else if (car_wash.discounted) {
-              discountedCollection.add(placemark);
-          } else {
-              greenCollection.add(placemark)
-          }
-        }
-        else {
-          if (car_wash.blink) {
-            redBlinkCollection.add(placemark)
-          } else if (car_wash.action_on_map) {
-              redStretchyCollection.add(placemark)
-          } else if (car_wash.videoned) {
-              videonedCollection.add(placemark);
-          } else if (car_wash.discounted) {
-              discountedCollection.add(placemark);
-          } else {
-              redCollection.add(placemark)
-          }
-        }
+
       //(car_wash.signal) ? ( greenCollection.add(placemark) ):( redCollection.add(placemark) );
       geo_objects_ary.push(placemark);
     });
@@ -237,6 +246,7 @@ function init(){
       myMap.geoObjects.add(redStretchyCollection);
       myMap.geoObjects.add(videonedCollection);
       myMap.geoObjects.add(discountedCollection);
+      myMap.geoObjects.add(greyCollection);
 
       myMap.storage = ymaps.geoQuery(myMap.geoObjects);
       //clusterer.add(geo_objects_ary);

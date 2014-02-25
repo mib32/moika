@@ -1,5 +1,7 @@
 class CarWash < ActiveRecord::Base
   default_scope {order('rating DESC').order('id DESC')}
+  scope :grey, -> { where(grey: true) }
+  scope :non_grey, -> { where(grey: false) }
   after_create :create_empty_banners
   after_create :create_payment
   after_validation :geocode,
@@ -36,10 +38,10 @@ class CarWash < ActiveRecord::Base
   def unread_messages_count
     self.messages.unread.count
   end
- 
+
   def signal_human
     self.signal ? I18n.t('signal_open'):I18n.t('signal_close')
-    
+
   end
   def update_signals
     logger.debug "vatagin_from update signal_changed:#{self.title}:#{self.signal_changed}"
