@@ -124,6 +124,9 @@ function init(){
     ymaps.option.presetStorage.add('my#gasolined', {
     iconImageHref: "<%= asset_path('gas_station.gif') %>"  });
 
+    ymaps.option.presetStorage.add('my#repaired', {
+    iconImageHref: "<%= asset_path('repair.gif') %>"  });
+
     ymaps.option.presetStorage.add('my#grey', {
     iconImageHref: "<%= asset_path('grey_led.png') %>"  });
 
@@ -136,13 +139,11 @@ function init(){
 
     greenCollection = new ymaps.GeoObjectCollection({}, {
         preset: 'my#green_not_blink',
-        //preset: 'twirl#greenDotIcon',
         iconImageSize: [20, 20]
     });
 
     redCollection = new ymaps.GeoObjectCollection({}, {
         preset: 'my#red_not_blink',
-        //preset: 'twirl#redDotIcon',
         iconImageSize: [20, 20]
     });
 
@@ -179,11 +180,15 @@ function init(){
             iconImageSize: [45, 45]
         });
 
+    repairedCollection = new ymaps.GeoObjectCollection({}, {
+            preset: 'my#repaired',
+            iconImageSize: [45, 45]
+        });
+
     gasolinedCollection = new ymaps.GeoObjectCollection({}, {
             preset: 'my#gasolined',
             iconImageSize: [35, 35]
         });
-
 
     greyCollection = new ymaps.GeoObjectCollection({}, {
             preset: 'my#grey',
@@ -231,6 +236,8 @@ function init(){
                 brendedCollection.add(placemark);
             } else if (car_wash.gasolined) {
                 gasolinedCollection.add(placemark);
+            } else if (car_wash.repaired) {
+                repairedCollection.add(placemark);
             } else {
                 greenCollection.add(placemark)
             }
@@ -248,6 +255,8 @@ function init(){
                 brendedCollection.add(placemark);
             } else if (car_wash.gasolined) {
                 gasolinedCollection.add(placemark);
+            } else if (car_wash.repaired) {
+                repairedCollection.add(placemark);
             } else {
                 redCollection.add(placemark)
             }
@@ -273,6 +282,7 @@ function init(){
       myMap.geoObjects.add(discountedCollection);
       myMap.geoObjects.add(brendedCollection);
       myMap.geoObjects.add(gasolinedCollection);
+      myMap.geoObjects.add(repairedCollection);
 
       myMap.storage = ymaps.geoQuery(myMap.geoObjects);
       //clusterer.add(geo_objects_ary);

@@ -15,6 +15,7 @@ module Moika
   class Application < Rails::Application
     config.autoload_paths += %W(#{config.root}/app/models/banners)
 
+    config.i18n.enforce_available_locales = true
     config.i18n.locale = :ru
     config.i18n.default_locale = :ru
     config.autoload_paths += Dir["#{config.root}/lib", "#{config.root}/lib/**/"]
