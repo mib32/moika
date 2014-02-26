@@ -167,6 +167,8 @@ class CarWashesController < ApplicationController
         :updated_at,
         :videoned,
         :discounted,
+        :brended,
+        :grey,
         :signal_type,
         :video_title1,
         :video_title2,
