@@ -113,7 +113,7 @@ function init(){
     iconImageHref: "<%= asset_path('green_led2.png') %>"  });
 
     ymaps.option.presetStorage.add('my#videoned', {
-    iconImageHref: "<%= asset_path('star.gif') %>"  });
+    iconImageHref: "<%= asset_path('video.gif') %>"  });
 
     ymaps.option.presetStorage.add('my#discounted', {
     iconImageHref: "<%= asset_path('percent_10.gif') %>"  });
@@ -166,8 +166,7 @@ function init(){
 
     videonedCollection = new ymaps.GeoObjectCollection({}, {
             preset: 'my#videoned',
-            //preset: 'twirl#redDotIcon',
-            iconImageSize: [35, 35]
+            iconImageSize: [45, 45]
         });
 
     discountedCollection = new ymaps.GeoObjectCollection({}, {
@@ -263,6 +262,7 @@ function init(){
 
 
 
+      myMap.geoObjects.add(greyCollection);
       myMap.geoObjects.add(greenCollection);
       myMap.geoObjects.add(redCollection);
       myMap.geoObjects.add(greenBlinkCollection);
@@ -271,7 +271,6 @@ function init(){
       myMap.geoObjects.add(redStretchyCollection);
       myMap.geoObjects.add(videonedCollection);
       myMap.geoObjects.add(discountedCollection);
-      myMap.geoObjects.add(greyCollection);
       myMap.geoObjects.add(brendedCollection);
       myMap.geoObjects.add(gasolinedCollection);
 
