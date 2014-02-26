@@ -127,6 +127,9 @@ function init(){
     ymaps.option.presetStorage.add('my#repaired', {
     iconImageHref: "<%= asset_path('repair.gif') %>"  });
 
+    ymaps.option.presetStorage.add('my#tired', {
+    iconImageHref: "<%= asset_path('tire.gif') %>"  });
+
     ymaps.option.presetStorage.add('my#grey', {
     iconImageHref: "<%= asset_path('grey_led.png') %>"  });
 
@@ -182,11 +185,16 @@ function init(){
 
     repairedCollection = new ymaps.GeoObjectCollection({}, {
             preset: 'my#repaired',
-            iconImageSize: [45, 45]
+            iconImageSize: [35, 35]
         });
 
     gasolinedCollection = new ymaps.GeoObjectCollection({}, {
             preset: 'my#gasolined',
+            iconImageSize: [35, 35]
+        });
+
+    tiredCollection = new ymaps.GeoObjectCollection({}, {
+            preset: 'my#tired',
             iconImageSize: [35, 35]
         });
 
@@ -238,6 +246,8 @@ function init(){
                 gasolinedCollection.add(placemark);
             } else if (car_wash.repaired) {
                 repairedCollection.add(placemark);
+            } else if (car_wash.tired) {
+                tiredCollection.add(placemark);
             } else {
                 greenCollection.add(placemark)
             }
@@ -257,6 +267,8 @@ function init(){
                 gasolinedCollection.add(placemark);
             } else if (car_wash.repaired) {
                 repairedCollection.add(placemark);
+            } else if (car_wash.tired) {
+                tiredCollection.add(placemark);
             } else {
                 redCollection.add(placemark)
             }
@@ -283,6 +295,7 @@ function init(){
       myMap.geoObjects.add(brendedCollection);
       myMap.geoObjects.add(gasolinedCollection);
       myMap.geoObjects.add(repairedCollection);
+      myMap.geoObjects.add(tiredCollection);
 
       myMap.storage = ymaps.geoQuery(myMap.geoObjects);
       //clusterer.add(geo_objects_ary);
