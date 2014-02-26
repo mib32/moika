@@ -302,29 +302,32 @@ function hint(car_wash) {
   var timeNow = new Date;
   var wrapper_begin = '<div class="hint">'
   var wrapper_end = '</div>'
-  var part1 = '<h3>' 
-      + car_wash.title.toUpperCase() 
+  var part1 = '<h3>'
+      + car_wash.title.toUpperCase()
       + '</h3>'
       + '<h5 class="address">'
-      + 'Адрес: ' + car_wash.address 
+      + 'Адрес: ' + car_wash.address
       + '</h5>'
       + '<h3 class="time">'
-      + 'Время:  ' + timeNow.toLocaleTimeString() 
+      + 'Время:  ' + timeNow.toLocaleTimeString()
       + '</h3>'
       + (car_wash.main_action == null ? '' : '<h3 class="red">' + car_wash.main_action + '</h3>');
   var part3 = '<img src="';
   var part4 = '">';
-  if (car_wash.signal) {
-    if (car_wash.videoned) {
-      var ret = wrapper_begin + part1 + part3 + "<%= asset_path('green.png') %>" + part4 + '<span class="green">Свободно</span>' + part3 +  "<%= asset_path('video_camera.png') %>" + part4 + wrapper_end;
-    } else {
-      var ret = wrapper_begin + part1 + part3 + "<%= asset_path('green.png') %>" + part4 + '<span class="green">Свободно</span>' + wrapper_end;
-    }
+  if (car_wash.grey) {
+    var ret = wrapper_begin + part1 + wrapper_end;
   } else {
-    ret = wrapper_begin + part1 + part3 + "<%= asset_path('red.png') %>" + part4 + '<span class="red">Занято</span>' +  wrapper_end;
+    if (car_wash.signal) {
+      if (car_wash.videoned) {
+        var ret = wrapper_begin + part1 + part3 + "<%= asset_path('green.png') %>" + part4 + '<span class="green">Свободно</span>' + part3 +  "<%= asset_path('video_camera.png') %>" + part4 + wrapper_end;
+      } else {
+        var ret = wrapper_begin + part1 + part3 + "<%= asset_path('green.png') %>" + part4 + '<span class="green">Свободно</span>' + wrapper_end;
+      }
+    } else {
+      ret = wrapper_begin + part1 + part3 + "<%= asset_path('red.png') %>" + part4 + '<span class="red">Занято</span>' +  wrapper_end;
+    }
   }
   return ret;
-    
 }
 
 function balloon(car_wash, url) {
@@ -340,62 +343,68 @@ function balloon(car_wash, url) {
       + '<h3 class="phone">'
       + 'Телефон: ' + car_wash.contacts
       + '</h3>'
-      + '<h5 class="services">'
-      + car_wash.services
-      + '</h5>'
+      + (car_wash.servises == null ? '' : '<h5 class="services">' + car_wash.services+ '</h5>');
       + (car_wash.main_action == null ? '' : '<h3 class="red">' + car_wash.main_action + '</h3>');
 
-  if (car_wash.signal) {
-    if (car_wash.videoned) {
-      var ret = wrapper_begin + part1
-        + '<img src="'
-        + "<%= asset_path('green.png') %>"
-        + '">'
-        + '<span class="green">Свободно</span>'
-        + '<img src="'
-        + "<%= asset_path('video_camera.png') %>"
-        + '">'
-        + '<br/>'
-        + '<a href="'
-        + url
-        + '">Перейти на страницу этой мойки</a>' + wrapper_end;
-    } else {
-      var ret = wrapper_begin + part1
-        + '<img src="'
-        + "<%= asset_path('green.png') %>"
-        + '">'
-        + '<span class="green">Свободно</span>'
-        + '<br/>'
-        + '<a href="'
-        + url
-        + '">Перейти на страницу этой мойки</a>' + wrapper_end;
-    }
+  if (car_wash.grey) {
+    var ret = wrapper_begin + part1
+      + '<a href="'
+      + url
+      + '">Перейти на страницу этой мойки</a>' + wrapper_end;
   } else {
-    if (car_wash.videoned) {
-      var ret = wrapper_begin + part1
-        + '<img src="'
-        + "<%= asset_path('red.png') %>"
-        + '">'
-        + '<span class="red">Занято</span>'
-        + '<img src="'
-        + "<%= asset_path('video_camera.png') %>"
-        + '">'
-        + '<br/>'
-        + '<a href="'
-        + url
-        + '">Перейти на страницу этой мойки</a>'+ wrapper_end;
+    if (car_wash.signal) {
+      if (car_wash.videoned) {
+        var ret = wrapper_begin + part1
+          + '<img src="'
+          + "<%= asset_path('green.png') %>"
+          + '">'
+          + '<span class="green">Свободно</span>'
+          + '<img src="'
+          + "<%= asset_path('video_camera.png') %>"
+          + '">'
+          + '<br/>'
+          + '<a href="'
+          + url
+          + '">Перейти на страницу этой мойки</a>' + wrapper_end;
+      } else {
+        var ret = wrapper_begin + part1
+          + '<img src="'
+          + "<%= asset_path('green.png') %>"
+          + '">'
+          + '<span class="green">Свободно</span>'
+          + '<br/>'
+          + '<a href="'
+          + url
+          + '">Перейти на страницу этой мойки</a>' + wrapper_end;
+      }
     } else {
-      var ret = wrapper_begin + part1
-        + '<img src="'
-        + "<%= asset_path('red.png') %>"
-        + '">'
-        + '<span class="red">Занято</span>'
-        + '<br/>'
-        + '<a href="'
-        + url
-        + '">Перейти на страницу этой мойки</a>'+ wrapper_end;
+      if (car_wash.videoned) {
+        var ret = wrapper_begin + part1
+          + '<img src="'
+          + "<%= asset_path('red.png') %>"
+          + '">'
+          + '<span class="red">Занято</span>'
+          + '<img src="'
+          + "<%= asset_path('video_camera.png') %>"
+          + '">'
+          + '<br/>'
+          + '<a href="'
+          + url
+          + '">Перейти на страницу этой мойки</a>'+ wrapper_end;
+      } else {
+        var ret = wrapper_begin + part1
+          + '<img src="'
+          + "<%= asset_path('red.png') %>"
+          + '">'
+          + '<span class="red">Занято</span>'
+          + '<br/>'
+          + '<a href="'
+          + url
+          + '">Перейти на страницу этой мойки</a>'+ wrapper_end;
+      }
     }
   }
+
   return ret;
 }
 
