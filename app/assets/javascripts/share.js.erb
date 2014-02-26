@@ -116,7 +116,7 @@ function init(){
     iconImageHref: "<%= asset_path('star.gif') %>"  });
 
     ymaps.option.presetStorage.add('my#discounted', {
-    iconImageHref: "<%= asset_path('skidki.gif') %>"  });
+    iconImageHref: "<%= asset_path('percent_10.gif') %>"  });
 
     ymaps.option.presetStorage.add('my#grey', {
     iconImageHref: "<%= asset_path('grey_led.png') %>"  });
@@ -166,7 +166,7 @@ function init(){
 
     discountedCollection = new ymaps.GeoObjectCollection({}, {
             preset: 'my#discounted',
-            iconImageSize: [35, 35]
+            iconImageSize: [50, 35]
         });
 
     greyCollection = new ymaps.GeoObjectCollection({}, {
