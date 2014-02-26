@@ -121,6 +121,9 @@ function init(){
     ymaps.option.presetStorage.add('my#brended', {
     iconImageHref: "<%= asset_path('f1_percent.gif') %>"  });
 
+    ymaps.option.presetStorage.add('my#gasolined', {
+    iconImageHref: "<%= asset_path('gas_station.gif') %>"  });
+
     ymaps.option.presetStorage.add('my#grey', {
     iconImageHref: "<%= asset_path('grey_led.png') %>"  });
 
@@ -177,6 +180,12 @@ function init(){
             iconImageSize: [45, 45]
         });
 
+    gasolinedCollection = new ymaps.GeoObjectCollection({}, {
+            preset: 'my#gasolined',
+            iconImageSize: [35, 35]
+        });
+
+
     greyCollection = new ymaps.GeoObjectCollection({}, {
             preset: 'my#grey',
             iconImageSize: [20, 20]
@@ -221,6 +230,8 @@ function init(){
                 discountedCollection.add(placemark);
             } else if (car_wash.brended) {
                 brendedCollection.add(placemark);
+            } else if (car_wash.gasolined) {
+                gasolinedCollection.add(placemark);
             } else {
                 greenCollection.add(placemark)
             }
@@ -236,6 +247,8 @@ function init(){
                 discountedCollection.add(placemark);
             } else if (car_wash.brended) {
                 brendedCollection.add(placemark);
+            } else if (car_wash.gasolined) {
+                gasolinedCollection.add(placemark);
             } else {
                 redCollection.add(placemark)
             }
@@ -260,6 +273,7 @@ function init(){
       myMap.geoObjects.add(discountedCollection);
       myMap.geoObjects.add(greyCollection);
       myMap.geoObjects.add(brendedCollection);
+      myMap.geoObjects.add(gasolinedCollection);
 
       myMap.storage = ymaps.geoQuery(myMap.geoObjects);
       //clusterer.add(geo_objects_ary);

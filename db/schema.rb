@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140226150031) do
+ActiveRecord::Schema.define(version: 20140226180948) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20140226150031) do
     t.boolean  "discounted",     default: true
     t.boolean  "grey",           default: true
     t.boolean  "brended",        default: false
+    t.boolean  "gasolined",      default: false
   end
 
   create_table "comments", force: true do |t|
