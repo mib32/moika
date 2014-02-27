@@ -7,6 +7,9 @@ class CarWashesController < ApplicationController
   # GET /car_washes.json
   def index
     @car_washes = CarWash.all
+    @main_actions = Action.includes(:action_type).
+      where("action_types.text" => "main").includes(:action_text).select("action_texts.text")
+    @main_actions_hash = Hash[@main_actions.map {|o| [o.car_wash_id,o.text] }]
   end
 
   def update_map

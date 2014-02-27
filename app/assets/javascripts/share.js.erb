@@ -48,7 +48,6 @@ var myMap,
 
 function updateTraffic() {
   trafficProvider.update();
-  //console.log(trafficProvider.state.get('level'));
   var level = trafficProvider.state.get('level');
   if (level === undefined) {
     return false;
@@ -71,7 +70,6 @@ function updateTraffic() {
 
 function init(){
 
-  console.log('map init');
 
     myMap = window.map = new ymaps.Map ("map", {
         center: [55.76, 37.64],
@@ -226,11 +224,11 @@ function init(){
           },
           placemark = new ymaps.Placemark(coordinates, properties, options);
 
+        if (!!car_wash.main_action) log(car_wash.main_action);
+
         if (car_wash.grey) {
-          console.log('grey');
           greyCollection.add(placemark)
         } else {
-          console.log('non-grey');
           if (car_wash.signal) {
             if (car_wash.blink) {
               greenBlinkCollection.add(placemark)
@@ -331,7 +329,6 @@ $(document).ready(function() {
 
   if ( $('#car_wash_name').length > 0 ) {
     $('#map').hide();
-    console.log('hide');
     ymaps.ready(init);
     window.setInterval(updateTraffic,1*10*1000)
   }
