@@ -47,7 +47,7 @@ var myMap,
   ];
 
 function loadIvideon() {
-  console.log('loadIvideon');
+  console.log('loadIvideon begin');
   var youtube_src1 = $('#youtube_top_1').data('youtube-src');
   $('#youtube_top_1 iframe').attr('src', youtube_src1);
 
@@ -62,11 +62,11 @@ function loadIvideon() {
   for (i in urls) {
     var url = urls[i];
     var target = '#video_top_' + (++i) + ' .iv-embed .iv-v iframe';
-    console.log(target);
     if (!!url) {
       $(target).attr('src', url)
     };
   }
+  console.log('loadIvideon end');
 };
 
 function updateTraffic() {
@@ -93,6 +93,7 @@ function updateTraffic() {
 
 function init(cw_list){
 
+    console.clear();
     console.log('map init begin');
     myMap = window.map = new ymaps.Map ("map", {
         center: [55.76, 37.64],
@@ -224,7 +225,6 @@ function init(cw_list){
             iconImageSize: [20, 20]
         });
 
-    console.log('cw_list:' + cw_list)
     if (cw_list !== null && cw_list !== undefined) {
       cw_list.forEach(function (car_wash) {
 
@@ -322,8 +322,8 @@ function init(cw_list){
       myMap.storage = ymaps.geoQuery(myMap.geoObjects);
       //clusterer.add(geo_objects_ary);
       //myMap.geoObjects.add(clusterer);
-      loadIvideon();
       console.log('map init end');
+      //setTimeout(loadIvideon(), 10000);
 }
 
 

@@ -108,4 +108,5 @@ gem 'prawn', :git => "https://github.com/prawnpdf/prawn.git"
 gem 'faye'
 gem 'private_pub'
 
+gem 'oj'
 gem 'yajl-ruby'
