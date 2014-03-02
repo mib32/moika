@@ -91,7 +91,7 @@ function updateTraffic() {
   $('#traffic #level_desc').html( trafficText[level-1]);
 };
 
-function init(){
+function init(cw_list){
 
     console.log('map init begin');
     myMap = window.map = new ymaps.Map ("map", {
@@ -224,6 +224,7 @@ function init(){
             iconImageSize: [20, 20]
         });
 
+    console.log('cw_list:' + cw_list)
     if (cw_list !== null && cw_list !== undefined) {
       cw_list.forEach(function (car_wash) {
 

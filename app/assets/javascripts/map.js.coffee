@@ -1,13 +1,13 @@
-/* yandex map on main page */
-$(document).ready( function() {
-  function getCarWashes() {
-    $.ajax('/car_washes', {
+# yandex map on main page
+$ ->
+  getCarWashes = ->
+    $.ajax '/car_washes',
       dataType: "json",
       cache: false,
-      success: function(json) {
-        cw_list = [];
-        json.forEach( function(row) {
-          cw_list.push({
+      success: (json) ->
+        cw_list = []
+        json.forEach (row) ->
+          cw_list.push
             coords: [row.lat, row.lon],
             id: row.id,
             address: row.address,
@@ -27,14 +27,8 @@ $(document).ready( function() {
             tired: row.tired,
             signal_type: row.signal_type,
             grey: row.grey
-          });
-        })
-        ymaps.ready(init);
-      }
-    })
-  };
-  getCarWashes();
+        ymaps.ready(init(cw_list))
+  getCarWashes.call()
   window.setInterval(updateTraffic,1*60*1000)
-});
 
 

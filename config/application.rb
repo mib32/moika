@@ -5,6 +5,7 @@ require "active_record/railtie"
 require "action_controller/railtie"
 require "action_mailer/railtie"
 require "sprockets/railtie"
+require 'multi_json'
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -20,5 +21,6 @@ module Moika
     config.i18n.default_locale = :ru
     config.autoload_paths += Dir["#{config.root}/lib", "#{config.root}/lib/**/"]
     config.assets.precompile += %w( admin.css main_page.js admin.js)
+    MultiJson.use :yajl
   end
 end
