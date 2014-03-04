@@ -1,34 +1,39 @@
 # yandex map on main page
+
+class @MapRenderer
+
+  @default_settings :
+    map:
+      center: [55.76, 37.64]
+      zoom: 11
+
+  @init: =>
+    @settings = @default_settings
+    console.log 'map renderer init called'
+    @myMap = window.map = new window.ymaps.Map("map", @settings.map)
+    @myMap.behaviors.enable('scrollZoom')
+    @searchControl = new SearchAddress(@myMap, $('#map_search form'))
+    @trafficControl = new ymaps.control.TrafficControl({providerKey: 'traffic#actual', shown: true})
+    @trafficProvider = @trafficControl.getProvider('traffic#actual')
+    @myMap.controls
+      # Кнопка изменения масштаба.
+      .add('zoomControl', { left: 5, top: 5 })
+      # Список типов карты
+      .add('typeSelector')
+      # Стандартный набор кнопок
+      .add('mapTools', { left: 35, top: 5 })
+      .add('routeEditor', { left: 130, top: 5 })
+      .add(@trafficControl, {top: 50, left: 40})
+    #getCarWashes()
+    console.log "map renderer init end"
+
 $ ->
-  getCarWashes = ->
-    $.ajax '/car_washes',
-      dataType: "json",
-      cache: false,
-      success: (json) ->
-        cw_list = []
-        json.forEach (row) ->
-          cw_list.push
-            coords: [row.lat, row.lon],
-            id: row.id,
-            address: row.address,
-            title: row.title,
-            signal: row.signal,
-            url: row.url.slice(0,-5),
-            contacts: row.contacts,
-            services: row.services,
-            blink: row.blink,
-            main_action: row.main_action,
-            action_on_map: row.action_on_map,
-            videoned: row.videoned,
-            discounted: row.discounted,
-            brended: row.brended,
-            gasolined: row.gasolined,
-            repaired: row.repaired,
-            tired: row.tired,
-            signal_type: row.signal_type,
-            grey: row.grey
-        ymaps.ready(init(cw_list))
-  getCarWashes.call()
+  #renderer = new MapRenderer
+  ymaps.ready(MapRenderer.init)
+  CarWashLoader.load PlacemarksRenderer.render
+
+###
   window.setInterval(updateTraffic,1*60*1000)
+###
 
 

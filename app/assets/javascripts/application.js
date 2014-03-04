@@ -14,9 +14,11 @@
 //= require jquery_ujs
 //= require jquery.purr
 //= require jquery.ui.all
-//= require search-address
-//= require share
+//= require ru
 //= require car_washes
+//= require toggle_agreement_submit
+//= require weather
+//= require date
 //= require requests
 //= require messages
 //= require private_pub

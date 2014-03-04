@@ -14,7 +14,13 @@
 //= require jquery_ujs
 //= require jquery.cycle2.min
 //= require jquery.cycle2.carousel.min
-//= require share
+//= require ru
 //= require search-address
-//= require map
+//= require car_wash_loader
+//= require placemarks_renderer
 //= require car_washes
+//= require hint
+//= require balloon
+//= require map
+//= require weather
+//= require date
