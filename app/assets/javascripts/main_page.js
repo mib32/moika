@@ -24,3 +24,4 @@
 //= require map
 //= require weather
 //= require date
+//= require load_ivideon

@@ -7,7 +7,7 @@ class @MapRenderer
       center: [55.76, 37.64]
       zoom: 11
 
-  @init: =>
+  @init:  =>
     @settings = @default_settings
     console.log 'map renderer init called'
     @myMap = window.map = new window.ymaps.Map("map", @settings.map)
@@ -24,13 +24,25 @@ class @MapRenderer
       .add('mapTools', { left: 35, top: 5 })
       .add('routeEditor', { left: 130, top: 5 })
       .add(@trafficControl, {top: 50, left: 40})
-    #getCarWashes()
     console.log "map renderer init end"
+    dfd = $.Deferred()
+    flag = $('.ymaps-map').length
+    while flag == 0
+      flag = $('.ymaps-map').length
+    dfd.resolve()
+    return dfd.promise()
 
 $ ->
   #renderer = new MapRenderer
-  ymaps.ready(MapRenderer.init)
-  CarWashLoader.load PlacemarksRenderer.render
+  #setTimeout(ymaps.ready(MapRenderer.init()),0)
+  #setTimeout(CarWashLoader.load PlacemarksRenderer.render, 0)
+  ymaps.ready (->
+    $.when(MapRenderer.init()).done ->
+        console.log "CarWashLoader"
+        $.when(CarWashLoader.load()).done (data) ->
+          $.when(PlacemarksRenderer.render()).done (data) ->
+            loadIvideon()
+  )
 
 ###
   window.setInterval(updateTraffic,1*60*1000)

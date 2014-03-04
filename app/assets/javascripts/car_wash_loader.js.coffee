@@ -1,11 +1,9 @@
 class @CarWashLoader
   constructor: ->
+  @cw_list = []
 
-  @load: (on_load_end_callback) ->
-    console.log 'getCarWashes called'
-    @cw_list = []
+  @load: ->
     $.getJSON '/car_washes', (json) ->
-      console.log 'getCarWashes.success called'
       for row in json
         CarWashLoader.cw_list.push
           coords: [row.lat, row.lon],
@@ -27,8 +25,4 @@ class @CarWashLoader
           tired: row.tired,
           signal_type: row.signal_type,
           grey: row.grey
-      on_load_end_callback.call()
-      console.log "cw_list.length: #{CarWashLoader.cw_list.length}"
-      console.log 'getCarWashes.success end'
-    console.log 'getCarWashes end'
 
