@@ -81,8 +81,8 @@ ActiveRecord::Schema.define(version: 20140226213645) do
     t.string   "signal_type"
     t.string   "video_title1"
     t.string   "video_title2"
-    t.boolean  "discounted",     default: true
-    t.boolean  "grey",           default: true
+    t.boolean  "discounted",     default: false
+    t.boolean  "grey",           default: false
     t.boolean  "brended",        default: false
     t.boolean  "gasolined",      default: false
     t.boolean  "repaired",       default: false
@@ -220,12 +220,12 @@ ActiveRecord::Schema.define(version: 20140226213645) do
   add_index "subscribes", ["normal_user_id"], name: "index_subscribes_on_normal_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "",   null: false
-    t.string   "encrypted_password",     default: "",   null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,    null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -236,7 +236,6 @@ ActiveRecord::Schema.define(version: 20140226213645) do
     t.string   "phone"
     t.string   "contact_person"
     t.string   "car_wash_title"
-    t.boolean  "normal",                 default: true
   end
 
   add_index "users", ["car_wash_id"], name: "index_users_on_car_wash_id", using: :btree

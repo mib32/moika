@@ -373,19 +373,15 @@ input[type='text']{
     max-width: 100%; 
     min-height: 220px; 
     height:auto;
+    border: solid 1px #333;
   }
 }
 .marketing.slideshow, .marketing.omega {
   img {
-    max-width:100%; 
-    height:auto;
     float: right;
   }
   iframe{
     float: right;
-    max-width: 100%; 
-    min-height: 220px; 
-    height:auto;
   }
 }
 
