@@ -65,7 +65,7 @@
         %th
       - @guests.each_with_index do |user,i|
         %tr{id: "#{user.id}"}
-          %td= i+1
+          %td.order_num{id: "#{i+1}"}= i+1
           %td= user.email
           %td= user.phone 
           %td= user.car_wash_title
