@@ -57,10 +57,10 @@
     %table.table.admin_users
       %tr
         %th N п/п
-        %th email
-        %th
-        %th
-        %th
+        %th=User.human_attribute_name(:email)
+        %th=User.human_attribute_name(:phone)
+        %th=User.human_attribute_name(:car_wash_title)
+        %th=User.human_attribute_name(:contact_person)
         %th
       - @guests.each_with_index do |user,i|
         %tr
