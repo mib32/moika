@@ -4,6 +4,13 @@
   padding-top: 90px;
 }
 
+table.admin_users {
+  border-collapse: collapse;
+  td {
+    border: 1px solid black;
+  }
+}
+
 button.btn-primary {
   a {
     color: #fff;
