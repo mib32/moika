@@ -62,16 +62,18 @@
         %th=User.human_attribute_name(:car_wash_title)
         %th=User.human_attribute_name(:contact_person)
         %th
+        %th
       - @guests.each_with_index do |user,i|
-        %tr
+        %tr{id: "#{user.id}"}
           %td= i+1
           %td= user.email
           %td= user.phone 
           %td= user.car_wash_title
           %td= user.contact_person
           %td
-            %button.btn.btn-primary
-              = link_to "Добавить в клиeнты", admin_add_car_wash_path(user)
+            = link_to "Добавить в клиeнты", admin_add_car_wash_path(user), class: 'btn btn-primary'
+          %td
+            = link_to "Удалить", admin_user_path(user), method: :delete, remote: true, data: {confirm: t('are_you_sure')}, class: 'btn btn-danger'
   .tab-pane.fade#admins
     %h5 Список администраторов сайта
     %table.table

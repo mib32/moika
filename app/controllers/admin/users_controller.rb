@@ -34,8 +34,12 @@ class Admin::UsersController < AdminController
   end
 
   def destroy
+    @user_id = params[:id]
     @user.destroy
-    redirect_to admin_users_path, :notice => "User deleted."
+    #redirect_to admin_users_path, :notice => "User deleted."
+    respond_to do |format|
+      format.js
+    end
   end
 
   protected
