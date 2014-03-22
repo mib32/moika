@@ -15,6 +15,10 @@ class @PlacemarksRenderer
         name:'twirl#redStretchyIcon'
         imageSize: Array(2)
       }
+      {
+        name:'twirl#greyIcon'
+        imageSize: [20,20]
+      }
 
     ]
     custom: [
@@ -104,7 +108,8 @@ class @PlacemarksRenderer
         @geo_objects_ary.push(placemark)
 
         if car_wash.grey
-          @geoObjectCollections['my#grey'].add(placemark)
+          #@geoObjectCollections['my#grey'].add(placemark)
+          @geoObjectCollections['twirl#greyIcon'].add(placemark)
         else
           if car_wash.signal
             if car_wash.blink
