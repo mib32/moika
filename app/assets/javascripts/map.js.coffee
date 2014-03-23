@@ -41,7 +41,7 @@ $ ->
         console.log "CarWashLoader"
         $.when(CarWashLoader.load()).done (data) ->
           $.when(PlacemarksRenderer.render()).done (data) ->
-            setTimeOut(loadIvideon(), 100000)
+            #setTimeOut(loadIvideon(), 100000)
   )
 
 ###

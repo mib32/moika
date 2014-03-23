@@ -5,7 +5,8 @@ class MapController < ApplicationController
     @updated_at = Time.now.utc
     #
     @ivideon_url1 = "http://open.ivideon.com/embed/v2/?server=100-8ed6cef5f7edd5cd9453212fb82f88e0&camera=0&width=&height=&lang=ru "
-    @ivideon_title1 = CarWash.where(video_url2: @ivideon_url1).first.try(:video_title2)
+    @car_wash1 = CarWash.where(video_url2: @ivideon_url1).first
+    @ivideon_title1 = @car_wash1.try(:video_title2)
     @ivideon_url2 = "http://open.ivideon.com/embed/v2/?server=200-ef82357d701571c3bce35f1014bf7ac6&camera=0&width=&height=&lang=ru"
     @ivideon_title2 = CarWash.where(video_url1: @ivideon_url2).first.try(:video_title1)
     # Second Greytek-1
