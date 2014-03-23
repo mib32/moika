@@ -7,8 +7,8 @@
 .marketing-top.omega
   %h5.text-center= @ivideon_title3 || raw("&nbsp;")
 .marketing.marketing-top.youtube#youtube_top_1{data: {youtube_src: "//www.youtube.com/embed/qeIeS8RDD98"}}
-  //%iframe(width="385" height="217" src="//www.youtube.com/embed/qeIeS8RDD98" frameborder="0" allowfullscreen)
-  %iframe(width="385" height="217" src="about:blank" frameborder="0" allowfullscreen)
+  %iframe(width="385" height="217" src="//www.youtube.com/embed/qeIeS8RDD98" frameborder="0" allowfullscreen)
+  //%iframe(width="385" height="217" src="about:blank" frameborder="0" allowfullscreen)
 .marketing.marketing-top.video#video_top_1{data: {ivideon_url1: @ivideon_url1}}
   =#render 'video', ivideon_url: @ivideon_url1
   =#render 'video', ivideon_url: 'about:blank'
