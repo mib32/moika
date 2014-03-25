@@ -9,20 +9,23 @@
 .tab-content
   .tab-pane.fade.active.in#clients
     %h5 Список клиентов
-    %table.table
+    %table.table.admin_users
       %tr
         %th N п/п
-        %th email
-        %th роль
-        %th мойка
-        %th 
+        %th=User.human_attribute_name(:email)
+        %th=User.human_attribute_name(:phone)
+        %th=User.human_attribute_name(:car_wash_title)
+        %th=User.human_attribute_name(:contact_person)
+        %th
+        %th
 
       - @clients.each_with_index do |client, i|
         %tr
           %td= i+1
           %td= client.email
-          %td= client.roles.first.name unless client.roles.first.nil?
+          %td= client.phone 
           %td= client.car_wash.title unless client.car_wash.nil?
+          %td= client.contact_person
           %td= link_to(t('.link_to_car_wash_edit'), edit_car_wash_path(client.car_wash), class: "btn btn-primary btn-sm") unless client.car_wash.nil?
           %td= link_to t('.link_to_message'), "#messagemodal_#{client.id}", class: "btn btn-primary btn-sm", data: {toggle: "modal"}
         .modal.fade{role: "dialog", id: "messagemodal_#{client.id}"}
