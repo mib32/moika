@@ -22,7 +22,8 @@ class MapController < ApplicationController
     # First Greytek-1
     @ivideon_url4 = "http://open.ivideon.com/embed/v2/?server=200-fb548054bd9ea8dd98d0753c689533f6&camera=0&width=&height=&lang=ru"
     @car_wash4 = CarWash.where(video_url1: @ivideon_url4).first
-    @ivideon_title4 = @car_wash4.try(:video_title1)
+    #@ivideon_title4 = @car_wash4.try(:video_title1)
+    @ivideon_title4 = "Видеопрезентация мойки"
 
     # First Greytek-6
     @ivideon_url5 = "http://open.ivideon.com/embed/v2/?server=200-6a0ca794d128a7696136f9c0044d7924&camera=0&width=&height=&lang=ru"
@@ -32,6 +33,7 @@ class MapController < ApplicationController
     # Second Greytek-6
     @ivideon_url6 = "http://open.ivideon.com/embed/v2/?server=200-6a0ca794d128a7696136f9c0044d7924&camera=65536&width=&height=&lang=ru"
     @car_wash6 = CarWash.where(video_url2: @ivideon_url6).first
-    @ivideon_title6 = @car_wash6.try(:video_title2)
+    #@ivideon_title6 = @car_wash6.try(:video_title2)
+    @ivideon_title6 = "Презентация сервиса"
   end
 end
