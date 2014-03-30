@@ -10,12 +10,17 @@
         .col-sm-2
           = f.submit t("save_button"), class: 'btn btn-danger'
 .row.bordered
-  .col-md-4
+  .col-md-3
     - banner = @banners.where(place: 'top_1').first
     = render 'banner', banner: banner, banner_url: banner.file.b_385_220.url, version: :b_385_220
-  .col-md-4
-    = image_tag 'video.png', size: "380x285"
-  .col-md-4
+  .col-md-3
+    - banner = @banners.where(place: 'top_1').first
+    = render 'banner', banner: banner, banner_url: banner.file.b_385_220.url, version: :b_385_220
+    =#image_tag 'video.png', size: "380x285"
+  .col-md-3
+    - banner = @banners.where(place: 'top_2').first
+    = render 'banner', banner: banner, banner_url: banner.file.b_385_220.url, version: :b_385_220
+  .col-md-3
     - banner = @banners.where(place: 'top_2').first
     = render 'banner', banner: banner, banner_url: banner.file.b_385_220.url, version: :b_385_220
 
