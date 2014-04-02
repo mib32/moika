@@ -3,20 +3,17 @@
     .modal-content
       .modal-header
         .button(type="button" class="close" data-dismiss="modal" aria-hidden="true") &times;
-        .modal-title
-          %h4
-            = "#{banner.id}: #{banner.text}"
-      .modal-body
-        =form_for [:admin, banner] do |f|
-          #banner{id: banner.id, data: {url: admin_banner_path(banner), token: form_authenticity_token, version: version }}
-            %ul{id: "image-container_#{banner.id}", class: 'image-container'}
-              %li
-                %h4 Старый
-                = image_tag banner_url, size: '250x150'
-            %div{id: "filelist_#{banner.id}", class: 'filelist'}
-      .modal-footer
-        %button(type="button" class="btn btn-default" data-dismiss="modal")= t('close')
-        %button(type="button" class="btn btn-danger" id="deletefiles_#{banner.id}")
-          = link_to t('delete_button'), admin_delete_file_path(banner.id), data: {:confirm => t('are_you_sure')}, :method => :delete, :remote=>true, class: "delete_file"
-        %button(type="button" class="btn btn-success" id="pickfiles_#{banner.id}")= t('banners.modal.choose_file')
-        %button(type="submit" class="btn btn-primary" id="uploadfiles_#{banner.id}")= t('banners.modal.submit_update_image')
+        %ul.nav.nav-tabs#users
+          %li.active
+            =link_to t('.image_upload'), "#image_upload", data:{toggle: "tab"}
+          %li
+            =link_to t('.youtube_uploud'), "#youtube_upload", data:{toggle: "tab"}
+          %li
+            =link_to t('.ivideon_upload'), "#ivideon_upload", data:{toggle: "tab"}
+          %li
+            =link_to t('.slideshow_upload'), "#slideshow_upload", data:{toggle: "tab"}
+      .tab-content
+        = render 'image_upload_tab', banner: banner, version: version, banner_url: banner_url
+        = render 'youtube_upload_tab'
+        = render 'ivideon_upload_tab'
+        = render 'slideshow_upload_tab'

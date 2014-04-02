@@ -1,5 +1,18 @@
 namespace :setup do
   desc "Add 4 emty banners to each Car Wash"
+
+  task add_empty_admin_banners: :environment do
+    puts "Add admin banners"
+    AdminBanner.where("place like '%top%'").delete_all
+
+    AdminYoutubeBanner.create!(place: 'top_1', youtube_url: '//www.youtube.com/embed/qeIeS8RDD98')
+    AdminImageBanner.create!(place: 'top_2')
+    AdminIvideonBanner.create!(place: 'top_3')
+    AdminImageBanner.create!(place: 'top_4')
+
+
+  end
+
   task add_empty_client_banners: :environment do
     puts "Add empty banners"
     banners_data = [
@@ -16,6 +29,13 @@ namespace :setup do
         cw.banners << ClientBanner.new(data)
       end
       puts
+    end
+  end
+
+  task add_admin_type_banners: :environment do
+    puts "Add admin type to banners with empty type"
+    Banner.where(type: nil).find_each do |banner|
+      banner.update(type: "AdminBanner")
     end
   end
 
@@ -42,6 +62,29 @@ namespace :setup do
       cw.banners.where(type: 'ClientVideoBanner').destroy_all
       cw.banners << ClientVideoBanner.new
     end
+  end
+
+  task create_banners_config: :environment do
+    puts "create bunners config"
+    places = [
+      'top_1',
+      'top_2',
+      'top_3',
+      'top_4',
+      'bottom_1',
+      'bottom_2',
+      'bottom_3',
+      'bottom_4',
+    ]
+
+    BannersConfig.create!(place: 'top_1', mode: "youtube")
+    BannersConfig.create!(place: 'top_2', mode: "image")
+    BannersConfig.create!(place: 'top_3', mode: "ivideon")
+    BannersConfig.create!(place: 'top_4', mode: "image")
+    BannersConfig.create!(place: 'bottom_1', mode: "slideshow")
+    BannersConfig.create!(place: 'bottom_2', mode: "youtube")
+    BannersConfig.create!(place: 'bottom_3', mode: "ivideon")
+    BannersConfig.create!(place: 'bottom_4', mode: "youtube")
   end
 
   task add_first_payment: :environment do

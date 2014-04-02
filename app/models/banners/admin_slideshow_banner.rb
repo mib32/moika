@@ -1,0 +1,2 @@
+class AdminSlideshowBanner < AdminBanner
+end

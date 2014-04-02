@@ -9,7 +9,7 @@ $ ->
     uploader = new plupload.Uploader(
       runtimes: "html5,flash,silverlight,browserplus"
       browse_button: "pickfiles_" + id
-      container: "image-container_" + id 
+      container: "image-container_" + id
       max_file_size: "10000kb"
       url: $('#banner_' + id).data('url')
       authenticity_token: $('#banner').data('token')
@@ -39,7 +39,8 @@ $ ->
       console.log('progress' + file.percent)
 
     uploader.bind "Init", (up, params) ->
-   
+      #console.log up
+
     #$("#filelist").html "<div>Current runtime: " + params.runtime + "</div>"
     #$("#filelist").append "<div>container: " + params.container + "</div>"
 
@@ -49,9 +50,10 @@ $ ->
 
     uploader.bind "Error", (up, err) ->
       $(".filelist").html('')
+      console.log(up.settings)
+      console.log(err)
       if err.code == -600
         $(".filelist").append "<div>Ошибка: " + "<b class='red'>" + err.message + "</b>" + ((if err.file then ", Размер файла не может превышать: " + up.settings.max_file_size else "")) + "</div>"
-        console.log(up.settings)
       else
         $(".filelist").append "<div>Ошибка: " + err.code + ", Message: " + err.message + ((if err.file then ", File: " + err.file.name else "")) + "</div>"
       up.refresh() # Reposition Flash/Silverlight
@@ -104,15 +106,18 @@ $ ->
 #####################################################
 # modal dialog for image uploading
 
-  $(document).on 'mouseover', 'img.banner', (e) ->
+  $(document).on 'mouseover', '.banner', (e) ->
     $(this).css('border', 'solid 2px red')
     $(this).tooltip('show')
-  $(document).on 'mouseout', 'img.banner', (e) ->
+  $(document).on 'mouseout', '.banner', (e) ->
     $(this).css('border', '2px solid blue')
     $(this).tooltip('hide')
-  $(document).on 'click', 'img.banner', (e) ->
+
+  $(document).on 'click', '.banner', (e) ->
+    e.preventDefault()
     banner_id = $(this).data('id')
     $('#bannermodal_' + banner_id).modal('toggle')
+    console.log '#bannermodal_' + banner_id
 
   $(document).on "ajax:success", "a.delete_file", (e, data, status, xhr) ->
     arr = $('ul.image-container li')
@@ -125,4 +130,4 @@ $ ->
     console.log(data)
     version =  $('#banner_' + id).data('version')
     url = data.file[version].url
-    $('img#' + id).prop('src',url) 
+    $('img#' + id).prop('src',url)

@@ -35,7 +35,7 @@ class BannerUploader < CarrierWave::Uploader::Base
   version :b_380_540, :if => :is_client_thin_bottom?
 
 
-  
+
   version :b_385_220 do
     process :resize_to_limit => [385, 220]
   end
@@ -109,8 +109,6 @@ class BannerUploader < CarrierWave::Uploader::Base
   end
 
   def is_fat_long? picture
-    image = MiniMagick::Image.open(picture.path)
-    Rails.logger.debug "minimagick:width: #{image[:width]} height: #{image[:height]}"
     (model.comment? || model.request?) && model.fat_long?
   end
 

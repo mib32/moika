@@ -1,0 +1,2 @@
+class AdminYoutubeBanner < AdminBanner
+end

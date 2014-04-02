@@ -3,10 +3,13 @@ class Admin::BannersController < AdminController
   skip_before_filter :verify_authenticity_token, :only => [:update]
 
   def index
-    @banners = Banner.all
-    @banners_left = Banner.left
-    @banners_top = Banner.top
-    @banners_bottom = Banner.bottom
+    @ivideon_url2 = "http://open.ivideon.com/embed/v2/?server=200-ef82357d701571c3bce35f1014bf7ac6&camera=0&width=&height=&lang=ru"
+    @car_wash2 = CarWash.where(video_url1: @ivideon_url2).first
+    @banners = AdminBanner.all
+    @image_banners = AdminImageBanner.all
+    @youtube_banners = AdminYoutubeBanner.all
+    @ivideon_banners = AdminIvideonBanner.all
+    @slideshow_banners = AdminSlideshowBanner.all
     @top_text_banner = TextBanner.where(place: 'top').first
   end
 
@@ -14,14 +17,14 @@ class Admin::BannersController < AdminController
   end
 
   def new
-    @banner = Banner.new
+    @banner = AdminBanner.new
   end
 
   def edit
   end
 
   def create
-    @banner = Banner.new(banner_params)
+    @banner = AdminBanner.new(banner_params)
     @banner.file = banner_params[:file]
     @banner.save!
       #render :nothing => true
@@ -30,9 +33,9 @@ class Admin::BannersController < AdminController
 
   def update
     respond_to do |format|
+      logger.debug { "vatagin #{banner_params}" }
       if @banner.update(banner_params)
         #format.html { redirect_to [:admin, @banner], notice: 'Banner was successfully updated.' }
-        logger.debug(banner_params)
         format.json
         format.js {
           render js: 'var label = $("#top_text_banner form label");
@@ -65,7 +68,7 @@ class Admin::BannersController < AdminController
 
   private
     def set_banner
-      @banner = Banner.find(params[:id])
+      @banner = AdminBanner.find(params[:id])
     end
 
     def banner_params

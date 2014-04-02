@@ -2,6 +2,7 @@ class BannersController < ApplicationController
   before_action :set_banner, only: [:update, :destroy, :delete_file]
   skip_before_filter :verify_authenticity_token, :only => [:update]
 
+  
   def index
     @car_wash = CarWash.find(params[:car_wash_id])
     @banners = @car_wash.banners

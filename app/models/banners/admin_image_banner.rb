@@ -1,0 +1,2 @@
+class AdminImageBanner < AdminBanner
+end
