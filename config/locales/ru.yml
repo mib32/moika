@@ -179,13 +179,15 @@ ru:
       index:
         clients: "Автомойки"
         admins: "Администраторы"
-        guests: "Гости"
+        guests: "Гости(автомойки)"
+        normal_users: "Пользователи"
         link_to_message: "Написать сообщение"
         link_to_car_wash_edit: "Панель управления мойки"
         submit_sending_message: "Отправить"
         modal_title: "Сообщение для"
         from: "От"
         to: "Кому"
+      
     static_pages:
       index:
         header: "Список статических страниц сайта"

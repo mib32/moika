@@ -111,3 +111,4 @@ gem 'private_pub'
 
 gem 'oj'
 gem 'yajl-ruby'
+gem 'psych', '~> 2.0.5'

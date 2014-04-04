@@ -6,6 +6,8 @@
     =link_to t('.guests'), "#guests", data:{toggle: "tab"}
   %li
     =link_to t('.admins'), "#admins", data:{toggle: "tab"}
+  %li
+    =link_to t('.normal_users'), "#normal_users", data:{toggle: "tab"}
 .tab-content
   .tab-pane.fade.active.in#clients
     %h5 Список клиентов
@@ -56,7 +58,7 @@
                   %button(type="button" class="btn btn-default" data-dismiss="modal")= t('close')
                   %button(type="submit" class="btn btn-primary")= t('.submit_sending_message')
   .tab-pane.fade#guests
-    %h5 Список гостей
+    %h5 Список гостей(автомойки)
     %table.table.admin_users
       %tr
         %th N п/п
@@ -90,3 +92,37 @@
           %td= user.email
           %td= user.roles.first.name unless user.roles.first.nil?
 
+  .tab-pane.fade#admins
+    %h5 Список администраторов сайта
+    %table.table
+      %tr
+        %th email
+        %th Роль
+
+      - @admins.each_with_index do |user,i|
+        %tr
+          %td= i+1
+          %td= user.email
+          %td= user.roles.first.name unless user.roles.first.nil?
+
+  .tab-pane.fade#normal_users
+    %h5 Список пользователей
+    %table.table
+      %tr
+        %th N п/п
+        %th Имя
+        %th email
+        %th Телефон
+        %th Зарегистрировался
+        %th Время последнего входа
+        %th IP адрес
+
+      - @normal_users.each_with_index do |user,i|
+        %tr
+          %td= i+1
+          %td= user.name
+          %td= user.email
+          %td= user.phone
+          %td= user.created_at
+          %td= user.last_sign_in_at
+          %td= user.last_sign_in_ip
