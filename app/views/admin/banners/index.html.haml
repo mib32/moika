@@ -1,21 +1,23 @@
-#banners{data: {ids: @banners.ids}}
+#banners{data: {ids: @image_banners.ids}}
 .row#top_text_banner
   = render 'top_text_banner'
 .row.bordered#top_banners
   = render 'top_banners'
-
+  - banner = @banners.where(place: 'top_2').first
 .row.around_map
-  .col-md-2
+  .col-md-3
     .panel.panel-default
       %h1.text-fade.text-center Список автомоек
       - banner = @banners.where(place: 'left_1').first
-      = render 'banner', banner: banner, banner_url: banner.file.b_190_160.url, version: :b_190_160
+      = render 'banner_with_tabs', banner: banner
+      =#render 'admin_image_banner', banner: banner, banner_url: banner.file.b_190_160.url, version: :b_190_160
       - banner = @banners.where(place: 'left_2').first
-      = render 'banner', banner: banner, banner_url: banner.file.b_190_280.url, version: :b_190_280
+      =#render 'admin_image_banner', banner: banner, banner_url: banner.file.b_190_280.url, version: :b_190_280
       - banner = @banners.where(place: 'left_3').first
-      = render 'banner', banner: banner, banner_url: banner.file.b_190_160.url, version: :b_190_160
+      = render 'banner_with_tabs', banner: banner
+      =#render 'admin_image_banner', banner: banner, banner_url: banner.file.b_190_160.url, version: :b_190_160
 
-  .col-md-10#fake_map
+  .col-md-9#fake_map
     .panel.panel-default
       .panel-body
         .row.bordered

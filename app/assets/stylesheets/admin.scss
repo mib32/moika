@@ -73,3 +73,17 @@ img,canvas {
   color: green;
   text-align: center;
 }
+
+label.btn.active {
+  background: #d9534f;
+}
+
+.btn-group.banner_type_radio_btns {
+  width: 100%;
+}
+
+.youtube {
+  cursor: pointer;
+  border: solid 1px blue;
+  margin: 5px 0;
+}

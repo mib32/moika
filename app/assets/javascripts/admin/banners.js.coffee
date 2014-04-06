@@ -3,13 +3,19 @@
 
 $ ->
   uploaders = {}
+  window.uploaders = uploaders
   ids = $('#banners').data('ids')
   console.log(ids)
   $.each ids, (index,id) ->
+    guid = $.guid
+    $.guid++
+    $("#pickfiles_#{id}").attr('id',"pickfiles_#{id}_#{guid}" )
     uploader = new plupload.Uploader(
       runtimes: "html5,flash,silverlight,browserplus"
-      browse_button: "pickfiles_" + id
-      container: "image-container_" + id
+      #browse_button: "pickfiles_" + id
+      browse_button: "pickfiles_#{id}_#{guid}"
+      #browse_button: "#admin_image_banner_#{id} #bannermodal_#{id} div div div #pickfiles_#{id}"
+      container: "image-container_#{id}"
       max_file_size: "10000kb"
       url: $('#banner_' + id).data('url')
       authenticity_token: $('#banner').data('token')
@@ -39,6 +45,9 @@ $ ->
       console.log('progress' + file.percent)
 
     uploader.bind "Init", (up, params) ->
+      #console.log(up.settings)
+      $("pickfiles_#{id}").css('z-index','99999')
+      up.trigger('Refresh')
       #console.log up
 
     #$("#filelist").html "<div>Current runtime: " + params.runtime + "</div>"
@@ -68,7 +77,7 @@ $ ->
       console.log(banner.file.file)
       url = banner.file.file[version].url
 
-      $('img#' + banner["id"]).prop('src',url) 
+      $('img#' + banner["id"]).prop('src',url)
     uploaders[id] = uploader
 
 #####################################################
@@ -131,3 +140,12 @@ $ ->
     version =  $('#banner_' + id).data('version')
     url = data.file[version].url
     $('img#' + id).prop('src',url)
+
+  $(document).on 'click', 'label.banner_type_radio_button', (e) ->
+    console.log $($(this).children()[0])
+    e.preventDefault()
+    $($(this).children()[0]).tab('show')
+
+  #$(document).on 'click', "#pickfiles_5", (e) ->
+  #  e.preventDefault()
+  #  console.log "click pickfiles_5"
