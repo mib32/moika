@@ -4,6 +4,7 @@ class @PlacemarksRenderer
 
   @geoObjectCollections = {}
   @geo_objects_ary = []
+  @clasterer = {}
 
   @presets:
     yandex: [
@@ -93,6 +94,7 @@ class @PlacemarksRenderer
 
   @putPlacemarksToMap: =>
     console.log "putPlacemarksToMap begin"
+    greyGeoObjects = []
     cw_list = CarWashLoader.cw_list
     if cw_list?
       for car_wash in cw_list
@@ -109,7 +111,10 @@ class @PlacemarksRenderer
 
         if car_wash.grey
           #@geoObjectCollections['my#grey'].add(placemark)
-          @geoObjectCollections['twirl#greyIcon'].add(placemark)
+          placemark.options.set('preset', 'twirl#greyIcon')
+          placemark.options.set('iconImageSize', [20,20])
+          #@geoObjectCollections['twirl#greyIcon'].add(placemark)
+          greyGeoObjects.push placemark
         else
           if car_wash.signal
             if car_wash.blink
@@ -149,8 +154,24 @@ class @PlacemarksRenderer
               @geoObjectCollections['my#tired'].add(placemark)
             else
               @geoObjectCollections['my#red_not_blink'].add(placemark)
-        for collection_name, collection of @geoObjectCollections
+
+      PlacemarksRenderer.clusterer = new ymaps.Clusterer
+        clusterNumbers: 30
+        preset: 'twirl#invertedGreyClusterIcons'
+        size: [20,20]
+        gridSize: 200
+        #preset: 'twirl#GreyClusterIcons'
+        groupByCoordinates: false
+        clusterDisableClickZoom: false
+      
+      for collection_name, collection of @geoObjectCollections
+        if collection_name == "twirl#greyIcon"
+          console.log "grey"
+          #PlacemarksRenderer.clusterer.add collection
+        else
           MapRenderer.myMap.geoObjects.add(collection)
+    PlacemarksRenderer.clusterer.add greyGeoObjects
+    MapRenderer.myMap.geoObjects.add PlacemarksRenderer.clusterer
     console.log "putPlacemarksToMap end"
 
   @render: =>
@@ -160,7 +181,7 @@ class @PlacemarksRenderer
     dfd = $.Deferred()
 
     numOfPointsOnMap = ymaps.geoQuery(@geo_objects_ary).getLength()
-    numOfCarWashes = CarWashLoader.cw_list.length 
+    numOfCarWashes = CarWashLoader.cw_list.length
     flag = (numOfPointsOnMap == numOfCarWashes)
     until flag
       numOfPointsOnMap = ymaps.geoQuery(@geo_objects_ary).getLength()
