@@ -5,10 +5,36 @@ namespace :setup do
     puts "Add admin banners"
     AdminBanner.where("place like '%top%'").delete_all
 
-    AdminYoutubeBanner.create!(place: 'top_1', youtube_url: '//www.youtube.com/embed/qeIeS8RDD98')
-    AdminImageBanner.create!(place: 'top_2')
-    AdminIvideonBanner.create!(place: 'top_3')
-    AdminImageBanner.create!(place: 'top_4')
+    PLACES = [
+      "top_1",
+      "top_2",
+      "top_3",
+      "top_4"
+    ]
+
+    PLACES.each do |place|
+      AdminYoutubeBanner.create!(place: place, youtube_url: '//www.youtube.com/embed/qeIeS8RDD98')
+      AdminImageBanner.create!(place: place)
+      AdminIvideonBanner.create!(place: place, car_wash_id: CarWash.where(videoned:true).last)
+      AdminSlideshowBanner.create!(place: place)
+    end
+
+    b1 = BannersConfig.where(place: 'top_1').first
+    b1.banner = AdminYoutubeBanner.last
+    b1.mode = AdminYoutubeBanner.to_s
+    b1.save!
+    b2 = BannersConfig.where(place: 'top_2').first
+    b2.banner = AdminImageBanner.last
+    b2.mode = AdminImageBanner.to_s
+    b2.save!
+    b3 = BannersConfig.where(place: 'top_3').first
+    b3.banner = AdminIvideonBanner.last
+    b3.mode = AdminIvideonBanner.to_s
+    b3.save!
+    b4 = BannersConfig.where(place: 'top_4').first
+    b4.banner = AdminImageBanner.last
+    b4.mode = AdminImageBanner.to_s
+    b4.save!
 
 
   end
