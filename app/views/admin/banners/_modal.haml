@@ -3,17 +3,4 @@
     .modal-content
       .modal-header
         .button(type="button" class="close" data-dismiss="modal" aria-hidden="true") &times;
-        %ul.nav.nav-tabs#users
-          %li.active
-            =link_to t('.image_upload'), "#image_upload", data:{toggle: "tab"}
-          %li
-            =link_to t('.youtube_uploud'), "#youtube_upload", data:{toggle: "tab"}
-          %li
-            =link_to t('.ivideon_upload'), "#ivideon_upload", data:{toggle: "tab"}
-          %li
-            =link_to t('.slideshow_upload'), "#slideshow_upload", data:{toggle: "tab"}
-      .tab-content
-        = render 'image_upload_tab', banner: banner, version: version, banner_url: banner_url
-        = render 'youtube_upload_tab'
-        = render 'ivideon_upload_tab'
-        = render 'slideshow_upload_tab'
+      = render 'image_upload_tab', banner: banner, version: version, banner_url: banner_url

@@ -1,18 +1,22 @@
 .col-md-3
   - mode = BannersConfig.top_1.mode
   - banner = @banners.where(place: 'top_1').first
-  = render 'top_banners_block', mode: mode, banner: banner
+  = render 'banner_with_tabs', banner: banner
+
 .col-md-3
   - mode = BannersConfig.top_2.mode
   - banner = @banners.where(place: 'top_2').first
-  = render 'top_banners_block', mode: mode, banner: banner
+  = render 'banner_with_tabs', banner: banner
+  =#render 'top_banners_block', banner: banner
 
 .col-md-3
   - mode = BannersConfig.top_3.mode
   - banner = @banners.where(place: 'top_3').first
-  = render 'top_banners_block', mode: mode, banner: banner
+  = render 'banner_with_tabs', banner: banner
+  =#render 'top_banners_block', banner: banner
 
 .col-md-3
   - mode = BannersConfig.top_4.mode
   - banner = @banners.where(place: 'top_4').first
-  = render 'top_banners_block', mode: mode, banner: banner
+  = render 'banner_with_tabs', banner: banner
+  =#render 'top_banners_block', banner: banner
