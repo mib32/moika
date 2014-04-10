@@ -76,6 +76,7 @@ class @PlacemarksRenderer
       {
         name:'my#grey'
         imageHref: "<%= asset_path('grey_led.png') %>"
+        imageHref: "<%= asset_path('grey_led.png') %>"
         imageSize: [20, 20]
       }
     ]
@@ -155,12 +156,19 @@ class @PlacemarksRenderer
             else
               @geoObjectCollections['my#red_not_blink'].add(placemark)
 
+      clusterIcons = [
+        href: "<%= asset_path('grey_hvost.png') %>"
+        size: [40, 40]
+        offset: [-20, -20]
+      ]
+      myIconContentLayout = ymaps.templateLayoutFactory.createClass(
+        '<div style="color: #444; font-weight: bold;position: relative;top: -7px;left: -5px;">$[properties.geoObjects.length]</div>')
       PlacemarksRenderer.clusterer = new ymaps.Clusterer
+        clusterIcons: clusterIcons
         clusterNumbers: 30
-        preset: 'twirl#invertedGreyClusterIcons'
+        clusterIconContentLayout: myIconContentLayout
         size: [20,20]
         gridSize: 200
-        #preset: 'twirl#GreyClusterIcons'
         groupByCoordinates: false
         clusterDisableClickZoom: false
       
