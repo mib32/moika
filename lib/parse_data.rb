@@ -7,14 +7,17 @@ module ParseData
   HOST = "http://maps.yandex.ru"
   PATH = "/services/search/1.x/search.json"
   YA_ROW_COUNT = 2000
-  YA_SEARCH_STRING = "автомойки"
+  YA_SEARCH_STRING = "автомойки Москвы"
   QUERY_HASH = {
     autoscale: 0,
     lang: "ru-RU",
-    ll: "37.61767099999992,55.7557738481629",
+    sll: "30.31349700000001,59.93853099999102",
+    sspn: "0.745447,0.377012",
+    ll: "37.633095,55.724799",
     origin: "maps-pager",
     results: YA_ROW_COUNT,
     spn: "2.169799804687493,0.6543974020819192",
+    spn: "1.390894,0.723142",
     text: YA_SEARCH_STRING,
     type: "biz,psearch,web"
   }
@@ -27,7 +30,7 @@ module ParseData
   end
 
   def self.save_to_db(json_hash)
-    #CarWash.destroy_all
+    CarWash.where(grey: true).delete_all
     tmp_ary = []
     json_hash['features'].each do |e|
       if e['properties']['CompanyMetaData'].nil?
@@ -57,7 +60,7 @@ module ParseData
         grey: true
       }
       tmp_ary << car_wash_hash
-      if CarWash.near([car_wash_hash[:lat], car_wash_hash[:lon]], 0.5, :units => :km).count == 0
+      if CarWash.near([car_wash_hash[:lat], car_wash_hash[:lon]], 0.1, :units => :km).count == 0
         CarWash.create(car_wash_hash)
       end
     end
