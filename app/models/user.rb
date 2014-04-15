@@ -13,8 +13,6 @@ class User < ActiveRecord::Base
   validates_presence_of :phone, :contact_person, :car_wash_title, :address
 
 
-
-
   before_create do |user|
     if User.admins.empty?
       user.make_admin
