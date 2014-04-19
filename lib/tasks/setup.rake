@@ -3,39 +3,48 @@ namespace :setup do
 
   task add_empty_admin_banners: :environment do
     puts "Add admin banners"
-    AdminBanner.where("place like '%top%'").delete_all
+    puts "_"*10
+    puts "Delete ALL Admin Banners"
+    AdminBanner.delete_all
+    AdminImageBanner.delete_all
+    AdminYoutubeBanner.delete_all
+    AdminIvideonBanner.delete_all
+    AdminSlideshowBanner.delete_all
+    puts "_"*10
+    puts "Delete Banners Config"
+    BannersConfig.delete_all
 
-    PLACES = [
-      "top_1",
-      "top_2",
-      "top_3",
-      "top_4"
-    ]
+    PLACES = {
+      "top_1" => "AdminYoutubeBanner",
+      "top_2" => "AdminImageBanner",
+      "top_3" => "AdminIvideonBanner",
+      "top_4" => "AdminImageBanner",
+      "bottom_1" => "AdminSlideshowBanner",
+      "bottom_2" => "AdminYoutubeBanner",
+      "bottom_3" => "AdminIvideonBanner",
+      "bottom_4" => "AdminYoutubeBanner",
+      "left_1" => "AdminImageBanner",
+      "left_2" => "AdminImageBanner",
+      "left_3" => "AdminImageBanner",
+      "comments_1" => "AdminImageBanner",
+      "comments_2" => "AdminImageBanner",
+      "requests_1" => "AdminImageBanner",
+      "requests_2" => "AdminImageBanner"
+    }
 
-    PLACES.each do |place|
+    puts "_"*10
+    puts "Add new empty banners"
+
+    PLACES.each do |place, banner_type|
       AdminYoutubeBanner.create!(place: place, youtube_url: '//www.youtube.com/embed/qeIeS8RDD98')
       AdminImageBanner.create!(place: place)
       AdminIvideonBanner.create!(place: place, car_wash_id: CarWash.where(videoned:true).last)
       AdminSlideshowBanner.create!(place: place)
+
+      banner_conf = BannersConfig.new(place: place)
+      banner_conf.banner = banner_type.constantize.last
+      banner_conf.save!
     end
-
-    b1 = BannersConfig.where(place: 'top_1').first
-    b1.banner = AdminYoutubeBanner.last
-    b1.mode = AdminYoutubeBanner.to_s
-    b1.save!
-    b2 = BannersConfig.where(place: 'top_2').first
-    b2.banner = AdminImageBanner.last
-    b2.mode = AdminImageBanner.to_s
-    b2.save!
-    b3 = BannersConfig.where(place: 'top_3').first
-    b3.banner = AdminIvideonBanner.last
-    b3.mode = AdminIvideonBanner.to_s
-    b3.save!
-    b4 = BannersConfig.where(place: 'top_4').first
-    b4.banner = AdminImageBanner.last
-    b4.mode = AdminImageBanner.to_s
-    b4.save!
-
 
   end
 
@@ -101,6 +110,9 @@ namespace :setup do
       'bottom_2',
       'bottom_3',
       'bottom_4',
+      'left_1',
+      'left_2',
+      'left_3',
     ]
 
     BannersConfig.create!(place: 'top_1', mode: "youtube")
@@ -111,6 +123,9 @@ namespace :setup do
     BannersConfig.create!(place: 'bottom_2', mode: "youtube")
     BannersConfig.create!(place: 'bottom_3', mode: "ivideon")
     BannersConfig.create!(place: 'bottom_4', mode: "youtube")
+    BannersConfig.create!(place: 'left_1', mode: "image")
+    BannersConfig.create!(place: 'left_2', mode: "image")
+    BannersConfig.create!(place: 'left_3', mode: "image")
   end
 
   task add_first_payment: :environment do

@@ -15,7 +15,7 @@
 //
 //= require jquery.purr
 //= require jquery.ui.all
-//= require twitter/bootstrap
+//= require bootstrap
 
 //= require moxie
 //= require plupload.dev

@@ -44,6 +44,7 @@ Moika::Application.routes.draw do
     resources :users
     resources :messages, only: [:index, :show, :create, :destroy]
     resources :banners
+    resources :banners_config, only: [:update]
     resources :static_pages
     resources :car_washes
     get 'add_car_wash/:id', to: 'users#add_car_wash', as: '/add_car_wash'

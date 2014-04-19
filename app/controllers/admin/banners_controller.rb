@@ -35,6 +35,10 @@ class Admin::BannersController < AdminController
     respond_to do |format|
       logger.debug { "vatagin #{banner_params}" }
       if @banner.update(banner_params)
+        bc = BannersConfig.where(place: @banner.place).first
+        bc.banner = @banner
+        bc.save!
+        
         #format.html { redirect_to [:admin, @banner], notice: 'Banner was successfully updated.' }
         format.json
         format.js {
@@ -75,7 +79,14 @@ class Admin::BannersController < AdminController
       params[:banner] ||= {}
       params[:banner][:file] = params[:file]
       params[:banner][:filename] = params[:name]
-      params.require(:banner).permit(:file, :filename, :text, :place, :type)
+      unless params[:admin_youtube_banner].blank?
+        youtube_url  = params[:admin_youtube_banner][:youtube_url]
+        unless youtube_url.blank? && youtube_url.split('?v=')[1].blank?
+          youtube_url = "//www.youtube.com/embed/" + youtube_url.split('?v=')[1]
+          params[:banner][:youtube_url] = youtube_url
+        end
+      end
+      params.require(:banner).permit(:file, :filename, :text, :place, :type, :youtube_url)
     end
 
 end

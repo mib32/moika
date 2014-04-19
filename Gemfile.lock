@@ -1,12 +1,4 @@
 GIT
-  remote: git://github.com/anjlab/bootstrap-rails.git
-  revision: 3250d5494a8fb2715d3a16e24c7b82f57266ff42
-  specs:
-    anjlab-bootstrap-rails (3.0.3.0)
-      railties (>= 3.0)
-      sass (>= 3.2)
-
-GIT
   remote: https://github.com/bernat/best_in_place
   revision: 366413be357d65cdf47031e928aea969f72e3659
   branch: rails-4
@@ -69,6 +61,8 @@ GEM
       debug_inspector (>= 0.0.1)
     blankslate (2.1.2.4)
     bond (0.5.0)
+    bootstrap-sass (3.1.1.0)
+      sass (~> 3.2)
     boson (1.2.4)
     boson-more (0.2.2)
       boson (>= 1.2.0)
@@ -400,10 +394,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  anjlab-bootstrap-rails!
   best_in_place!
   better_errors
   binding_of_caller
+  bootstrap-sass
   cancan
   capistrano (~> 2.15.0)
   capybara

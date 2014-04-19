@@ -1,2 +1,3 @@
-= image_tag banner_url, class: "img-thumbnail banner", 'data-toggle' => 'tooltip', 'data-id' => banner.id, id: banner.id, title: 'Кликните для редактирования'
-= render 'modal', banner: banner, banner_url: banner_url, version: version
+.admin_image_banner{id: "admin_image_banner_#{place_id}", style: "display:#{show_flag ? 'block':'none'}"}
+  = image_tag banner_url, class: "img-thumbnail banner", 'data-toggle' => 'tooltip', 'data-id' => banner.id, id: banner.id, title: 'Кликните для редактирования'
+  = render 'modal', banner: banner, banner_url: banner_url, version: version
