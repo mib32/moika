@@ -146,6 +146,14 @@ $ ->
     e.preventDefault()
     $($(this).children()[0]).tab('show')
 
-  #$(document).on 'click', "#pickfiles_5", (e) ->
-  #  e.preventDefault()
-  #  console.log "click pickfiles_5"
+  $(document).on 'change', 'select.banner_type_select', (e) ->
+    console.log e
+    console.log $(this).val()
+    console.log $(this).attr('id')
+    place_id = $(this).attr('id')
+    console.log $( "##{$(this).val()}_#{place_id}" )
+    $( "#admin_image_banner_#{place_id}" ).hide()
+    $( "#admin_youtube_banner_#{place_id}" ).hide()
+    $( "#admin_ivideon_banner_#{place_id}" ).hide()
+    $( "#admin_slideshow_banner_#{place_id}" ).hide()
+    $( "##{$(this).val()}_#{place_id}" ).show()

@@ -63,8 +63,10 @@ group :development do
   gem 'irbtools-more', :require => false
 end
 
-gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
-                              :github => 'anjlab/bootstrap-rails'
+#gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
+#                              :github => 'anjlab/bootstrap-rails'
+
+gem 'bootstrap-sass'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
