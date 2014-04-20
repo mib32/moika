@@ -7,21 +7,19 @@
 .marketing-top.omega
   %h5.text-center= @ivideon_title6 || raw("&nbsp;")
 .marketing.marketing-bottom.banner
-  = render 'slideshow'
-//.marketing.marketing-bottom.video
-//  %iframe(width="385" height="217" src="//www.youtube.com/embed/5f46y6u7HG0" frameborder="0" allowfullscreen)
+  - bc = BannersConfig.where(place: 'bottom_1').first
+  - banner = bc.banner
+  = render "banners/#{banner.type.underscore}", banner: banner, banner_url: banner.file.b_385_220.url, version: :b_385_220, place_id: bc.id
 .marketing.marketing-top.video#video_top_4{data: {ivideon_url4: @ivideon_url4}}
-  =#render 'video', ivideon_url: @ivideon_url4
-  =#render 'video', ivideon_url: 'about:blank'
-  %iframe(width="385" height="217" src="//www.youtube.com//embed/QB3G-8_dq4M" frameborder="0" allowfullscreen)
-  =#link_to image_tag('online-video-2.gif'), car_wash_path(@car_wash4)
+  - bc = BannersConfig.where(place: 'bottom_2').first
+  - banner = bc.banner
+  = render "banners/#{banner.type.underscore}", banner: banner, banner_url: banner.file.b_385_220.url, version: :b_385_220, place_id: bc.id
 .marketing.marketing-top#video_top_5{data: {ivideon_url5: @ivideon_url5}}
-  =#render 'video', ivideon_url: @ivideon_url5
-  =#render 'video', ivideon_url: 'about:blank'
-  = link_to image_tag('online-video-4.gif'), car_wash_path(@car_wash5)
+  - bc = BannersConfig.where(place: 'bottom_3').first
+  - banner = bc.banner
+  = render "banners/#{banner.type.underscore}", banner: banner, banner_url: banner.file.b_385_220.url, version: :b_385_220, place_id: bc.id
 .marketing.marketing-bottom.youtube.omega#video_top_6{data: {ivideon_url6: @ivideon_url6}}
-  %iframe(width="385" height="217" src="//www.youtube.com/embed/Vc6p8JOYNmQ" frameborder="0" allowfullscreen)
-  =#link_to image_tag('online-video-2.gif'), car_wash_path(@car_wash6)
-  =#render 'video', ivideon_url: @ivideon_url6
-  =#render 'video', ivideon_url: 'about:blank'
+  - bc = BannersConfig.where(place: 'bottom_4').first
+  - banner = bc.banner
+  = render "banners/#{banner.type.underscore}", banner: banner, banner_url: banner.file.b_385_220.url, version: :b_385_220, place_id: bc.id
 

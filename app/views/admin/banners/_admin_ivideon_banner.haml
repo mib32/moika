@@ -1,2 +1,10 @@
 .admin_ivideon_banner{id: "admin_ivideon_banner_#{place_id}", style: "display:#{show_flag ? 'block':'none'}"}
-  %h4 Ivideon
+  .col-lg-6
+    = image_tag "online-video-4.gif"
+  .col-lg-6
+    = form_for banner, url: admin_banner_path(banner), remote: true,  role: "form", class: "form-horizontal"  do |f|
+      .form-group
+        = f.hidden_field :place
+      = f.submit t('save_button'), class: 'btn btn-warning'
+
+
