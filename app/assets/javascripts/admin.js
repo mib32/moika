@@ -17,6 +17,12 @@
 //= require jquery.ui.all
 //= require bootstrap
 
+//= require jquery.cycle2.min
+//= require jquery.cycle2.carousel.min
+//= require jquery.cycle2.flip
+//= require jquery.cycle2.shuffle
+//= require jquery.cycle2.tile
+
 //= require moxie
 //= require plupload.dev
 
