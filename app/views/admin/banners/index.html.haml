@@ -4,7 +4,7 @@
       %td Place
       %td BannerType
       %td Filename
-      %td &nbsp;
+      //%td &nbsp;
   %tbody
     - BannersConfig.find_each do |bc|
       %tr
@@ -19,7 +19,7 @@
               - banner = banner_type.to_s.camelize.constantize.where(place: bc.place).first
               = render banner_type.to_s, banner: banner, banner_url: banner.file.b_385_220.url, version: :b_385_220, show_flag: show_flag, place_id: bc.id
 
-        %td=#link_to t('save_button'), admin_banners_config_path(), class: "btn btn-danger"
+        //%td=#link_to t('save_button'), admin_banners_config_path(), class: "btn btn-danger"
 
   
 .row#top_text_banner

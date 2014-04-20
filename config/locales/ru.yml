@@ -187,6 +187,9 @@ ru:
         modal_title: "Сообщение для"
         from: "От"
         to: "Кому"
+    banners:
+      admin_youtube_banner:
+        youtube_url: "Ссылка с ютюба"
       
     static_pages:
       index:

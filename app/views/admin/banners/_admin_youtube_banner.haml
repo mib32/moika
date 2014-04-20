@@ -2,10 +2,11 @@
   .col-lg-6
     %iframe(width="260" height="146" src="#{banner.youtube_url}" frameborder="0" allowfullscreen)
   .col-lg-6
-    = form_for banner, url: admin_banner_path(banner), remote: true,  role: "form" do |f|
-      = f.label :youtube_url
-      = f.text_field :youtube_url
-      = f.hidden_field :place
+    = form_for banner, url: admin_banner_path(banner), remote: true,  role: "form", class: "form-horizontal"  do |f|
+      .form-group
+        = f.label :youtube_url, t('.youtube_url')
+        = f.text_field :youtube_url, class: "form-control"
+        = f.hidden_field :place
       = f.submit t('save_button'), class: 'btn btn-warning'
 
 

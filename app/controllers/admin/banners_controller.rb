@@ -81,9 +81,12 @@ class Admin::BannersController < AdminController
       params[:banner][:filename] = params[:name]
       unless params[:admin_youtube_banner].blank?
         youtube_url  = params[:admin_youtube_banner][:youtube_url]
-        unless youtube_url.blank? && youtube_url.split('?v=')[1].blank?
-          youtube_url = "//www.youtube.com/embed/" + youtube_url.split('?v=')[1]
-          params[:banner][:youtube_url] = youtube_url
+        unless youtube_url.blank?
+          youtube_id = youtube_url.split('?v=')[1]
+          unless youtube_id.blank?
+            youtube_url = "//www.youtube.com/embed/" + youtube_id
+            params[:banner][:youtube_url] ||= youtube_url
+          end
         end
       end
       params.require(:banner).permit(:file, :filename, :text, :place, :type, :youtube_url)
