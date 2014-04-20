@@ -14,10 +14,10 @@
           - AdminBanner.admin_banner_types.each do |banner_type, name_for_user|
             - show_flag = (bc.banner.type.underscore == banner_type.to_s)
             - if show_flag
-              = render bc.banner.type.underscore, banner: bc.banner, banner_url: bc.banner.file.b_385_220.url, version: :b_385_220, show_flag: show_flag, place_id: bc.id
+              = render bc.banner.type.underscore, banner: bc.banner, banner_url: bc.banner.file.send(bc.uploader_version.to_sym).url, version: bc.uploader_version.to_sym, show_flag: show_flag, place_id: bc.id
             - else
               - banner = banner_type.to_s.camelize.constantize.where(place: bc.place).first
-              = render banner_type.to_s, banner: banner, banner_url: banner.file.b_385_220.url, version: :b_385_220, show_flag: show_flag, place_id: bc.id
+              = render banner_type.to_s, banner: banner, banner_url: banner.file.send(bc.uploader_version.to_sym).url, version: bc.uploader_version.to_sym, show_flag: show_flag, place_id: bc.id
 
         //%td=#link_to t('save_button'), admin_banners_config_path(), class: "btn btn-danger"
 

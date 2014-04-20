@@ -32,6 +32,24 @@ namespace :setup do
       "requests_2" => "AdminImageBanner"
     }
 
+    SIZES = {
+      "top_1"      => "b_385_220",
+      "top_2"      => "b_385_220",
+      "top_3"      => "b_385_220",
+      "top_4"      => "b_385_220",
+      "bottom_1"   => "b_385_220",
+      "bottom_2"   => "b_385_220",
+      "bottom_3"   => "b_385_220",
+      "bottom_4"   => "b_385_220",
+      "left_1"     => "b_190_160",
+      "left_2"     => "b_190_280",
+      "left_3"     => "b_190_160",
+      "comments_1" => "b_385_220",
+      "comments_2" => "b_385_220",
+      "requests_1" => "b_385_220",
+      "requests_2" => "b_385_220"
+    }
+
     puts "_"*10
     puts "Add new empty banners"
 
@@ -41,8 +59,10 @@ namespace :setup do
       AdminIvideonBanner.create!(place: place, car_wash_id: CarWash.where(videoned:true).last)
       AdminSlideshowBanner.create!(place: place)
 
-      banner_conf = BannersConfig.new(place: place)
-      banner_conf.banner = banner_type.constantize.last
+
+
+      banner_conf = BannersConfig.new(place: place, uploader_version: SIZES[place])
+      banner_conf.banner = banner_type.constantize.where(place: place).first
       banner_conf.save!
     end
 

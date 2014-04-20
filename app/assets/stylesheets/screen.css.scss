@@ -444,16 +444,16 @@ input[type='text']{
       }
     }
     #adv_left {
-      img.low {
+      img {
         margin: 3px 0;
         width: 99%;
         height: 99%;
+        max-height: 270px;
+      }
+      img.low {
         max-height: 200px;
       }
       img.high {
-        margin: 3px 0;
-        width: 99%;
-        height: 99%;
         max-height: 270px;
       }
       .video {

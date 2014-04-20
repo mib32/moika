@@ -9,15 +9,17 @@
     - bc = BannersConfig.where(place: 'left_1').first
     - banner = bc.banner
     .banner.low
-      = render "banners/#{banner.type.underscore}", banner: banner, banner_url: banner.file.b_385_220.url, version: :b_385_220, place_id: bc.id
+      = render "banners/#{banner.type.underscore}", banner: banner, banner_url: banner.file.send(bc.uploader_version.to_sym).url, version: bc.uploader_version.to_sym, place_id: bc.id
+
     - bc = BannersConfig.where(place: 'left_2').first
     - banner = bc.banner
     .banner.high
-      = render "banners/#{banner.type.underscore}", banner: banner, banner_url: banner.file.b_385_220.url, version: :b_385_220, place_id: bc.id
+      = render "banners/#{banner.type.underscore}", banner: banner, banner_url: banner.file.send(bc.uploader_version.to_sym).url, version: bc.uploader_version.to_sym, place_id: bc.id
+
     - bc = BannersConfig.where(place: 'left_3').first
     - banner = bc.banner
     .banner.low
-      = render "banners/#{banner.type.underscore}", banner: banner, banner_url: banner.file.b_385_220.url, version: :b_385_220, place_id: bc.id
+      = render "banners/#{banner.type.underscore}", banner: banner, banner_url: banner.file.send(bc.uploader_version.to_sym).url, version: bc.uploader_version.to_sym, place_id: bc.id
     //= image_tag  Banner.where(place: 'left_3').first.file.b_190_160.url, class: 'banner low'
 
 #map_container
