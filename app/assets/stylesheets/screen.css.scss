@@ -124,11 +124,20 @@ input[type='text']{
 }
 
 #news_page {
+  @include span-columns(12 omega,12);
+}
+#news_page_pre {
+  @include span-columns(2,12);
+}
+#news_page_post {
+  @include span-columns(2 omega,12);
+}
+#news_page_content {
   page-title {
     border: solid 1px #444;
   }
   margin: 10px 0 0 0;
-  @include span-columns(10 omega,12);
+  @include span-columns(8,12);
 }
 #car_washes_user_list {
   margin: 10px 0 0 0;
