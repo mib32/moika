@@ -1,5 +1,6 @@
 Moika::Application.routes.draw do
 
+  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   get "normal_users/show"
   root 'map#show'
   get "map/show"
@@ -47,6 +48,7 @@ Moika::Application.routes.draw do
     resources :banners_config, only: [:update]
     resources :static_pages
     resources :car_washes
+    resources :posts
     get 'add_car_wash/:id', to: 'users#add_car_wash', as: '/add_car_wash'
     delete 'delete_file/:id', to: 'banners#delete_file', as: '/delete_file'
   end

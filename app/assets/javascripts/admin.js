@@ -35,5 +35,9 @@
 // optional, only if you want to use the jquery integration
 //= require jquery.plupload.queue
 
+
+//= require bootsy
+
 //= require admin/banners
 //= require admin/car_washes
+//= require admin/posts
