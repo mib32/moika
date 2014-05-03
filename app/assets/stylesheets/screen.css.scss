@@ -123,6 +123,13 @@ input[type='text']{
   }
 }
 
+#news_page {
+  page-title {
+    border: solid 1px #444;
+  }
+  margin: 10px 0 0 0;
+  @include span-columns(10 omega,12);
+}
 #car_washes_user_list {
   margin: 10px 0 0 0;
   @include span-columns(4,12);
@@ -302,7 +309,7 @@ input[type='text']{
       }
     }
     #weather{
-      @include span-columns(6,48);
+      @include span-columns(4,48);
       p {
         @include margin-padding-0; 
         text-align: center;
@@ -318,6 +325,16 @@ input[type='text']{
       @include span-columns(5,48);
       margin-right: 0;
       width: 8%;
+    }
+    #news{
+      @include span-columns(4,48);
+      margin: 5px 0 0 0;
+      width: 8%;
+      a h4 {
+        font-size: 1.2em;
+        display: inline-block;
+        margin: -5px 0 0 5px;
+      }
     }
     #date_currency {
       @include span-columns(4 omega,12);
@@ -1423,7 +1440,7 @@ img,canvas {
     color: lighten($header-link-color, 20%);
   }
 }
-#login, #registration {
+#login, #registration, #news {
   a {
     color: $header-link-color;
   }

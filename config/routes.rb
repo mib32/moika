@@ -1,5 +1,6 @@
 Moika::Application.routes.draw do
 
+  resources :posts, only: [:index]
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   get "normal_users/show"
   root 'map#show'
