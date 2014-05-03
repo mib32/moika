@@ -1,11 +1,16 @@
 .marketing-top
-  %h5.text-center &nbsp;
+  - banner = BannersConfig.where(place: 'bottom_1').first.banner
+  = render "banners/banner_text", text: banner.try(:text)
 .marketing-top
-  %h5.text-center= @ivideon_title4 || raw("&nbsp;")
+  - banner = BannersConfig.where(place: 'bottom_2').first.banner
+  = render "banners/banner_text", text: banner.try(:text)
 .marketing-top
-  %h5.text-center= @ivideon_title5 || raw("&nbsp;")
+  - banner = BannersConfig.where(place: 'bottom_3').first.banner
+  = render "banners/banner_text", text: banner.try(:text)
 .marketing-top.omega
-  %h5.text-center= @ivideon_title6 || raw("&nbsp;")
+  - banner = BannersConfig.where(place: 'bottom_4').first.banner
+  = render "banners/banner_text", text: banner.try(:text)
+
 .marketing.marketing-bottom.banner
   - bc = BannersConfig.where(place: 'bottom_1').first
   - banner = bc.banner

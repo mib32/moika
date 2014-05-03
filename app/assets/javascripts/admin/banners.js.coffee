@@ -84,7 +84,7 @@ $ ->
 
     $("#uploadfiles_" + id).click (e) ->
       uploader = uploaders[id]
-      uploader.settings.multipart_params.text = $('#bannermodal_' + id + ' input[type="text"').val()
+      uploader.settings.multipart_params.text = $('#banner_' + id + ' input[type="text"].banner_text').val()
       console.log(uploader.settings.multipart_params)
       uploader.start()
       e.preventDefault()

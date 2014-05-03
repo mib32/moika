@@ -188,6 +188,7 @@ ru:
         from: "От"
         to: "Кому"
     banners:
+      text: "Текст над баннером"
       admin_youtube_banner:
         youtube_url: "Ссылка с ютюба"
       

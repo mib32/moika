@@ -4,9 +4,10 @@
 .modal-body
   =form_for [banner], url: admin_banner_path(banner.id) do |f|
     #banner{id: banner.id, data: {url: admin_banner_path(banner), token: form_authenticity_token, version: version }}
+      .col-lg-2
+        = f.label :text, "Текст"
+      = f.text_field :text, class: 'col-lg-10 form_control banner_text'
       %ul{id: "image-container_#{banner.id}", class: 'image-container'}
-        %li
-          = f.text_field :text, class: 'banner_text'
         %li
           %h4 Старый
           = image_tag banner_url, size: '250x150'

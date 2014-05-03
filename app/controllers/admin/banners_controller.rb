@@ -41,15 +41,7 @@ class Admin::BannersController < AdminController
         
         #format.html { redirect_to [:admin, @banner], notice: 'Banner was successfully updated.' }
         format.json
-        format.js {
-          render js: 'var label = $("#top_text_banner form label");
-                      var target2 = $("body");
-                      var prev_html = label.html();
-                      console.log(prev_html);
-                      target2.effect("highlight", {color: "eb9316"}, 2000);
-                      label.html("Обновлено").show("slow").effect("highlight", {color: "#f77"}, 3000);
-                      setTimeout(function() {label.html(prev_html);}, 3000);'
-        }
+        format.js {}
       else
         format.json { render json: @banner.errors, status: :unprocessable_entity }
       end
@@ -81,6 +73,7 @@ class Admin::BannersController < AdminController
       params[:banner] ||= {}
       params[:banner][:file] = params[:file]
       params[:banner][:filename] = params[:name]
+      params[:banner][:text] = params[:text]
       unless params[:admin_youtube_banner].blank?
         youtube_url  = params[:admin_youtube_banner][:youtube_url]
         unless youtube_url.blank?
