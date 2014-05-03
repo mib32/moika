@@ -189,6 +189,7 @@ ru:
         to: "Кому"
     banners:
       text: "Текст над баннером"
+      car_wash: "Выберите автомойку"
       admin_youtube_banner:
         youtube_url: "Ссылка с ютюба"
       

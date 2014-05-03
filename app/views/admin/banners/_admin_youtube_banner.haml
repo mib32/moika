@@ -11,6 +11,9 @@
       .form-group
         = f.label :text, t('admin.banners.text')
         = text_field_tag :text, banner.text, class: "form-control" 
+      .form-group
+        = f.label :car_wash_id, t('admin.banners.car_wash')
+        = collection_select :banner, :car_wash_id, CarWash.non_grey, :id, :title, {selected: banner.car_wash_id}, {class: "form-control" }
       = f.submit t('save_button'), class: 'btn btn-warning'
 
 

@@ -84,7 +84,7 @@ class Admin::BannersController < AdminController
           end
         end
       end
-      params.require(:banner).permit(:file, :filename, :text, :place, :type, :youtube_url)
+      params.require(:banner).permit(:car_wash_id, :file, :filename, :text, :place, :type, :youtube_url)
     end
 
 end
