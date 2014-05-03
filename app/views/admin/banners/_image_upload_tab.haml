@@ -6,6 +6,8 @@
     #banner{id: banner.id, data: {url: admin_banner_path(banner), token: form_authenticity_token, version: version }}
       %ul{id: "image-container_#{banner.id}", class: 'image-container'}
         %li
+          = f.text_field :text, class: 'banner_text'
+        %li
           %h4 Старый
           = image_tag banner_url, size: '250x150'
       %div{id: "filelist_#{banner.id}", class: 'filelist'}

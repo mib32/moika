@@ -43,8 +43,10 @@ class Admin::BannersController < AdminController
         format.json
         format.js {
           render js: 'var label = $("#top_text_banner form label");
+                      var target2 = $("body");
                       var prev_html = label.html();
                       console.log(prev_html);
+                      target2.effect("highlight", {color: "eb9316"}, 2000);
                       label.html("Обновлено").show("slow").effect("highlight", {color: "#f77"}, 3000);
                       setTimeout(function() {label.html(prev_html);}, 3000);'
         }
