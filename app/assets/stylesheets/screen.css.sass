@@ -1314,18 +1314,29 @@ ul.image-container li
     #login
       float: right
       +pre(1, 12)
+    #login
+      +span-columns(2, 48)
+    #registration
+      +span-columns(5, 48)
     #login, #registration
-      +span-columns(1, 12)
       h4
         font-size: .4em
     #social
-      +span-columns(8 omega, 12)
+      +span-columns(28 omega, 48)
     #date_currency
       display: none
     #traffic
       display: none
     #weather
       display: none
+    #news
+      +span-columns(3, 48)
+      margin: 5px 0 0 0
+      width: 8%
+      a h4
+        font-size: .5em
+        display: inline-block
+        margin: -5px 0 0 5px
   .container#main_content #car_washes_left_list ul li a
     font-size: .5em
   #header

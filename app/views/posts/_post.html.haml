@@ -2,4 +2,6 @@
 %hr
 %h3.text-center= post.subtitle
 %hr
+%h4.text-center= post.created_at.localtime.strftime("%H:%M %d.%m.%Y")
+%hr
 %p= raw post.content
