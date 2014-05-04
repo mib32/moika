@@ -171,6 +171,8 @@ ru:
   layouts:
     admin:
       main_header: "Панель управления сайта \"Мойка 77\""
+      header:
+        back_link: Назад на сайт
       vmenu:
         users: "Пользователи"
         adv: "Реклама"
