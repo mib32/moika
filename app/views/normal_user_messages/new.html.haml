@@ -1,4 +1,4 @@
-%h1 Сообщение
+%h1#message_status Сообщение
 %p= @car_wash.title
 
 = form_for [@car_wash, @normal_user_message], remote: true, role: "form", html: {class: "normal_user_message_form"} do |f|
@@ -12,4 +12,4 @@
     = f.label :body, t('messages.body')
     = f.text_area :body, class: 'form-control'
     %br
-    = f.submit t("save_button"), class: 'red-medium-button'
+    = f.submit t("save_button"), class: 'red-medium-button', id: 'normal_user_message_submit'

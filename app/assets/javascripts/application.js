@@ -21,7 +21,6 @@
 //= require date
 //= require requests
 //= require messages
-//= require private_pub
 
 //= require bootstrap
 
