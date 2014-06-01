@@ -92,6 +92,9 @@ ru:
   messages:
     index:
       unread_count_pl: "непрочитанных"
+    receiver: "Получатель"
+    subject: "Тема"
+    body: "Текст сообщения"
   activerecord:
     models:
       car_wash: "Автомойки"
