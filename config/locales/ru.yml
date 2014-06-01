@@ -95,6 +95,7 @@ ru:
     receiver: "Получатель"
     subject: "Тема"
     body: "Текст сообщения"
+    new_message_submit_button: "Отправить"
   activerecord:
     models:
       car_wash: "Автомойки"
