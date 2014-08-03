@@ -13,7 +13,8 @@ set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
 set :scm, "git"
-set :repository, "git@github.com:mib32/#{application}.git"
+#set :repository, "git@github.com:mib32/#{application}.git"
+set :repository, "https://github.com/mib32/moika.git"
 set :branch, "master"
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true

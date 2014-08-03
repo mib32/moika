@@ -76,6 +76,7 @@ gem 'unicorn'
 
 # Use Capistrano for deployment
 gem 'capistrano', '~> 2.15.0', group: :development
+gem 'net-ssh', '~> 2.7.0', group: :development
 #gem 'rvm-capistrano'
 gem 'thin'
 #gem 'puma', group: :development
