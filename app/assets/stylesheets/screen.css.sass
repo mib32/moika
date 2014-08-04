@@ -1184,7 +1184,6 @@ ul.image-container li
   #footer.container #other_footer_content ul#bottom_links li a
     font-size: .6em
 
-
 +at-breakpoint($tablet)
   .container#header_nav_wrapper #header_nav
     #login, #registration
@@ -1440,3 +1439,94 @@ ul.image-container li
   .container #car_wash_menu #login_registration
     #comments_button a, #enroll_button a
       font-size: .5em
+
++at-breakpoint($phone_landscape1)
+  .left-6, .right-6
+    width: 100%
+    margin-top: 10px
+  #header_nav_wrapper
+    display: none
+  #m_menu
+    display: block
+    padding-top: 25px
+    h4.not_signed_in
+      list-style: none
+      background-color: #ebebeb
+      margin: -8px 0px 10px 0px
+      padding: 0 0 0 10px
+      border-left: 8px solid #dc0707
+      float: left
+  .marketing-top
+    width: auto
+    margin-right: 0px
+    float: none
+    padding-bottom: 10px
+    display: block
+    &.omega
+      width: auto
+      margin-right: 0px
+      float: none
+      padding-bottom: 10px
+      display: block
+    h5
+      display: none
+  #header .container #logo_left
+    padding-top: 0em
+    img
+      padding-top: 1em
+
+  .container
+    &#marketing_top, &#marketing_bottom
+      display: none
+    &#main_content
+      #car_washes_left_list
+        display: none
+        width: 100%
+      #map_container
+        width: 100%
+        h1
+          font-size: 24px
+        #map_header
+          display: block
+          width: 100%
+          float: none
+          margin: 0px
+        #map_search input
+          width: 60%
+    &#footer #other_footer_content
+      margin: 0px
+      height: 90px
+      overflow: hidden
+    #car_washes_user_list
+      width: 100%
+      #list_header
+        width: 100%
+        p, h4
+          width: 100%
+      ul
+        width: 100%
+    #car_wash_menu
+      #login_registration
+        width: 100%
+      #signal_video
+        width: 100%
+        #free_close_signal
+          width: 100%
+        .video
+          &#video1, &#video2
+            width: 100%
+
+  .left-container, .center-container, .right-container
+    width: 100%
+
++at-breakpoint($phone_landscape2)
+  #header #logo_left img
+    padding-top: 1em
+
++at-breakpoint($phone_landscape3)
+  #header #logo_left img
+      margin-top: -40px
+    .container#main_content #map_container
+      margin-top: -80px
+      h1
+        font-size: 18px
