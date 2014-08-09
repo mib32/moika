@@ -18,6 +18,14 @@ Moika::Application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
   devise_for :normal_users, controllers: { registrations: "registrations" }
 
+  get "update_password", to: "users#update_password", as: "/update_password"
+  post "update_password", to: "users#update_password"
+  # resource :user do
+  #   collection do
+  #     post 'update_password'
+  #   end
+  # end
+
   resources :car_washes do
     get :update_map, on: :collection
     resources :comments, only: [:index, :create]
@@ -55,4 +63,6 @@ Moika::Application.routes.draw do
     delete 'delete_file/:id', to: 'banners#delete_file', as: '/delete_file'
   end
   match "*path" => redirect("/"), via: :all
+
+
 end
