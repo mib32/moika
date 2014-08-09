@@ -32,5 +32,9 @@
         %i (we need your current password to confirm your changes)
         %br/
         = f.password_field :current_password,:class => 'form-control'
+        %div
+        = f.label :address
+        %br/
+        = f.text_field :address,:class => 'form-control'
       %div= f.submit t("save_button"), :class => 'btn btn-lg btn-primary btn-block'
 = link_to "Back", :back
