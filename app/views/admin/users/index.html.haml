@@ -79,6 +79,24 @@
             = link_to "Добавить в клиeнты", admin_add_car_wash_path(user), class: 'btn btn-primary'
           %td
             = link_to "Удалить", admin_user_path(user), method: :delete, remote: true, data: {confirm: t('are_you_sure')}, class: 'btn btn-danger'
+          / %td
+          /   = link_to "Настройки профиля", admin_user_path(user), class: 'btn btn-primary'
+  .tab-pane.fade#admins
+    %h5 Список администраторов сайта
+    %table.table
+      %tr
+        %th #
+        %th E-mail
+        %th Роль
+        %th
+
+      - @admins.each_with_index do |user,i|
+        %tr
+          %td= i+1
+          %td= user.email
+          %td= user.roles.first.name unless user.roles.first.nil?
+          / %td= link_to t('edit_profile'), admin_user_path(user)
+
   .tab-pane.fade#admins
     %h5 Список администраторов сайта
     %table.table
@@ -86,24 +104,13 @@
         %th email
         %th Роль
 
-      - @admins.each_with_index do |user,i|
-        %tr
-          %td= i+1
-          %td= user.email
-          %td= user.roles.first.name unless user.roles.first.nil?
-
-  .tab-pane.fade#admins
-    %h5 Список администраторов сайта
-    %table.table
-      %tr
-        %th email
-        %th Роль
 
       - @admins.each_with_index do |user,i|
         %tr
           %td= i+1
           %td= user.email
           %td= user.roles.first.name unless user.roles.first.nil?
+          %td= link_to t('edit_profile'), admin_users_path(:id=>user.id)
 
   .tab-pane.fade#normal_users
     %h5 Список пользователей

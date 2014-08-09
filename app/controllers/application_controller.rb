@@ -6,6 +6,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :configure_devise_params, if: :devise_controller?
+  before_filter :configure_permitted_parameters, if: :devise_controller?
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:account_update) { |u| 
+      u.permit(:password, :password_confirmation, :current_password) 
+    }
+  end
 
   def after_sign_in_path_for(resource)
     if resource.is_a?(User)
@@ -31,6 +38,7 @@ class ApplicationController < ActionController::Base
         u.permit(:phone, :contact_person, :car_wash_title, :email, :password, :password_confirmation)
       end
     end
+
 
   private
     def allow_iframe

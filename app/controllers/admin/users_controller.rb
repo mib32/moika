@@ -18,6 +18,7 @@ class Admin::UsersController < AdminController
   end
 
   def show
+    abort("upda")
   end
 
   def edit
@@ -27,6 +28,7 @@ class Admin::UsersController < AdminController
   end
 
   def update
+    abort("upda")
     if @user.update_attributes(user_params) && @user.make_client && @user.revoke_guest
       redirect_to admin_users_path, :notice => "User successfully updated."
     else

@@ -43,13 +43,14 @@ Moika::Application.routes.draw do
   namespace :admin do
     get '', to: 'dashboard#main', as: '/'
     get 'load_data_from_ya', to: 'dashboard#load_data_from_ya', as: '/load_data_from_ya'
-    resources :users
+    resources :users, only: [:index,  :destroy]
     resources :messages, only: [:index, :show, :create, :destroy]
     resources :banners
     resources :banners_config, only: [:update]
     resources :static_pages
     resources :car_washes
     resources :posts
+    devise_for :users, only: [:update, :index, :show]
     get 'add_car_wash/:id', to: 'users#add_car_wash', as: '/add_car_wash'
     delete 'delete_file/:id', to: 'banners#delete_file', as: '/delete_file'
   end

@@ -10,6 +10,7 @@
       %ul.nav.navbar-nav
         //%li= link_to "Назад на сайт", root_path
         %li= link_to(current_user.email, "#") unless current_user.blank?
+        %li= link_to t('edit_profile'), edit_user_registration_path 
 
       - if current_user.blank?
         %form.navbar-form.navbar-right
