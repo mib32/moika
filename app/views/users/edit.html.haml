@@ -1,8 +1,8 @@
-/ = debug @post
-/ = debug @user
-/= debug @res
-/- if params[:user] 
-/  = @user.valid_password?(@post[:current_password])
+ = debug @post
+ = debug @user
+= debug @res
+- if params[:user] 
+  = @user.valid_password?(@post[:current_password])
 
 #login
   = form_for(@user,  :url => { :action => "update_password" }, :html => { :method => :post, :class => 'form-signin'}) do |f|
