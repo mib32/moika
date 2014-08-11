@@ -135,6 +135,7 @@ ru:
         car_wash_title: "Название автомойки"
         password: "Пароль"
         password_confirmation: "Подтверждение пароля"
+        current_password: "Текущий пароль"
         address: "Адрес"
       normal_user:
         email: "E-mail"

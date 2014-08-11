@@ -40,7 +40,7 @@ h4
   font-size: 20px
 
 h5
-  font-size: 16px
+  font-size: 14px
 
 input
   border: none
@@ -182,7 +182,7 @@ input[type='text']
       a:hover
         color: blue
     #registration
-      +span-columns(3, 24)
+      +span-columns(4, 24)
       +pre(1, 48)
       margin-right: 0
       h4,h5
@@ -438,7 +438,7 @@ input[type='text']
         max-width: 99%
   #other_footer_content
     +span-columns(8 omega, 12)
-    margin-top: 20px
+    margin-top: 10px
     ul#bottom_menu, ul#bottom_links
       li
         list-style: none
@@ -453,7 +453,7 @@ input[type='text']
         a
     ul#bottom_links
       float: left
-      margin: 5px 0
+      margin: -5px 0
       li
         margin: 0px 20px 0 0
         a
@@ -1042,7 +1042,7 @@ ul.image-container li
 
 #banner-2, #banner-3, #client_thin_bottom
   h5
-    width: 380px
+    width: auto
 
 #banner-2
   +span-columns(6, 12)
@@ -1390,7 +1390,7 @@ ul.image-container li
       +span-columns(12 omega, 12)
       h1#map_header
         font-size: 1em
-        margin: 30px 0px 10px
+        margin: 5px 0px 10px
   #map
     width: 100%
     height: $map-phone-height
@@ -1457,6 +1457,7 @@ ul.image-container li
     margin-top: 10px
     position: relative
     height: 75px
+    margin-bottom: 25px
   .container#marketing_top, .container#marketing_bottom
     display: none
 
@@ -1465,7 +1466,8 @@ ul.image-container li
     /*text-align: center !important*/
   #main_content.container
     max-width: 100%
-    padding: 0
+    padding-left: 0
+    padding-right: 1em
     margin: 0
   #main_content.container #map_container #map_header
     width: 100%
