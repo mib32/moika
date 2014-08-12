@@ -29,6 +29,6 @@
       .control-group
         = text_field_tag :address, nil, class: "search-query", placeholder: "Введите адрес...", "data-provide" => "typeahead"
         = submit_tag t("search_button"), class: 'submit'
-        %span.help-inline.invisible
-          #map{data:{url: update_map_car_washes_path, updated_at: @updated_at}}
+      %span.help-inline.invisible
+        #map{data:{url: update_map_car_washes_path, updated_at: @updated_at}}
           
