@@ -2,7 +2,10 @@ os = $('table.admin_users tr td.order_num');
 user_id = <%= @user_id %>
 console.log(user_id);
 removed_order_num = $('table.admin_users tr#' + user_id + ' td.order_num').attr('id');
-$('table.admin_users tr#' + user_id).remove();
+$('table.admin_users tr#' + user_id.toString()).remove();
+$('table.admin_admins tr#' + user_id.toString()).remove();
+
+// console.log($('table.admin_users tr#' + user_id));
 console.log(removed_order_num);
 $.each(os, function(i,val) { 
   if(val.id > removed_order_num) {

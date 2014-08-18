@@ -26,7 +26,7 @@ gem 'jquery-ui-rails'
 
 gem 'haml-rails'
 
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+# Turbolinks makes following links in your web application faster. Read more:
 #gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -116,3 +116,6 @@ gem 'oj'
 gem 'yajl-ruby'
 gem 'psych', '~> 2.0.5'
 gem 'bootsy'
+
+# to store session in db
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'

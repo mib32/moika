@@ -13,4 +13,5 @@ class Role < ActiveRecord::Base
   def self.guest
     find_or_create_by(name:"guest")
   end
+
 end

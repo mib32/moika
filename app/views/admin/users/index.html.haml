@@ -83,34 +83,25 @@
           /   = link_to "Настройки профиля", admin_user_path(user), class: 'btn btn-primary'
   .tab-pane.fade#admins
     %h5 Список администраторов сайта
-    %table.table
+    .bc
+      = link_to "Создать временного администратора", admin_users_new_admin_path, class: 'btn btn-primary'
+    %table.table.admin_admins
       %tr
         %th #
         %th E-mail
         %th Роль
+        %th Действителен до
         %th
 
       - @admins.each_with_index do |user,i|
-        %tr
-          %td= i+1
+        %tr{ id: 'adm_'+user.id.to_s}
+          %td.order_num= i+1
           %td= user.email
           %td= user.roles.first.name unless user.roles.first.nil?
+          %td= user.valid_to
+          %td
+            = link_to "Удалить", admin_user_path(user), method: :delete, remote: true, data: {confirm: t('are_you_sure')}, class: 'btn btn-danger'
           / %td= link_to t('edit_profile'), admin_user_path(user)
-
-  .tab-pane.fade#admins
-    %h5 Список администраторов сайта
-    %table.table
-      %tr
-        %th email
-        %th Роль
-
-
-      - @admins.each_with_index do |user,i|
-        %tr
-          %td= i+1
-          %td= user.email
-          %td= user.roles.first.name unless user.roles.first.nil?
-          %td= link_to t('edit_profile'), admin_users_path(:id=>user.id)
 
   .tab-pane.fade#normal_users
     %h5 Список пользователей
