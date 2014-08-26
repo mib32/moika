@@ -35,8 +35,8 @@ namespace :deploy do
       run "/etc/init.d/unicorn_#{application} #{command}"
     end
   end
-  after "deploy","deploy:stop"
-  after "deploy:stop","deploy:start"
+  # after "deploy","deploy:stop"
+  # after "deploy:stop","deploy:start"
   task :setup_config, roles: :app do
     sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
     sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
