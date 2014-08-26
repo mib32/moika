@@ -2,7 +2,7 @@ ruby "2.1.0"
 source 'http://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails'
+gem 'rails', '= 4.0.2'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -35,6 +35,8 @@ gem 'jbuilder'
 gem 'devise'
 gem 'cancan'
 gem 'geocoder'
+
+gem 'sprockets', '~> 2.10.1'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -86,9 +88,9 @@ gem 'thin'
 
 gem 'rails_12factor', group: :production
 
-gem 'susy'
-gem 'compass'
-gem 'compass-rails'
+gem 'susy', '~> 1.0'
+gem 'compass', '~> 0.12'
+gem 'compass-rails', '~> 1.1'
 gem 'sassy-buttons'
 
 gem 'nokogiri'
@@ -107,7 +109,8 @@ gem 'carrierwave-processing'
 gem 'newrelic_rpm'
 #gem 'activemerchant', :require => 'active_merchant'
 #gem 'robokassa'
-gem 'prawn', :git => "https://github.com/prawnpdf/prawn.git"
+# gem 'prawn', :git => "https://github.com/prawnpdf/prawn.git"
+gem 'prawn', '~> 0.15.0'
 
 gem 'faye'
 gem 'private_pub'
@@ -115,7 +118,7 @@ gem 'private_pub'
 gem 'oj'
 gem 'yajl-ruby'
 gem 'psych', '~> 2.0.5'
-gem 'bootsy'
+gem 'bootsy', '= 2.0.6'
 
 # to store session in db
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
