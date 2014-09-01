@@ -22,6 +22,6 @@ module Moika
     config.autoload_paths += Dir["#{config.root}/lib", "#{config.root}/lib/**/"]
     config.assets.precompile += %w( admin.css main_page.js admin.js pr_pub.js)
     config.compass.require "susy"
-    #MultiJson.use :yajl
+    MultiJson.use :yajl
   end
 end
