@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   scope :clients, -> { includes(:roles).where("roles.name='client'").references(:roles) }
   scope :guests, -> { includes(:roles).where("roles.name='guest'").references(:roles) }
 
-
+  self.inheritance_column = 'subclass_of'
   has_and_belongs_to_many :roles, join_table: "roles_users"
   belongs_to :car_wash
   has_many :sent_messages, class_name: "Message", foreign_key: "sender_id"
